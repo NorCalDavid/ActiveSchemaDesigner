@@ -8,6 +8,9 @@ gem 'sass-rails'
 gem 'font-awesome-rails'
 gem 'awesome_print'
 
+#added by brenda
+gem 'activesupport'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'

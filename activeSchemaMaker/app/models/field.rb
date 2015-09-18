@@ -1,3 +1,3 @@
 class Field < ActiveRecord::Base
-  belongs_to :table_id
+  belongs_to :table
 end

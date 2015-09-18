@@ -1,3 +1,3 @@
 class Table < ActiveRecord::Base
-  belongs_to :project_id
+  belongs_to :project
 end

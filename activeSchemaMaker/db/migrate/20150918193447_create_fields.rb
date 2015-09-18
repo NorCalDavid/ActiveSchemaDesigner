@@ -6,7 +6,7 @@ class CreateFields < ActiveRecord::Migration
       t.string :default_value
       t.boolean :auto_increment
       t.boolean :allow_null
-      t.references :table_id, index: true, foreign_key: true
+      t.references :table, index: true, foreign_key: true
 
       t.timestamps null: false
     end

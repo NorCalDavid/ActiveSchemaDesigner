@@ -8,6 +8,12 @@
 </head>
 <body>
 
+
+<% if current_user %>
+  Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
+<% else %>
+  <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+<% end %>
 <div class="canvass debug">
 <div class="nav-bar align-r shdw debug">
   <nav><%= link_to "New Schema", "#" %><%= link_to "Log Out", "#" %><%= link_to "Save", "#" %></nav>
@@ -15,6 +21,8 @@
 <div class="menue align-r shdw debug">
 stuff in here
 </div>
+
+
 
 
 <%= yield %>

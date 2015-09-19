@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @field.name %>
+</p>
+
+<p>
+  <strong>Data type:</strong>
+  <%= @field.data_type %>
+</p>
+
+<p>
+  <strong>Default value:</strong>
+  <%= @field.default_value %>
+</p>
+
+<p>
+  <strong>Auto increment:</strong>
+  <%= @field.auto_increment %>
+</p>
+
+<p>
+  <strong>Allow null:</strong>
+  <%= @field.allow_null %>
+</p>
+
+<%= link_to 'Edit', edit_field_path(@field) %> |
+<%= link_to 'Back', fields_path %>

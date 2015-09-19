@@ -31,17 +31,17 @@ ActiveRecord::Schema.define(version: 20150918204257) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "comments"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "tables", force: :cascade do |t|
     t.string   "name"
-    t.string   "comments"
+    t.text     "comments"
     t.integer  "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

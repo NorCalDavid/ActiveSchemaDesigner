@@ -1,36 +1,37 @@
-<%= form_for @field do |f| %>
- 
+<%= form_for(@field) do |f| %>
   <% if @field.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= pluralize(@field.errors.count, "error") %> prohibited
-        this field from being saved:
-      </h2>
+      <h2><%= pluralize(@field.errors.count, "error") %> prohibited this field from being saved:</h2>
+
       <ul>
-        <% @field.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+      <% @field.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
- 
-  <p>
+
+  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
-  </p>
- 
-  <p>
+  </div>
+  <div class="field">
     <%= f.label :data_type %><br>
-    <%= f.text_area :data_type %>
-  </p>
-
-  <p>
+    <%= f.text_field :data_type %>
+  </div>
+  <div class="field">
     <%= f.label :default_value %><br>
-    <%= f.text_area :default_value %>
-  </p>
- 
-  <p>
+    <%= f.text_field :default_value %>
+  </div>
+  <div class="field">
+    <%= f.label :auto_increment %><br>
+    <%= f.check_box :auto_increment %>
+  </div>
+  <div class="field">
+    <%= f.label :allow_null %><br>
+    <%= f.check_box :allow_null %>
+  </div>
+  <div class="actions">
     <%= f.submit %>
-  </p>
- 
+  </div>
 <% end %>

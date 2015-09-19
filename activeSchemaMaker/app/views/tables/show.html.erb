@@ -1,0 +1,21 @@
+<div data-tag ="t<%= @table.id %>" >
+
+  <div class="title-frame">
+    <span class = "table-title"><%= @table.name %> </span>
+    <button id="tb<%= @table.id %>" class= "table-edit-button">Edit</button>
+  <div>
+
+  <div class="fields-list">
+    <% @fields.each do |field| %>
+      <div data-tag="f<%= field.id %>" class="field-frame <%=field.title%>' '<%=field.type%>"> 
+        <%= field.name %>
+      </div> 
+    <%end%>
+  </div>
+
+  <div class="foreignk-frame">
+<!--      NOTE  separate treatement of foreign key is not within our original data structure!
+ -->      <div data-tag="<%=@fk.id %>">key placeholder</div><button id="fkadd<%=@table.id%>">add fk</button>
+  </div>
+
+</div>

@@ -1,4 +1,5 @@
 class TablesController < ApplicationController
+
   before_action :set_table, only: [:show, :edit, :update, :destroy]
 
   # GET /tables
@@ -55,4 +56,5 @@ class TablesController < ApplicationController
     def table_params
       params.require(:table).permit(:name, :comments)
     end
+
 end

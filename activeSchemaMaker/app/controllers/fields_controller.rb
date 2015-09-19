@@ -1,4 +1,5 @@
 class FieldsController < ApplicationController
+
   before_action :set_field, only: [:show, :edit, :update, :destroy]
 
   # GET /fields
@@ -55,4 +56,5 @@ class FieldsController < ApplicationController
     def field_params
       params.require(:field).permit(:name, :data_type, :default_value, :auto_increment, :allow_null)
     end
+
 end

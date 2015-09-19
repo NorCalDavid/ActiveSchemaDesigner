@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -55,4 +56,5 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:name, :comments)
     end
+
 end

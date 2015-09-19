@@ -1,0 +1,27 @@
+.debug {
+  border: 1px solid red;
+}
+
+.canvass {
+  height: 41em;
+  width: 98%;
+  margin-left: 1%;
+  background-image: url('/assets/paisley.png');
+}
+
+.align-r {
+  width: 16%;
+  margin-left: 83%;
+  margin-top: .3em;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #778892;
+  padding: .1em;
+}
+.menue {
+  height: 60%;
+}
+
+.shdw {
+  box-shadow: 3px 3px 3px 0px #BBB;
+}

@@ -2,7 +2,7 @@
 
   <div class="title-frame">
     <span class = "table-title"><%= @table.name %> </span>
-    <button id="tb<%= @table.id %>" class= "table-edit-button">Edit</button>
+    <button id="tb<%= @table.id %>" class="edit" title="edit">Edit</button>
   <div>
 
   <div class="fields-list">
@@ -14,8 +14,9 @@
   </div>
 
   <div class="foreignk-frame">
-<!--      NOTE  separate treatement of foreign key is not within our original data structure!
- -->      <div data-tag="<%=@fk.id %>">key placeholder</div><button id="fkadd<%=@table.id%>">add fk</button>
+<!--      NOTE  separate treatment of foreign key is not within our original data structure!
+          If foreign keys were treated separately a loop structure would be needed here
+ -->      <!-- <div data-tag="<%=@fk.id %>">key placeholder</div> --><button id="fkadd<%=@table.id%>">add fk</button>
   </div>
 
 </div>

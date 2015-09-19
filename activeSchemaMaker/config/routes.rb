@@ -2,18 +2,16 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :projects do
-    resources :tables do
-      resources :fields
-    end
-  end
+  resources :projects
+  resources :tables
+  resources :fields
 
   get 'sessions/create' => 'sessions#create'
   get 'sessions/destroy' => 'sessions#destroy'
   get '/login' =>  'sessions#new'
   post '/login' =>  'sessions#create'
   get '/logout' => 'sessions#destroy'
-
+  get '/signup' => 'users#new'
   root 'welcome#index'
 
   end

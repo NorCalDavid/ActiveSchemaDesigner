@@ -1,13 +1,13 @@
-<div data-tag ="t<%= @table.id %>" >
+<div data-tableid ="t<%= @table.id %>" >
 
   <div class="title-frame">
     <span class = "table-title"><%= @table.name %> </span>
     <button id="tb<%= @table.id %>" class="edit" title="edit">Edit</button>
   <div>
 
-  <div class="fields-list">
+  <div class="fields-list-frame">
     <% @fields.each do |field| %>
-      <div data-tag="f<%= field.id %>" class="field-frame <%=field.title%>' '<%=field.type%>"> 
+      <div data-fieldid="f<%= field.id %>" class="field-cell <%=field.title%>' '<%=field.type%>"> 
         <%= field.name %>
       </div> 
     <%end%>
@@ -16,7 +16,7 @@
   <div class="foreignk-frame">
 <!--      NOTE  separate treatment of foreign key is not within our original data structure!
           If foreign keys were treated separately a loop structure would be needed here
- -->      <!-- <div data-tag="<%=@fk.id %>">key placeholder</div> --><button id="fkadd<%=@table.id%>">add fk</button>
+ -->      <!-- <div data-fk="<%=@fk.id %>">key placeholder</div> --><button id="fkadd<%=@table.id%>">add fk</button>
   </div>
 
 </div>

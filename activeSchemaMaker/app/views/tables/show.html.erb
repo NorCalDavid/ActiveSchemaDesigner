@@ -1,4 +1,4 @@
-<div data-tableid ="t<%= @table.id %>" >
+<div id ="t<%= @table.id %>" class="table-frame">
 
   <div class="title-frame">
     <span class = "table-title"><%= @table.name %> </span>
@@ -7,9 +7,9 @@
 
   <div class="fields-list-frame">
     <% @fields.each do |field| %>
-      <div data-fieldid="f<%= field.id %>" class="field-cell <%=field.title%>' '<%=field.type%>"> 
+      <div data-fieldid="f<%= field.id %>" class="field-cell <%=field.title%>' '<%=field.type%>">
         <%= field.name %>
-      </div> 
+      </div>
     <%end%>
   </div>
 

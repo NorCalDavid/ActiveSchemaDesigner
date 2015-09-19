@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   resources :users
 
   resources :projects
-  resources :tables
-  resources :fields
+
+  resources :tables do
+    resources :fields
+  end
 
   get 'sessions/create' => 'sessions#create'
   get 'sessions/destroy' => 'sessions#destroy'
@@ -14,4 +16,4 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   root 'welcome#index'
 
-  end
+end

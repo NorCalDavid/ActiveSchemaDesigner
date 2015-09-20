@@ -1,6 +1,7 @@
 class TablesController < ApplicationController
   before_action :set_table, only: [:show, :edit, :update, :destroy]
   respond_to :html, :js
+  layout proc{|c| c.request.xhr? ? false : "application" }
 
   # GET /tables
   def index

@@ -15,6 +15,9 @@ class ProjectsController < ApplicationController
     else
       @tables = ["No Tables"]
     end
+
+    @table = @project.tables.new
+
   end
 
   # GET /projects/new

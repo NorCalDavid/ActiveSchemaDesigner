@@ -26,7 +26,7 @@ $(document).on('click', 'form .btn-add-comments', function(e) {
     var promise = $.post("/tables", $form.serialize());
 
     promise.done(function(response){
-      $("body").append(response);
+      $(".canvas").append(response);
     });
   });
 

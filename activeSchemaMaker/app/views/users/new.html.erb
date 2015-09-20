@@ -1,44 +1,34 @@
-<div class="large-10 large-centered columns">
-  <div class="login-box">
-    <div class="header">
-      <h3 class="subheader"><i class="fa fa-user fa-2x"></i> Register</h3>
-    </div>
-    <div class="row">
-      <div class="large-12 columns">
-        <%= form_for :user, url: '/users' do |f| %>
-           <div class="row">
-             <div class="large-12 columns">
-                <span><i class="fa fa-arrow-circle-right fa-1x"></i> First Name</span>
-                <span><%= f.text_field :first_name %></span>
-             </div>
-           </div>
-           <div class="row">
-             <div class="large-12 columns">
-                <span><i class="fa fa-arrow-circle-right fa-1x"></i> Last Name</span>
-                <span><%= f.text_field :last_name %></span>
-             </div>
-           </div>
-           <div class="row">
-             <div class="large-12 columns">
-                <span><i class="fa fa-arrow-circle-right fa-1x"></i> Email</span>
-                <span><%= f.text_field :email %></span>
-             </div>
-           </div>
-          <div class="row">
-             <div class="large-12 columns">
-                <span><i class="fa fa-arrow-circle-right fa-1x"></i> Password</span>
-                <%= password_field_tag :password %>
-                <span><i class="fa fa-arrow-circle-right fa-1x"></i> Confirm Password</span>
-                <%= password_field_tag :password_confirmation %>
-             </div>
-          </div>
-          <div class="row">
-            <div class="large-12 large-centered columns">
-              <%= submit_tag "Login", class: "button expand" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
+
+<div class="center-v white pad-vert">
+
+<%= form_for :user, url: '/users', html: {class: "pure-form pure-form-aligned center-h"} do |f| %>
+<div class="pure-control-group">
+  <%=f.label :first_name%>
+  <%= f.text_field :first_name %>
+</div>
+
+<div class="pure-control-group">
+  <%=f.label :last_name%>
+  <%= f.text_field :last_name %>
+</div>
+
+<div class="pure-control-group">
+  <%=f.label :email%>
+  <%= f.text_field :email %>
+</div>
+
+<div class="pure-control-group">
+  <%=f.label :password%>
+  <%= password_field_tag :password %>
+</div>
+
+<div class="pure-control-group">
+  <%=f.label :password_confirmation, "Confirm Password" %>
+  <%= password_field_tag :password_confirmation %>
+</div>
+
+<div class="pure-controls">
+<%= f.submit "Sign Up", class: "pure-button pure-button-primary" %>
+</div>
+<% end %>
 </div>

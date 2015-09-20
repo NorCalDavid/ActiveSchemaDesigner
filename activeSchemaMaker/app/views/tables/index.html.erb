@@ -1,29 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Tables</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Comments</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tables.each do |table| %>
-      <tr>
-        <td><%= table.name %></td>
-        <td><%= table.comments %></td>
-        <td><%= link_to 'Show', table %></td>
-        <td><%= link_to 'Edit', edit_table_path(table) %></td>
-        <td><%= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Table', new_table_path %>
+<div class="canvass debug">
+<div class="nav-bar align-r shdw debug">
+  <nav><%= link_to "New Schema", "#" %><%= link_to "Log Out", "#" %><%= link_to "Save", "#" %></nav>
+</div>
+<div class="menue align-r shdw debug">
+stuff in here
+</div>
+</div>

@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'font-awesome-rails'
 gem 'awesome_print'
+gem 'foundation-rails'
 
 #added by brenda
 gem 'activesupport'

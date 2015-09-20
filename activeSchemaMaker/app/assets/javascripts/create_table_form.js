@@ -12,10 +12,10 @@ $(document).on('click', 'form .btn-add-comments', function(e) {
   $('form .comments-field').toggle()
 });
 
-$(document).on('click', 'form .btn-validations', function(e) {
+$('#main-form').on('click', 'a.btn-validations', function(e) {
   e.preventDefault();
-  $('form .validations').toggle()
+  $(e.target).closest('table').siblings('div').toggle();
+  //$('form .validations').toggle()
 });
-
 
 });

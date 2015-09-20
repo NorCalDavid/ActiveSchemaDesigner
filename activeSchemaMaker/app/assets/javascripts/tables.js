@@ -15,6 +15,7 @@ $(document).ready(function(){
 
     promise.done(function(response){
       $(".canvas").append(response);
+      $form[0].reset();
     });
   });
 

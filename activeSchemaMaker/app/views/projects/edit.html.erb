@@ -1,13 +1,14 @@
 <h2>Edit <%= @project %> project</h2>
- 
+
 <%= render 'form' %>
- 
+
 <%= link_to 'Back', projects_path %>
 
 
 <div class="">
 <h3>Existing Tables</h3>
 <ol>
+<% unless @tables.nil? %>
 <% @tables.each do |table| %>
   <li>
     <%= table_tag table.huetable.url(:thumb) %>
@@ -15,6 +16,7 @@
     <a href="/tables/<%= table.id %>/edit" title="edit <%= table.name %>">edit </a>
     <%= link_to 'Delete table', table, :confirm => 'Are you sure you want to remove this table? This cannot be undone.', :method => :delete %>
   </li>
+<% end %>
 <% end %>
 </ol>
 

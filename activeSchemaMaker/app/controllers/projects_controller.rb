@@ -9,6 +9,12 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
+    set_current_project(params[:id])
+    if Project.find(params[:id]).tables.count > 0
+      @tables = Project.find(params[:id]).tables
+    else
+      @tables = ["No Tables"]
+    end
   end
 
   # GET /projects/new
@@ -50,6 +56,10 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+    end
+
+    def set_current_project(project_id)
+      session[:current_project_id] = project_id
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -1,4 +1,4 @@
-<div id ="t<%= @table.id %>" class="tbl-frame debug">
+<div id ="t<%= @table.id %>" class="tbl-frame draggable ui-widget-content debug">
 
   <div class="title">
     <span><%= @table.name %></span>
@@ -8,9 +8,10 @@
 <% unless @table.fields == [] %>
   <table class="fields">
     <% @table.fields.each do |field| %>
-      <tr class="field-cell">
+      <tr class="field-cell <%=field.data_type%>">
         <td id="field.id"><%= field.name %></td>
       </tr>
     <%end%>
   </table>
 <% end %>
+</div>

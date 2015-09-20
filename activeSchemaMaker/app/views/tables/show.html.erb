@@ -1,22 +1,20 @@
+<<<<<<< HEAD
 <div data-tableid ="t<%= @table.id %>" class="table-frame" >
+=======
+<div id ="t<%= @table.id %>" class="tbl-frame">
+>>>>>>> f221754f891cbe9437bb338561b5b757a1e28103
 
-  <div class="title-frame">
-    <span class = "table-title"><%= @table.name %> </span>
-    <button id="tb<%= @table.id %>" class="edit" title="edit">Edit</button>
+  <div class="title">
+    <span><%= @table.name %></span>
+    <button id="tb<%= @table.id %>" class="edit" title="tbl-edit">Edit</button>
   <div>
 
-  <div class="fields-list-frame">
-    <% @fields.each do |field| %>
-      <div data-fieldid="f<%= field.id %>" class="field-cell <%=field.title%>' '<%=field.type%>"> 
-        <%= field.name %>
-      </div> 
+<% unless @table.fields == [] %>
+  <table class="fields">
+    <% @table.fields.each do |field| %>
+      <tr class="field-cell">
+        <td id="field.id"><%= field.name %></td>
+      </tr>
     <%end%>
-  </div>
-
-  <div class="foreignk-frame">
-<!--      NOTE  separate treatment of foreign key is not within our original data structure!
-          If foreign keys were treated separately a loop structure would be needed here
- -->      <!-- <div data-fk="<%=@fk.id %>">key placeholder</div> --><button id="fkadd<%=@table.id%>">add fk</button>
-  </div>
-
-</div>
+  </table>
+<% end %>

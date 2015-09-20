@@ -1,0 +1,16 @@
+
+  <div class="fields-list-frame">
+    <% @fields.each do |field| %>
+      <div data-fieldid="f<%= field.id %>" class="field-cell <%=field.title%>' '<%=field.type%>">
+        <%= field.name %>
+      </div>
+    <%end%>
+  </div>
+
+  <div class="foreignk-frame">
+     NOTE  separate treatment of foreign key is not within our original data structure!
+          If foreign keys were treated separately a loop structure would be needed here
+      <!-- <div data-fk="<%=@fk.id %>">key placeholder</div> --><button id="fkadd<%=@table.id%>">add fk</button>
+  </div>
+
+</div>

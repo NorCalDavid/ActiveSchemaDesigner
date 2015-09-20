@@ -1,5 +1,6 @@
 class TablesController < ApplicationController
   before_action :set_table, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
   # GET /tables
   def index
@@ -22,13 +23,18 @@ class TablesController < ApplicationController
   # POST /tables
   def create
     @table = Table.new(table_params)
-
+    p @table if request.xhr?
+    respond_to do |format|
     if @table.save
-      redirect_to @table, notice: 'Table was successfully created.'
+      format.html {redirect_to @table, notice: 'Table was successfully created.'}
+      format.js {}
+      format.json {respond_with json: @table, status: :created, location: @table}
     else
-      render :new
+      format.html {render :new}
+      format.json {render json: @table.errors, status: :unprocessable_entity}
     end
   end
+end
 
   # PATCH/PUT /tables/1
   def update
@@ -53,6 +59,6 @@ class TablesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def table_params
-      params.require(:table).permit(:name, :comments)
+      params.require(:table).permit(:name, :comments, fields_attributes: [:name, :data_type, :default_value, :auto_increment, :allow_null])
     end
 end

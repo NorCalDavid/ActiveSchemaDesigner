@@ -1,26 +1,26 @@
 <fieldset class="centered margin-all">
-  <div class="pad-bottom">
-    <%= f.label :name, class: "form-label" %>
-    <%= f.text_field :name, class: "full-width-field" %>
+
+  <div class="full-width-field to-left">
+    <b>New Field</b>
   </div>
 
-  <div, class: "full-width-field">
-    <%= f.label :data_type, class: "form-label" %>
-    <%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %>
+  <div class="form-control to-right">
+    <small class="form-label">Name: <%= f.text_field :name %></small>
   </div>
 
-  <div>
-    <%= f.label :default_value, class: "form-label" %>
-    <%= f.text_field :default_value, class: "full-width-field" %>
+  <div class="form-control to-right">
+    <small class="form-label">Data Type: <%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></small>
   </div>
 
-  <div>
-    <%= f.label :auto_increment, class: "form-label" %>
-    <%= f.check_box :auto_increment %>
+  <div class="form-control to-right">
+    <small class="form-label">Default Value: <%= f.text_field :default_value %></small>
   </div>
 
   <div>
-    <%= f.label :allow_null, class: "form-label" %>
-    <%= f.check_box :allow_null %>
+    <small class="form-label">Auto Increment: <%= f.check_box :auto_increment %></small>
+  </div>
+
+  <div>
+    <small class="form-label">Allow Null Value: <%= f.check_box :allow_null %></small>
   </div>
 </fieldset

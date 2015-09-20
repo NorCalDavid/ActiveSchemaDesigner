@@ -2,7 +2,7 @@
   border: 1px solid red;
 }
 
-.canvass {
+.canvas {
   height: 50em;
   width: 98%;
   margin-left: 1%;
@@ -11,15 +11,16 @@
 
 .align-r {
   width: 20%;
-  margin-right: 83%;
+  float: left;
   margin-top: .3em;
   border-radius: 3px;
   text-align: center;
   background-color: #778892;
   padding: .1em;
 }
-.menue {
+.menu {
   height: 90%;
+  clear: both;
 }
 
 .shdw {

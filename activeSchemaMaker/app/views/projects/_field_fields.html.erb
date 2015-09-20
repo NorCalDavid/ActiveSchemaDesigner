@@ -1,0 +1,38 @@
+<fieldset class="centered margin-all">
+
+  <div class="full-width-field to-left">
+    <b>New Field</b>
+  </div>
+
+  <div class="form-control to-right">
+    <small class="form-label">Name: <%= f.text_field :name %></small>
+  </div>
+
+  <div class="form-control to-right">
+    <small class="form-label">Data Type: <%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></small>
+  </div>
+
+  <div class="form-control to-right">
+    <small class="form-label">Default Value: <%= f.text_field :default_value %></small>
+  </div>
+
+  <div>
+    <small class="form-label">Auto Increment: <%= f.check_box :auto_increment %></small>
+  </div>
+
+  <div>
+    <small class="form-label">Allow Null Value: <%= f.check_box :allow_null %></small>
+  </div>
+
+  <div class="validations hidden">
+
+
+
+
+  </div>
+
+  <div class="actions">
+    <%= button_tag(type: 'button', id: 'btn-validations') do %>Add Validations<% end %>
+  </div>
+
+</fieldset

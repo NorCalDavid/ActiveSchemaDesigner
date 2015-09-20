@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div data-tableid ="t<%= @table.id %>" class="table-frame" >
 =======
 <div id ="t<%= @table.id %>" class="tbl-frame">
 >>>>>>> f221754f891cbe9437bb338561b5b757a1e28103
+=======
+<div id ="t<%= @table.id %>" class="tbl-frame draggable ui-widget-content debug">
+>>>>>>> fb1db703ac6644a38b65067c9779b9fc9b995a9c
 
   <div class="title">
     <span><%= @table.name %></span>
@@ -12,9 +16,10 @@
 <% unless @table.fields == [] %>
   <table class="fields">
     <% @table.fields.each do |field| %>
-      <tr class="field-cell">
+      <tr class="field-cell <%=field.data_type%>">
         <td id="field.id"><%= field.name %></td>
       </tr>
     <%end%>
   </table>
 <% end %>
+</div>

@@ -1,3 +1,91 @@
 // Place all the styles related to the tables controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.small-italic {
+  font-size: 85%;
+  font-style: italic;
+  padding: 0 0 0 0;
+  margin-top: 0 0 0 0;
+}
+
+.side-bar {
+  width: 275px;
+}
+
+.bordered {
+  border: 1px solid black;
+}
+
+.no-border {
+  border: none;
+}
+
+.centered {
+  text-align: center;
+}
+
+.to-left {
+  text-align: left;
+}
+
+.to-right {
+  text-align: right;
+}
+
+.pad-right {
+  padding-right: 10px;
+}
+
+.pad-left {
+  padding-left: 10px;
+}
+
+.no-pad {
+  padding: 0 0 0 0;
+}
+
+.no-pad-top {
+  padding-top: 0;
+}
+
+.no-pad-bottom {
+  padding-bottom: 0;
+}
+
+.margin-right {
+  margin-right: 10px;
+}
+
+.margin-left {
+  margin-left: 10px;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+.margin-all {
+  margin: 10px 10px 10px 10px;
+}
+
+.no-margin {
+  margin: 0 0 0 0;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.line-break {
+  border-bottom: 1px solid black;
+  width: 98%;
+  padding: 3px 0 3px 0;
+}

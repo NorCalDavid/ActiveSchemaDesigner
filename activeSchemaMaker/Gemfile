@@ -8,6 +8,7 @@ gem 'sass-rails'
 gem 'font-awesome-rails'
 gem 'awesome_print'
 gem 'foundation-rails'
+gem 'responders'
 
 #added by brenda
 gem 'activesupport'

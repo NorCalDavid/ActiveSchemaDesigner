@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div id ="t<%= @table.id %>" class="tbl-frame">
 
-<p>
-  <strong>Name:</strong>
-  <%= @table.name %>
-</p>
+  <div class="title">
+    <span><%= @table.name %></span>
+    <button id="tb<%= @table.id %>" class="edit" title="tbl-edit">Edit</button>
+  <div>
 
-<p>
-  <strong>Comments:</strong>
-  <%= @table.comments %>
-</p>
-
-<%= link_to 'Edit', edit_table_path(@table) %> |
-<%= link_to 'Back', tables_path %>
+<% unless @table.fields == [] %>
+  <table class="fields">
+    <% @fields.each do |field| %>
+      <tr class="field-cell">
+        <td id="field.id"><%= field.name %></td>
+      </tr>
+    <%end%>
+  </table>
+<% end %>

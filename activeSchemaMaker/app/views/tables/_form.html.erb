@@ -1,18 +1,18 @@
 <div class="side-bar centered bordered">
   <%= form_for(@table, remote: true, html: {id: "main-form", class: 'form-container'}) do |f| %>
-    <% if @table.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h2>
+  <% if @table.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h2>
 
-        <ul>
-        <% @table.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <ul>
+      <% @table.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
-    <div class="subheader">
+  <div class="subheader">
 
     <div class="field form-container centered no-pad-bottom no-margin-bottom">
       <%= f.label :name %><br/>
@@ -36,16 +36,26 @@
       <% else %>
         <p class="small-italic">No fields to display</p>
       <% end %>
-
       <div class='no-border to-right pad-right'><%= link_to_add_fields "Add Field", f, :fields %></div>
-
       <div class="line-break margin-bottom"></div>
+    </div>
 
+    <div class="relationships hidden">
+      <%= f.submit %>
+
+
+    </div>
+
+    <div class="actions">
+      <%= button_tag(type: 'button', id: 'btn-validations') do %>Add Validations<% end %>
+      <%= button_tag(type: 'button', id: 'btn-relationships') do %>Add Relationships<% end %>
     </div>
 
     <div class="actions">
       <%= f.submit %>
     </div>
+
+  </div>
   <% end %>
 </div>
 

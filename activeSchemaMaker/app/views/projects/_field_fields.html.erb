@@ -12,19 +12,30 @@
     <small class="form-label">Data Type: <%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></small>
   </div>
 
-  <div class="form-control to-right">
-    <small class="form-label">Default Value: <%= f.text_field :default_value %></small>
-  </div>
-
-  <div>
-    <small class="form-label">Auto Increment: <%= f.check_box :auto_increment %></small>
-  </div>
-
-  <div>
-    <small class="form-label">Allow Null Value: <%= f.check_box :allow_null %></small>
-  </div>
-
   <div class="validations hidden">
+
+    <div class="form-control to-right">
+      <small class="form-label">Default Value: <%= f.text_field :default_value %></small>
+    </div>
+
+    <div>
+      <small class="form-label">Auto Increment: <%= f.check_box :auto_increment %></small>
+
+      <small class="form-label">Allow Null Value: <%= f.check_box :allow_null %></small>
+    </div>
+
+<table style="width:100%">
+  <tr>
+    <td>Name</td>
+    <td>Data Type</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :name %></td>
+    <td><%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></td>
+    <td><%= button_tag(type: 'link', class: 'btn-validations btn-link') do %><i class="fa fa-fa-optin-monster fa-lg"></i><% end %></td>
+  </tr>
+</table>
 
 
 
@@ -32,7 +43,7 @@
   </div>
 
   <div class="actions">
-    <%= button_tag(type: 'button', id: 'btn-validations') do %>Add Validations<% end %>
+    <%= button_tag(type: 'button', class: 'btn-validations') do %>Add Validations<% end %>
   </div>
 
 </fieldset

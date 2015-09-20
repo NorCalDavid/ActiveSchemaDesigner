@@ -12,7 +12,7 @@ $(document).ready(function(){
     var promise = $.post("/tables", $form.serialize());
 
     promise.done(function(response){
-      $(".sortable").append(response);
+      $(".canvas").append(response);
     });
   });
 

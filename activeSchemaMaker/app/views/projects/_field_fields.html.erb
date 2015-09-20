@@ -1,49 +1,77 @@
 <fieldset class="centered margin-all">
 
-  <div class="full-width-field to-left">
-    <b>New Field</b>
-  </div>
+  <div class="form-control">
 
-  <div class="form-control to-right">
-    <small class="form-label">Name: <%= f.text_field :name %></small>
-  </div>
+    <table style="width:100%">
+      <tr>
+        <td><small class="form-label">Name</small></td>
+        <td><small class="form-label">Data Type</small></td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></td>
+        <td><a class='btn-validations btn-link' href="#"><i class="fa fa-wrench fa-fw"></i></a></td>
+      </tr>
+    </table>
 
-  <div class="form-control to-right">
-    <small class="form-label">Data Type: <%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></small>
-  </div>
+    <div class="validations hidden">
 
-  <div class="validations hidden">
+      <table style="width:100%">
 
-    <div class="form-control to-right">
-      <small class="form-label">Default Value: <%= f.text_field :default_value %></small>
+        <tr>
+          <td><small class="form-label">Default Value:</small></td>
+          <td><%= f.text_field :default_value %></td>
+        </tr>
+
+        <tr>
+          <td><small class="form-label">Auto Increment:</small></td>
+          <td><%= f.check_box :auto_increment %></td>
+        </tr>
+
+        <tr>
+          <td><small class="form-label">Allow Null Value:</small></td>
+          <td><%= f.check_box :allow_null %></td>
+        </tr>
+
+        <tr>
+          <td><small class="form-label">Default Value:</small></td>
+          <td><%= f.text_field :presence %></td>
+        </tr>
+
+        <tr>
+          <td><small class="form-label">Default Value:</small></td>
+          <td><%= f.text_field :uniqueness %></td>
+        </tr>
+
+        <tr>
+          <td><small class="form-label">Default Value:</small></td>
+          <td><%= f.text_field :format %></td>
+        </tr>
+
+        <tr>
+          <td><small class="form-label">Default Value:</small></td>
+          <td><%= f.text_field :acceptance %></td>
+        </tr>
+
+        <tr>
+          <td><small class="form-label">Default Value:</small></td>
+          <td><%= f.text_field :confirmation %></td>
+        </tr>
+
+        <tr>
+          <td><small class="form-label">Default Value:</small></td>
+          <td><%= f.text_field :length %></td>
+        </tr>
+
+        <tr>
+          <td><small class="form-label">Default Value:</small></td>
+          <td><%= f.text_field :validate_on %></td>
+        </tr>
+
+      </table>
     </div>
 
-    <div>
-      <small class="form-label">Auto Increment: <%= f.check_box :auto_increment %></small>
-
-      <small class="form-label">Allow Null Value: <%= f.check_box :allow_null %></small>
-    </div>
-
-<table style="width:100%">
-  <tr>
-    <td>Name</td>
-    <td>Data Type</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><%= f.text_field :name %></td>
-    <td><%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></td>
-    <td><%= button_tag(type: 'link', class: 'btn-validations btn-link') do %><i class="fa fa-fa-optin-monster fa-lg"></i><% end %></td>
-  </tr>
-</table>
-
-
-
-
-  </div>
-
-  <div class="actions">
-    <%= button_tag(type: 'button', class: 'btn-validations') do %>Add Validations<% end %>
   </div>
 
 </fieldset

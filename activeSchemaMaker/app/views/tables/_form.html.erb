@@ -28,7 +28,7 @@
 
     <div class="line-break"></div>
 
-    <div class="form-fields">
+    <div class="form-fields form-container">
       <% if @table.fields.length > 0 %>
         <%= f.fields_for :fields, @table.fields do |ff| %>
           <%= render 'field_fields', f: ff %>

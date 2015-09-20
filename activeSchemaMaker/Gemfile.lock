@@ -49,6 +49,8 @@ GEM
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    font-awesome-rails (4.4.0.0)
+      railties (>= 3.2, < 5.0)
     font-awesome-sass (4.4.0)
       sass (>= 3.2)
     globalid (0.3.6)
@@ -158,6 +160,7 @@ DEPENDENCIES
   activesupport
   awesome_print
   bcrypt
+  font-awesome-rails
   font-awesome-sass
   jquery-rails
   pg

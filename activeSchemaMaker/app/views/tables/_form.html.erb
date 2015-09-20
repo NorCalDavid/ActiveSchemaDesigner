@@ -19,6 +19,16 @@
     <%= f.label :comments %><br>
     <%= f.text_area :comments %>
   </div>
+
+  <div>
+    <%= f.fields_for :fields, @table.fields do |ff| %>
+      <% if ff.object.active? %>
+        <%= render '../fields/_new_field_form', f: ff %>
+      <%end %>
+    <% end %>
+    <%= link_to_add_fields "Add Field", f, :fields %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

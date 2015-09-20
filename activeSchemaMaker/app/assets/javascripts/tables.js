@@ -7,3 +7,8 @@ $(document).on('click', 'form .add_fields', function(e) {
   $(this).before($(this).data('fields').replace(regex, time));
   e.preventDefault();
 });
+
+$(document).on('click', 'form .btn-add-comments', function(e) {
+  e.preventDefault();
+  $('form .comments-field').toggle()
+});

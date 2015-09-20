@@ -1,26 +1,26 @@
-<fieldset>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<fieldset class="centered margin-all">
+
+  <div class="full-width-field to-left">
+    <b>New Field</b>
+  </div>
+
+  <div class="form-control to-right">
+    <small class="form-label">Name: <%= f.text_field :name %></small>
+  </div>
+
+  <div class="form-control to-right">
+    <small class="form-label">Data Type: <%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></small>
+  </div>
+
+  <div class="form-control to-right">
+    <small class="form-label">Default Value: <%= f.text_field :default_value %></small>
   </div>
 
   <div>
-    <%= f.label :data_type %>
-    <%= f.text_field :data_type %>
+    <small class="form-label">Auto Increment: <%= f.check_box :auto_increment %></small>
   </div>
 
   <div>
-    <%= f.label :default_value %>
-    <%= f.text_field :default_value %>
+    <small class="form-label">Allow Null Value: <%= f.check_box :allow_null %></small>
   </div>
-
-  <div>
-    <%= f.label :auto_increment %>
-    <%= f.check_box :auto_increment %>
-  </div>
-
-  <div>
-    <%= f.label :allow_null %>
-    <%= f.check_box :allow_null %>
-  </div>
-</fieldset>
+</fieldset

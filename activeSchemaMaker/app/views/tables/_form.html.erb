@@ -1,40 +1,52 @@
-<%= form_for(@table, remote: true, html: {id: "main-form"}) do |f| %>
-  <% if @table.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h2>
+<div class="side-bar centered bordered">
+  <%= form_for(@table, remote: true, html: {id: "main-form", class: 'form-container'}) do |f| %>
+    <% if @table.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h2>
 
-      <ul>
-      <% @table.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <ul>
+        <% @table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="subheader">
+
+    <div class="field form-container centered no-pad-bottom no-margin-bottom">
+      <%= f.label :name %><br/>
+      <%= f.text_field :name, class: "full-width-field" %><br/>
+    </div>
+
+    <div class="to-right pad-right no-pad-top no-margin-top"><%= button_tag('Add Comments', type: 'button', class: 'btn-add-comments btn-link no-pad-top no-margin-top') %></div>
+
+    <div class="comments-field form-container hidden">
+      <%= f.label :comments, class: "form-label" %><br>
+      <%= f.text_area :comments, class:'full-width-field' %>
+    </div>
+
+    <div class="line-break"></div>
+
+    <div class="form-fields">
+      <% if @table.fields.length > 0 %>
+        <%= f.fields_for :fields, @table.fields do |ff| %>
+          <%= render 'field_fields', f: ff %>
+        <% end %>
+      <% else %>
+        <p class="small-italic">No fields to display</p>
       <% end %>
-      </ul>
+
+      <div class='no-border to-right pad-right'><%= link_to_add_fields "Add Field", f, :fields %></div>
+
+      <div class="line-break margin-bottom"></div>
+
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-
-  <%= button_tag('Comments', type: 'button', class: 'btn-add-comments') %>
-
-  <div class="comments-field">
-    <%= f.label :comments %><br>
-    <%= f.text_area :comments %>
-  </div>
-
-  <div>
-    <%= f.fields_for :fields, @table.fields do |ff| %>
-
-        <%= render 'field_fields', f: ff %>
-      <%end %>
-
-    <%= link_to_add_fields "Add Field", f, :fields %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
 
 

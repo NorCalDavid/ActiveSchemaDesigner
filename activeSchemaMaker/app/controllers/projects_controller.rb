@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
+    @table = @project.tables.new
   end
 
   # GET /projects/new

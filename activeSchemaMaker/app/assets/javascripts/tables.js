@@ -1,6 +1,9 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+
+$(document).ready(function(){
+
 $(document).on('click', 'form .add_fields', function(e) {
   time = new Date().getTime();
   regex = new RegExp($(this).data('id'), 'g');
@@ -13,9 +16,6 @@ $(document).on('click', 'form .btn-add-comments', function(e) {
   $('form .comments-field').toggle()
 });
 
-$(document).ready(function(){
-
-  //
   $(".sortable").sortable();
 
   // main toolbar form submits new table
@@ -26,7 +26,7 @@ $(document).ready(function(){
     var promise = $.post("/tables", $form.serialize());
 
     promise.done(function(response){
-      $(".canvas").append(response);
+      $("body").append(response);
     });
   });
 

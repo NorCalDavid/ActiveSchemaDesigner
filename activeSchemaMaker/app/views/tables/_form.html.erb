@@ -16,9 +16,7 @@
     <%= f.text_field :name %>
   </div>
 
-    <%= button_tag(type: 'button', class: 'btn-add-comments', onclick: 'toggleComments()') do %>
-      Add Comment
-    <% end %>
+  <%= button_tag('Comments', type: 'button', class: 'btn-add-comments') %>
 
   <div class="comments-field">
     <%= f.label :comments %><br>
@@ -27,10 +25,10 @@
 
   <div>
     <%= f.fields_for :fields, @table.fields do |ff| %>
-      <% if ff.object.active? %>
-        <%= render '../fields/_new_field_form', f: ff %>
+
+        <%= render 'field_fields', f: ff %>
       <%end %>
-    <% end %>
+
     <%= link_to_add_fields "Add Field", f, :fields %>
   </div>
 
@@ -39,7 +37,4 @@
   </div>
 <% end %>
 
-<div class="sortable">
-
-</div>
 

@@ -7,7 +7,7 @@
 
 <% unless @table.fields == [] %>
   <table class="fields">
-    <% @fields.each do |field| %>
+    <% @table.fields.each do |field| %>
       <tr class="field-cell">
         <td id="field.id"><%= field.name %></td>
       </tr>

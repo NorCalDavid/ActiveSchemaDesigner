@@ -1,0 +1,18 @@
+
+<div class="banner">
+    <h1 class="banner-head">
+      Schema Designer
+    </h1>
+</div>
+
+<div class="bottom-3rd debug">
+<h3>Your Projects <i class="fa-plus"></i> </h3>
+  <% @user.projects.each do |project| %>
+    <%= link_to project_path(project) do %>
+      <div class= "thumbnail debug">
+        <h4><%= project.name %><h4><br>
+        <%= project.comments %>
+      </div>
+    <%end%>
+  <%end%>
+</div>

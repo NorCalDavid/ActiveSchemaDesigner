@@ -1,21 +1,11 @@
-<div class="side-bar centered align-r debug menu">
+<div class="side-bar centered align-r debug menu shdw">
   <%= form_for(@table, remote: true, html: {id: "main-form", class: 'form-container'}) do |f| %>
-  <% if @table.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h2>
 
-    <ul>
-      <% @table.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
 
   <div class="subheader">
-
+    <h3 class="small-margins"><%=@project.name%></h3>
     <div class="field form-container centered no-pad-bottom no-margin-bottom">
-      <%= f.label :name %><br/>
+      <%= f.label :name, "Table Name" %><br/>
       <%= f.text_field :name, class: "full-width-field" %><br/>
     </div>
 
@@ -28,13 +18,18 @@
 
     <div class="line-break"></div>
 
-    <div class="form-fields">
+    <div class="form-fields form-container">
+      <table style="width:100%">
+      <tr>
+        <td class="centered"><small class="form-label">Name</small></td>
+        <td class="centered"><small class="form-label">Data Type</small></td>
+        <td class="centered"> </td>
+      </tr>
+      </table>
       <% if @table.fields.length > 0 %>
         <%= f.fields_for :fields, @table.fields do |ff| %>
           <%= render 'field_fields', f: ff %>
         <% end %>
-      <% else %>
-        <p class="small-italic">No fields to display</p>
       <% end %>
       <div class='no-border to-right pad-right'><%= link_to_add_fields "Add Field", f, :fields %></div>
       <div class="line-break margin-bottom"></div>

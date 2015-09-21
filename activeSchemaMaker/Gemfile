@@ -5,9 +5,9 @@ gem 'pg'
 gem 'bcrypt'
 gem 'jquery-rails'
 gem 'sass-rails'
+gem 'font-awesome-sass'
 gem 'font-awesome-rails'
 gem 'awesome_print'
-gem 'foundation-rails'
 gem 'responders'
 
 

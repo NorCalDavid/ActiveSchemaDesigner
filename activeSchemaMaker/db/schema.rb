@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919011510) do
+ActiveRecord::Schema.define(version: 20150921010043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,23 @@ ActiveRecord::Schema.define(version: 20150919011510) do
     t.string   "default_value"
     t.boolean  "auto_increment"
     t.boolean  "allow_null"
+    t.boolean  "presence"
+    t.boolean  "uniqueness"
+    t.boolean  "case_sensitive"
+    t.boolean  "format"
+    t.string   "format_type"
+    t.boolean  "acceptance"
+    t.boolean  "confirmation"
+    t.boolean  "length"
+    t.integer  "length_min"
+    t.integer  "length_max"
+    t.integer  "length_is"
+    t.integer  "length_within"
+    t.string   "validate_on"
     t.integer  "table_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
-
-  add_index "fields", ["table_id"], name: "index_fields_on_table_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -37,7 +48,16 @@ ActiveRecord::Schema.define(version: 20150919011510) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "table_id"
+    t.integer  "foreign_key"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["foreign_key"], name: "index_relationships_on_foreign_key", using: :btree
+  add_index "relationships", ["table_id", "foreign_key"], name: "index_relationships_on_table_id_and_foreign_key", unique: true, using: :btree
+  add_index "relationships", ["table_id"], name: "index_relationships_on_table_id", using: :btree
 
   create_table "tables", force: :cascade do |t|
     t.string   "name"
@@ -46,8 +66,6 @@ ActiveRecord::Schema.define(version: 20150919011510) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "tables", ["project_id"], name: "index_tables_on_project_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -58,7 +76,6 @@ ActiveRecord::Schema.define(version: 20150919011510) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "fields", "tables"
-  add_foreign_key "projects", "users"
-  add_foreign_key "tables", "projects"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+
 end

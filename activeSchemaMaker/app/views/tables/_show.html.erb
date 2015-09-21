@@ -1,0 +1,17 @@
+<div id ="t<%= table.id %>" class="tbl-frame draggable ui-widget-content debug">
+
+  <div class="title">
+    <span><%= table.name %></span>
+    <button id="tb<%= table.id %>" class="edit" title="tbl-edit">Edit</button>
+  </div>
+
+<% unless table.fields.length < 1 %>
+  <table class="fields">
+    <% table.fields.each do |field| %>
+      <tr class="field-cell <%=field.data_type%>">
+        <td id="<%=field.id%>"><%= field.name %></td>
+      </tr>
+    <%end%>
+  </table>
+<% end %>
+</div>

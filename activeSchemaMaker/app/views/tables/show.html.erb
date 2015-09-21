@@ -9,7 +9,7 @@
   <table class="fields">
     <% @table.fields.each do |field| %>
       <tr class="field-cell <%=field.data_type%>">
-        <td id="field.id"><%= field.name %></td>
+        <td id="<%=field.id%>"><%= field.name %></td>
       </tr>
     <%end%>
   </table>

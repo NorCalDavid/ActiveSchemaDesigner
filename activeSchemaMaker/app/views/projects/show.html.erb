@@ -3,4 +3,9 @@
 
 <%= render '/tables/form' %>
 
+  <% if @tables != ["No Tables"] %>
+    <% @tables.each do |table| %>
+        <%= render partial: '/tables/show', locals: { table: table} %>
+    <% end %>
+  <% end %>
 </div>

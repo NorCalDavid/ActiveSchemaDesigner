@@ -1,3 +1,8 @@
+
+body {
+  background-color: #FFFFFF;
+}
+
 .debug {
   border: 1px solid red;
 }
@@ -69,3 +74,147 @@ nav > a {
     float:  right;
   }
 
+.small-italic {
+  font-size: 85%;
+  font-style: italic;
+  padding: 0 0 0 0;
+  margin-top: 0 0 0 0;
+}
+
+.side-bar {
+  width: 275px;
+}
+
+.bordered {
+  border: 1px solid black;
+}
+
+.no-border {
+  border: none;
+}
+
+.centered {
+  text-align: center;
+}
+
+.to-left {
+  text-align: left;
+}
+
+.to-right {
+  text-align: right;
+}
+
+.pad-vert {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.pad-right {
+  padding-right: 10px;
+}
+
+.pad-left {
+  padding-left: 10px;
+}
+
+.no-pad {
+  padding: 0 0 0 0;
+}
+
+.no-pad-top {
+  padding-top: 0;
+}
+
+.no-pad-bottom {
+  padding-bottom: 0;
+}
+
+.margin-right {
+  margin-right: 10px;
+}
+
+.margin-left {
+  margin-left: 10px;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+.margin-all {
+  margin: 10px 10px 10px 10px;
+}
+
+.no-margin {
+  margin: 0 0 0 0;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.small-margins {
+  margin-top: .1em;
+  margin-bottom: .1em;
+}
+
+.hidden {
+  display: none;
+}
+
+.line-break {
+  border-bottom: 1px solid black;
+  width: 98%;
+  padding: 3px 0 3px 0;
+}
+
+.center-h {
+/*  display: block;
+  margin: 0 auto;
+  background-color: blue;*/
+  text-align: center;
+}
+
+.center-v {
+  margin-top: 15%;
+
+}
+.white {
+  background-color: white;
+}
+
+.banner {
+    background: transparent url('grid.png') 0 0 no-repeat fixed;
+    text-align: center;
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg', sizingMethod='scale');
+
+    height: 350px;
+    width: 100%;
+    margin-bottom: 2em;
+    display: table;
+}
+.banner-head {
+        display: table-cell;
+        vertical-align: middle;
+        margin-bottom: 0;
+        font-size: 5em;
+        color: #09277A;
+        font-weight: 500;
+        text-shadow: 1px 1px 1px #888;
+    }
+
+.thumbnail{
+  display: inline-block;
+  width: 15%;
+  height: 55%;
+}
+
+.bottom-3rd{
+  height: 30em;
+  margin-bottom: 0em;
+}

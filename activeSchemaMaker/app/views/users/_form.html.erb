@@ -1,34 +1,47 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="center-v white pad-vert">
+  <%= form_for(@user) do |f| %>
+    <div class='pure-form pure-form-aligned center-h'>
+      <% if @user.errors.any? %>
+        <div id="error_explanation" class='pure-form-message'>
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+      <div class="pure-control">
+        <div class="centered">
+          <%= f.label :first_name %><br/>
+          <%= f.text_field :first_name, class: 'pure-input-rounded' %>
+        </div>
+
+        <div class="centered">
+          <%= f.label :last_name %><br/>
+          <%= f.text_field :last_name, class: 'pure-input-rounded' %>
+        </div>
+
+        <div class="centered">
+          <%= f.label :email %><br/>
+          <%= f.text_field :email, class: 'pure-input-rounded' %>
+        </div>
+
+        <div class="centered">
+          <%= f.label :password %><br/>
+          <div>
+            <%= f.password_field :password, class: 'pure-input-rounded' %>
+            <%= f.password_field :password_confirmation, class: 'pure-input-rounded' %>
+          </div>
+        </div>
+
+        <div class="centered">
+          <br/>
+          <%= f.submit "Submit", class: "pure-button pure-button-primary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

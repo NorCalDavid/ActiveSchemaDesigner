@@ -1,24 +1,21 @@
-
-
 <div class="center-v white pad-vert">
-  <%= form_tag '/login', :class => "pure-form pure-form-aligned center-h" do %>
+  <%= form_tag '/login', class: "pure-form pure-form-aligned center-h" do %>
 
-    <div class="pure-control-group">
-      <%= label_tag(:email, "Login") %>
-      <%= text_field_tag :email %>
-    </div>
+    <div class="pure-control">
+      <div class="centered">
+        <%= label_tag(:email) %><br/>
+        <%= text_field_tag :email, nil, class: 'pure-input-rounded' %>
+      </div>
 
-    <div class="pure-control-group">
-      <%= label_tag(:password, "Password") %>
-      <%= password_field_tag :password, "Password" %>
-    </div>
+      <div class="centered">
+        <%= label_tag(:password) %><br/>
+        <%= password_field_tag :password, nil, class: 'pure-input-rounded' %>
+      </div>
 
-    <div class="pure-controls">
-      <%= submit_tag "Login", class: "pure-button pure-button-primary" %>
+      <div class="centered">
+        <%= submit_tag "Login", class: "pure-button pure-button-primary" %>
+      </div>
     </div>
 
   <% end %>
 </div>
-
-
-

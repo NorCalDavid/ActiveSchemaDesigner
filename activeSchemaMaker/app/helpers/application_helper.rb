@@ -7,4 +7,13 @@ module ApplicationHelper
     end
     button_to(name, '#', class: "add_fields btn-link", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def logged_in?
+    !current_user.nil?
+  end
+
+  def current_user_id
+    session[:user_id]
+  end
+
 end

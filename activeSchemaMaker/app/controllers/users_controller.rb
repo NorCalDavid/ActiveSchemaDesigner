@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      set_current_user(@user)
       redirect_to @user, notice: 'User was successfully created.'
     else
       render :new

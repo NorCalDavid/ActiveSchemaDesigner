@@ -1,3 +1,7 @@
+body {
+  background-color: white;
+}
+
 .debug {
   border: 1px solid red;
 }
@@ -152,6 +156,11 @@ nav > a {
   margin-bottom: 0;
 }
 
+.small-margins {
+  margin-top: .1em;
+  margin-bottom: .1em;
+}
+
 .hidden {
   display: none;
 }
@@ -197,7 +206,7 @@ nav > a {
         text-shadow: 1px 1px 1px #888;
     }
 
-.sample{
+.thumbnail{
   display: inline-block;
   width: 15%;
   height: 55%;

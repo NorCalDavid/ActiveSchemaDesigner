@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   def show
     @route = "project#show"
     set_current_project(params[:id])
+
     if Project.find(params[:id]).tables.count > 0
       @tables = Project.find(params[:id]).tables
     else

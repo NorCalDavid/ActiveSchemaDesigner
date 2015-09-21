@@ -24,14 +24,16 @@ class TablesController < ApplicationController
   # POST /tables
   def create
     @table = Table.new(table_params)
-    p @table if request.xhr?
-    respond_to do |format|
-    if @table.save
-      format.html {redirect_to @table, notice: 'Table was successfully created.'}
-      format.json {respond_with json: @table, status: :created, location: @table}
-    else
-      format.html {render :new}
-      format.json {render json: @table.errors, status: :unprocessable_entity}
+
+    if request.xhr?
+      respond_to do |format|
+      if @table.save
+        format.html {redirect_to @table, notice: 'Table was successfully created.'}
+        format.json {respond_with json: @table, status: :created, location: @table}
+      else
+        format.html {render :new}
+        format.json {render json: @table.errors, status: :unprocessable_entity}
+      end
     end
   end
 end

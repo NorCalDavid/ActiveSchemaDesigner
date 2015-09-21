@@ -1,0 +1,89 @@
+<div class="side-bar centered align-r debug menu shdw">
+  <%= form_for(@table, remote: true, html: {id: "main-form", class: 'form-container'}) do |f| %>
+
+
+  <div class="subheader">
+    <h3 class="small-margins"><%=@project.name%></h3>
+    <div class="field form-container centered no-pad-bottom no-margin-bottom">
+      <%= f.label :name, "Table Name" %><br/>
+      <%= f.text_field :name, class: "full-width-field" %><br/>
+    </div>
+
+    <div class="to-right pad-right no-pad-top no-margin-top"><%= button_tag('Add Comments', type: 'button', class: 'btn-add-comments btn-link no-pad-top no-margin-top') %></div>
+
+    <div class="comments-field form-container hidden">
+      <%= f.label :comments, class: "form-label" %><br>
+      <%= f.text_area :comments, class:'full-width-field' %>
+    </div>
+
+    <div class="line-break"></div>
+
+    <div class="form-fields form-container">
+      <table style="width:100%">
+      <tr>
+        <td class="centered"><small class="form-label">Name</small></td>
+        <td class="centered"><small class="form-label">Data Type</small></td>
+        <td class="centered"> </td>
+      </tr>
+      </table>
+      <% if @table.fields.length > 0 %>
+        <%= f.fields_for :fields, @table.fields do |ff| %>
+          <%= render 'field_fields', f: ff %>
+        <% end %>
+      <% end %>
+      <div class='no-border to-right pad-right'><%= link_to_add_fields "Add Field", f, :fields %></div>
+      <div class="line-break margin-bottom"></div>
+    </div>
+
+    <div class="relationships hidden">
+      <%= f.submit %>
+
+
+    </div>
+
+    <div class="actions">
+      <%= button_tag(type: 'button', id: 'btn-validations') do %>Add Validations<% end %>
+      <%= button_tag(type: 'button', id: 'btn-relationships') do %>Add Relationships<% end %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  </div>
+  <% end %>
+</div>
+
+
+<div class="tab-content">
+  <section class="tab-item-1">
+    <h1>One</h1>
+  </section>
+  <section class="tab-item-2">
+    <h1>Two</h1>
+  </section>
+  <section class="tab-item-3">
+    <h1>Three</h1>
+  </section>
+  <section class="tab-item-4">
+    <h1>Four</h1>
+  </section>
+  <section class="tab-item-5">
+    <h1>Five</h1>
+  </section>
+  <section class="tab-item-6">
+    <h1>Six</h1>
+  </section>
+  <section class="tab-item-7">
+    <h1>Sever</h1>
+  </section>
+  <section class="tab-item-8">
+    <h1>Eight</h1>
+  </section>
+  <section class="tab-item-9">
+    <h1>Nine</h1>
+  </section>
+  <section class="tab-item-10">
+    <h1>Ten</h1>
+  </section>
+</div>

@@ -21,7 +21,7 @@ class CreateFields < ActiveRecord::Migration
       t.integer :length_within
       t.string  :validate_on
 
-      t.references :table, index: true, foreign_key: true
+      t.integer :table_id
 
       t.timestamps null: false
     end

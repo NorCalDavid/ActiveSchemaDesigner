@@ -40,8 +40,6 @@ ActiveRecord::Schema.define(version: 20150919011510) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "fields", ["table_id"], name: "index_fields_on_table_id", using: :btree
-
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "comments"
@@ -50,8 +48,6 @@ ActiveRecord::Schema.define(version: 20150919011510) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
-
   create_table "tables", force: :cascade do |t|
     t.string   "name"
     t.text     "comments"
@@ -59,8 +55,6 @@ ActiveRecord::Schema.define(version: 20150919011510) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "tables", ["project_id"], name: "index_tables_on_project_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -71,7 +65,6 @@ ActiveRecord::Schema.define(version: 20150919011510) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "fields", "tables"
-  add_foreign_key "projects", "users"
-  add_foreign_key "tables", "projects"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+
 end

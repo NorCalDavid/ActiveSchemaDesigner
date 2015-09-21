@@ -9,12 +9,18 @@
 <body>
 
 
+<div class="pure-menu pure-menu-horizontal">
+  <ul class="pure-menu-list">
 <% if current_user %>
-  Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
+  <li class="pure-menu-item"><%= current_user.first_name %></li>
+  <li class="pure-menu-item">
+  <%= link_to "Logout", '/logout', :class => "pure-menu-link" %>
+</li>
 <% else %>
   <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
 <% end %>
-
+</ul>
+</div>
 
 
 

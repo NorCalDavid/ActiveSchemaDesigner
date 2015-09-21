@@ -1,2 +1,19 @@
-<h1>Welcome <%= current_user.first_name %></h1>
 
+
+
+<div class="banner">
+    <h1 class="banner-head">
+      Schema Designer
+    </h1>
+</div>
+
+
+<div class="bottom-3rd debug">
+<h3>Your Projects:</h3>
+  <% @user.projects.each do |project| %>
+    <div class= "sample debug">
+      <%= project.name %>
+      <%= project.comments %>
+    </div>
+  <%end%>
+</div>

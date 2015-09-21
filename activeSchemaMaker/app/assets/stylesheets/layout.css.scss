@@ -1,5 +1,6 @@
 body {
   background-color: #FFFFFF;
+  font-family: 'Open Sans', serif;
 }
 
 .debug {
@@ -7,7 +8,7 @@ body {
 }
 
 .canvas {
-  height: 50em;
+  height: 45em;
   width: 98%;
   margin-left: 1%;
   background-image: url('/assets/paisley.png');
@@ -194,7 +195,7 @@ nav > a {
 
     height: 350px;
     width: 100%;
-    margin-bottom: 2em;
+    margin-bottom: 0em;
     display: table;
 }
 .banner-head {
@@ -211,9 +212,17 @@ nav > a {
   display: inline-block;
   width: 15%;
   height: 55%;
+  margin-left: 1em;
+  text-align: center;
+  background-color: #C1C1C1;
 }
 
 .bottom-3rd{
   height: 30em;
   margin-bottom: 0em;
+  background-color: #02182B;
+}
+
+.blue{
+    background-color: #6C97BD;
 }

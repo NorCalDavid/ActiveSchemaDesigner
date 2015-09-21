@@ -1,9 +1,9 @@
-<div id ="t<%= @table.id %>" class="tbl-frame draggable ui-widget-content debug">
+<div id ="t<%= table.id %>" class="tbl-frame draggable ui-widget-content debug">
 
   <div class="title">
     <span><%= table.name %></span>
-    <button id="tb<%= @table.id %>" class="edit" title="tbl-edit">Edit</button>
-  <div>
+    <button id="tb<%= table.id %>" class="edit" title="tbl-edit">Edit</button>
+  </div>
 
 <% unless table.fields.length < 1 %>
   <table class="fields">

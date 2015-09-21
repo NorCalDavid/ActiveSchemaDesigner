@@ -28,7 +28,6 @@ class TablesController < ApplicationController
     respond_to do |format|
     if @table.save
       format.html {redirect_to @table, notice: 'Table was successfully created.'}
-      format.js {}
       format.json {respond_with json: @table, status: :created, location: @table}
     else
       format.html {render :new}

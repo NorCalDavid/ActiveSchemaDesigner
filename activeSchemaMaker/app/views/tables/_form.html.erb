@@ -1,4 +1,4 @@
-<div class="side-bar centered align-r debug menu">
+<div class="side-bar centered align-r debug menu shdw">
   <%= form_for(@table, remote: true, html: {id: "main-form", class: 'form-container'}) do |f| %>
   <% if @table.errors.any? %>
   <div id="error_explanation">
@@ -13,9 +13,9 @@
   <% end %>
 
   <div class="subheader">
-
+    <h3 class="small-margins"><%=@project.name%></h3>
     <div class="field form-container centered no-pad-bottom no-margin-bottom">
-      <%= f.label :name %><br/>
+      <%= f.label :name, "Table Name" %><br/>
       <%= f.text_field :name, class: "full-width-field" %><br/>
     </div>
 

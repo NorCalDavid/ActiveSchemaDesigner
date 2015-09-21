@@ -14,7 +14,7 @@ class TablesController < ApplicationController
 
   # GET /tables/new
   def new
-    @table = Table.new
+    @table = Project.find(session[:current_project_id]).tables.new
   end
 
   # GET /tables/1/edit
@@ -23,8 +23,8 @@ class TablesController < ApplicationController
 
   # POST /tables
   def create
-    @table = Table.new(table_params)
-    @table.project_id = session[:current_project_id]
+    @table = Project.find(session[:current_project_id]).tables.new(table_params)
+    # @table.project_id = session[:current_project_id]
 
     if request.xhr?
       respond_to do |format|

@@ -3,7 +3,7 @@ class CreateTables < ActiveRecord::Migration
     create_table :tables do |t|
       t.string :name
       t.text :comments
-      t.references :project, index: true, foreign_key: true
+      t.integer :project_id
 
       t.timestamps null: false
     end

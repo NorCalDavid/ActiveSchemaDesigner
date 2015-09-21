@@ -10,7 +10,7 @@ module FormHelper
     link_to_function name, %{
       var new_object_id = new Date().getTime() ;
       var html = jQuery(#{js html}.replace(/index_to_replace_with_js/g, new_object_id)).hide();
-      html.appendTo(jQuery("#{where}")).slideDown('slow');
+      html.appendTo(jQuery("#{where}")).slideDown('slow').add;
     }
   end
 

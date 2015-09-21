@@ -4,34 +4,20 @@
 
 $(document).ready(function(){
 
+  $(".sortable").sortable();
 
-
-  $(document).on('click', 'form .add_fields', function(e) {
-    time = new Date().getTime();
-    regex = new RegExp($(this).data('id'), 'g');
-    $(this).before($(this).data('fields').replace(regex, time));
+  // main toolbar form submits new table
+  var $form = $("#main-form");
+  $form.on("submit", function(e){
+    // debugger;
     e.preventDefault();
-  });
+    var promise = $.post("/tables", $form.serialize());
 
-  $(document).on('click', 'form .btn-add-comments', function(e) {
-    e.preventDefault();
-    $('form .comments-field').toggle()
-  });
-
-    $(".sortable").sortable();
-
-    // main toolbar form submits new table
-    var $form = $("#main-form");
-    $form.on("submit", function(e){
-      // debugger;
-      e.preventDefault();
-      var promise = $.post("/tables", $form.serialize());
-
-      promise.done(function(response){
-        $(".canvas").append(response);
-        $(".draggable").draggable();
-      });
+    promise.done(function(response){
+      $(".canvas").append(response);
+      $form[0].reset();
     });
+  });
 
 });
   // $('#nifty-form').on('ajax:success', function(e, data, status, xhr) {

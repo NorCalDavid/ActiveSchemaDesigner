@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
+    @route = "Project#Show"
     set_current_project(params[:id])
     if Project.find(params[:id]).tables.count > 0
       @tables = Project.find(params[:id]).tables

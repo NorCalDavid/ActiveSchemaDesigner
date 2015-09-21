@@ -5,10 +5,6 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email]) || nil
 
-    puts "**" * 80
-    p user
-    puts "**" * 80
-
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to '/'

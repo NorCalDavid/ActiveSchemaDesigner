@@ -4,9 +4,7 @@
 
 $(document).ready(function(){
   
-  $(document).on('change', function(){
     $(".draggable").draggable();
-      });
 
   $(document).on('click', 'form .add_fields', function(e) {
     time = new Date().getTime();

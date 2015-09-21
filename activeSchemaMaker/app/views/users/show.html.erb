@@ -1,18 +1,19 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<div class="banner">
+    <h1 class="banner-head">
+      Schema Designer
+    </h1>
+</div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<div class="bottom-3rd debug">
+<h3>Your Projects <i class="fa-plus"></i> </h3>
+  <% @user.projects.each do |project| %>
+    <%= link_to project_path(project) do %>
+      <div class= "thumbnail debug">
+        <%= project.name %>
+        <%= project.comments %>
+      </div>
+    <%end%>
+  <%end%>
+</div>

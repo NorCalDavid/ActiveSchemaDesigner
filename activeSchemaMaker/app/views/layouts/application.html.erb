@@ -9,12 +9,23 @@
 <body>
 
 
-<% if current_user %>
-  Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
-<% else %>
-  <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-<% end %>
+<div class="pure-menu pure-menu-horizontal">
+  <ul class="pure-menu-list">
 
+    <% if current_user %>
+      <li class="pure-menu-item"><%= link_to "#{current_user.first_name}", user_path(current_user.id), :class => "pure-menu-link" %></li>
+      <li class="pure-menu-item"><%= link_to "Logout", '/logout', :class => "pure-menu-link" %></li>
+      <% if @route == "project#show" %>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Save</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link"><%= @project.name %></a></li>
+      <%end%>
+    <% else %>
+      <li class="pure-menu-item"><%= link_to 'Login', '/login', :class => "pure-menu-link" %></li>
+      <li class="pure-menu-item"><%= link_to 'Signup', '/signup', :class => "pure-menu-link" %></li>
+    <% end %>
+
+  </ul>
+</div>
 
 
 

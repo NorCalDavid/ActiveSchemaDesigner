@@ -1,4 +1,35 @@
-<h1>New User</h1>
 
-<%= render 'form' %>
+<div class="center-v white pad-vert">
+
+<%= form_for :user, url: '/users', html: {class: "pure-form pure-form-aligned center-h"} do |f| %>
+<div class="pure-control-group">
+  <%=f.label :first_name%>
+  <%= f.text_field :first_name %>
+</div>
+
+<div class="pure-control-group">
+  <%=f.label :last_name%>
+  <%= f.text_field :last_name %>
+</div>
+
+<div class="pure-control-group">
+  <%=f.label :email%>
+  <%= f.text_field :email %>
+</div>
+
+<div class="pure-control-group">
+  <%=f.label :password%>
+  <%= password_field_tag :password %>
+</div>
+
+<div class="pure-control-group">
+  <%=f.label :password_confirmation, "Confirm Password" %>
+  <%= password_field_tag :password_confirmation %>
+</div>
+
+<div class="pure-controls">
+<%= f.submit "Sign Up", class: "pure-button pure-button-primary" %>
+</div>
+<% end %>
+</div>
 

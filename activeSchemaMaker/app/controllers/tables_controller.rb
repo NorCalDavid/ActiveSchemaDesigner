@@ -24,6 +24,7 @@ class TablesController < ApplicationController
   # POST /tables
   def create
     @table = Table.new(table_params)
+    @table.project_id = session[:current_project_id]
     p @table if request.xhr?
     respond_to do |format|
     if @table.save

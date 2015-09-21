@@ -3,8 +3,10 @@
 
 
 $(document).ready(function(){
-
-
+  
+  $(document).on('change', function(){
+    $(".draggable").draggable();
+      });
 
   $(document).on('click', 'form .add_fields', function(e) {
     time = new Date().getTime();
@@ -15,7 +17,7 @@ $(document).ready(function(){
 
   $(document).on('click', 'form .btn-add-comments', function(e) {
     e.preventDefault();
-    $('form .comments-field').toggle()
+    $('form .comments-field').toggle();
   });
 
     $(".sortable").sortable();

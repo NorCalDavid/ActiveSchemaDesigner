@@ -58,16 +58,6 @@ class ProjectsController < ApplicationController
     redirect_to projects_url, notice: 'Project was successfully destroyed.'
   end
 
-  #POST /relationiships
-  def create_relationships
-    @relationship = Relationship.new(relationship_params)
-    if @relationship.save
-      render json: @relationship, location: @relationship
-    else
-      render json: @relationship.errors, status: :unprocessable_entity
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
@@ -81,10 +71,6 @@ class ProjectsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def project_params
       params.require(:project).permit(:name, :comments)
-    end
-
-    def relationship_params
-      params.require(:relationship).permit(:table_id, :foreign_key_id, :relationship_type)
     end
 
 end

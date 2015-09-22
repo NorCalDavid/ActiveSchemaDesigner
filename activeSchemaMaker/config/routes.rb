@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   resources :projects
 
-  post '/create_relationships' => 'projects#create_relationships'
-
   resources :tables do
     resources :fields
   end

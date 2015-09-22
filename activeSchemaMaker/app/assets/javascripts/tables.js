@@ -17,6 +17,12 @@ $(document).ready(function(){
       debugger
     });
 
+  $("#hasone-relationships-form")
+  .on('ajax:before', function(event, xhr){
+    event.data = {"relationship": "has_one"};
+    console.log(event.data);
+  })
+
 });
 
   // var $form = $("#main-form");

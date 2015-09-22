@@ -57,6 +57,11 @@ class ProjectsController < ApplicationController
     redirect_to projects_url, notice: 'Project was successfully destroyed.'
   end
 
+  #POST /relationiships
+  def create_relationships
+    p "you did it!"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

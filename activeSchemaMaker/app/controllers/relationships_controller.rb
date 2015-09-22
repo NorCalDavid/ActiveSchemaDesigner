@@ -1,17 +1,17 @@
 class RelationshipsController < ApplicationController
 
-  def create
+  # def create
 
-  end
+  # end
 
-  def destroy
+  # def destroy
 
-  end
+  # end
 
-  private
+  # private
 
-  def make_connection
+  # def make_connection
 
-  end
+  # end
 
 end

@@ -12,9 +12,9 @@
 <div class="header home-menubar-fixed">
   <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed blue">
     <ul class="pure-menu-list">
-      <%=link_to "Active Schema Designer", user_path(current_user.id), :class => "pure-menu-heading"%>
 
       <% if current_user %>
+      <%=link_to "Active Schema Designer", user_path(current_user.id), :class => "pure-menu-heading"%>
         <li class="pure-menu-item"><%= link_to "#{current_user.first_name}", user_path(current_user.id), :class => "pure-menu-link" %></li>
         <li class="pure-menu-item"><%= link_to "Logout", '/logout', :class => "pure-menu-link" %></li>
         <% if @route == "project#show" %>

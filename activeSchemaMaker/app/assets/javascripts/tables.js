@@ -18,8 +18,9 @@ $(document).ready(function(){
 
   $("#hasone-relationships-form")
   .on('ajax:success', function(event, data, xhr){
-      var response = data;
-      debugger
+    var response = data;
+    var primary_port = $("")
+
   })
 
 });

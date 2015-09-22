@@ -28,7 +28,7 @@
 }
 
 .fixed-width {
-  width: 25px;
+  width: 40px;
 }
 
 .tblCol-20 {
@@ -37,5 +37,15 @@
 
 .tblCol-Right {
   text-align: right;
+}
+
+.table-block {
+  display: block;
+  clear: both;
+}
+
+.options-group {
+  padding: 2px 0 2px 0;
+  margin: 2px 0 2px 0;
 }
 

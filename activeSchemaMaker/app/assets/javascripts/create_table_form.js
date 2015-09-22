@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
   $(document).on('click', 'form .add_fields', function(e) {
-    time = new Date().getTime();
-    regex = new RegExp($(this).data('id'), 'g');
+    var time = new Date().getTime();
+    var regex = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regex, time));
     e.preventDefault();
     // $('div.validation-options').hide()

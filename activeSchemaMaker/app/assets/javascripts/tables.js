@@ -8,13 +8,12 @@ $(document).ready(function(){
   // main toolbar form submits new table
   $('#create-table-form')
     .on('ajax:success', function(event, response, xhr) {
-      debugger;
       $(".canvas").append(response);
       $(".draggable").draggable();
+      $('#create-table-form').reset();
     })
     .on("ajax:error", function(event){
       console.error('failed to create table', arguments);
-      debugger
     });
 
 });

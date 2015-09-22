@@ -8,6 +8,7 @@ $(document).ready(function(){
   // main toolbar form submits new table
   $('#create-table-form')
     .on('ajax:success', function(event, response, xhr) {
+      debugger;
       $(".canvas").append(response);
       $(".draggable").draggable();
     })

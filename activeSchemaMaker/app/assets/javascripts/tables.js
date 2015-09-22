@@ -5,6 +5,9 @@ $(document).ready(function(){
 
   $(".sortable").sortable();
 
+
+  console.log(tableNames);
+
   // main toolbar form submits new table
   $('#create-table-form')
     .on('ajax:success', function(event, response, xhr) {

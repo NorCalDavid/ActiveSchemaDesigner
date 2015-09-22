@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
 
     if Project.find(params[:id]).tables.count > 0
       @tables = Project.find(params[:id]).tables
+      @table_names = get_table_names(@tables).to_json
     else
       @tables = ["No Tables"]
     end

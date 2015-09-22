@@ -1,16 +1,19 @@
 
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
 
+<%= javascript_tag do %>
+  window.table_names = <%= raw @tables.to_json %>
+<%end%>
+
 <div class="pure-g no-pad">
     <div class="pure-u-1 pure-u-md-7-24 blue">
-
 	<%= render '/tables/form' %>
 
 	  <% if @tables != ["No Tables"] %>
 	    <% @tables.each do |table| %>
         <%= render partial: '/tables/show', locals: { table: table} %>
-        <%= render partial: 'associations_form', locals: {tables: @tables} %>
       <% end %>
+        <%= render partial: 'associations_form', locals: {tables: @tables} %>
     <% end %>
 
     </div>

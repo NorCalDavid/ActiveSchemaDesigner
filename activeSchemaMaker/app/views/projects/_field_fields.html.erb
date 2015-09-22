@@ -15,7 +15,7 @@
         <div class='pull-left options-group'>
           <table style="width:100%">
             <tr>
-              <td class='tblCol-20'><span>Default Value:<small><%= f.text_field :default_value %></small></span></td>
+              <td class='tblCol-50'><span>Default Value:<small><%= f.text_field :default_value %></small></span></td>
               <td class='tblCol-20'><span>Validate On:<small><%= f.select :validate_on, %w[Create Update Both] %></small></span></td>
             </tr>
           </table>
@@ -54,10 +54,10 @@
         <div class='pull-left options-group full-width-field'>
           <table style="width:100%">
             <tr>
-              <td class='pad-right'><span class="format-select tblCol-Right">Length:<small><%= f.select :length, %w[True False] %></small></span></td>
-              <td class='pad-right'><span>Min:<small><%= f.number_field :length_min, class:'fixed-width' %></small></span></td>
-              <td class='pad-right'><span>Max:<small><%= f.number_field :length_max, class:'fixed-width' %></small></span></td>
-              <td class='pad-right'><span>Equal To:<small><%= f.number_field :length_is, class:'fixed-width' %></small></span></td>
+              <td class='pad-right tblCol-20 tblCol-Right'><span class="format-select">Length:<small><%= f.select :length, %w[True False] %></small></span></td>
+              <td class='pad-right tblCol-20 tblCol-Right'><span>Min:<small><%= f.number_field :length_min, class:'fixed-width' %></small></span></td>
+              <td class='pad-right tblCol-20 tblCol-Right'><span>Max:<small><%= f.number_field :length_max, class:'fixed-width' %></small></span></td>
+              <td class='tblCol-Right'><span>Equal To:<small><%= f.number_field :length_is, class:'fixed-width' %></small></span></td>
             </tr>
           </table>
         </div>

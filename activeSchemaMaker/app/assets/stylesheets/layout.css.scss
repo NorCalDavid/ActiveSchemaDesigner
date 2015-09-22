@@ -1,18 +1,11 @@
-
-body {
-  background-color: #FFFFFF;
+html,body {
   font-family: 'Open Sans', serif;
 }
 
-.debug {
-  border: 1px solid red;
-}
-
 .canvas {
-  height: 45em;
-  width: 98%;
-  margin-left: 1%;
-  background-image: url('/assets/paisley.png');
+  height: 55em;
+  width: 100%;
+  background-image: url('/assets/big.png');
 }
 
 .align-r {
@@ -24,6 +17,7 @@ body {
   background-color: #778892;
   padding: .1em;
 }
+
 .menu {
   height: 90%;
   clear: both;
@@ -55,7 +49,6 @@ nav > a {
     margin-left: -46px;
   }
 
-  // Right part
   .top-bar-section ul.right {
     width: 50%;
     padding-left: 60px;
@@ -65,7 +58,6 @@ nav > a {
     float:  left;
   }
 
-  // Left part
   .top-bar-section ul.left {
     width:  50%;
     padding-right: 60px;
@@ -117,6 +109,10 @@ nav > a {
 
 .pad-left {
   padding-left: 10px;
+}
+
+.pad-top {
+  padding-top: 10px;
 }
 
 .no-pad {
@@ -207,7 +203,7 @@ nav > a {
         color: #09277A;
         font-weight: 500;
         text-shadow: 1px 1px 1px #888;
-    }
+}
 
 .thumbnail{
   display: inline-block;
@@ -232,4 +228,42 @@ nav > a {
   height: 8em;
   width: 8em;
   background-color: #6C97BD;
+
+.home-menu {
+    padding: 0.5em;
+    text-align: right;
+    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+}
+.home-menu {
+    background: #2d3e50;
+}
+.pure-menu.pure-menu-fixed {
+    /* Fixed menus normally have a border at the bottom. */
+    border-bottom: none;
+    /* I need a higher z-index here because of the scroll-over effect. */
+    z-index: 4;
+}
+
+.home-menu .pure-menu-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 120%;
+}
+
+.home-menu .pure-menu-selected a {
+    color: white;
+}
+
+.home-menu a {
+    color: #6FBEF3;
+}
+.home-menu li a:hover,
+.home-menu li a:focus {
+    background: none;
+    border: none;
+    color: #AECFE5;
+}
+
+.debug {
+  border: 1px solid red;
 }

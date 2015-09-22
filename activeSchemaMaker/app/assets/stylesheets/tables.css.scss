@@ -1,6 +1,14 @@
 // Place all the styles related to the tables controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.column-55 {
+  width: 55%;
+  margin-top: 5px;
+}
+
+.column-35 {
+  width: 35%;
+}
 
 .table-dialog {
   overflow: hidden;
@@ -73,6 +81,12 @@ $warning: #F89406;
 $bg: #fff;
 $font-color: #333;
 
+.callout-table-divider {
+  border-bottom: 1px solid black;
+  width: 98%;
+  padding: 0 0 3px 0;
+  margin-top: 0 0 10px 0;
+}
 
 .callout-card {
   background: $bg;

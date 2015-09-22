@@ -1,0 +1,83 @@
+<h3>
+    <tr>
+      <td><%= f.text_field :name %></td>
+      <td><%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></td>
+      <td><a class='btn-validations btn-link' href="#"><i class="fa fa-wrench fa-fw"></i></a></td>
+    </tr>
+</h3>
+
+<div class="pure-form pure-form-aligned">
+  <div class="validation-options">
+    <div class="line-break"></div>
+      <tr>
+        <td class="to-right"><small class="form-label">Default Value:</small></td>
+        <td class="to-left"><%= f.text_field :default_value, class: 'pure-input pure-input-2-3' %></td>
+      </tr><br/>
+
+      <tr>
+        <td class="to-right"><small class="form-label">Auto Increment:</small></td>
+        <td class="to-left"><%= f.check_box :auto_increment, class: 'pure-input pure-input-2-3' %></td>
+      </tr><br/>
+
+
+      <tr>
+        <td class="to-right"><small class="form-label">Allow Null Value:</small></td>
+        <td class="to-left"><%= f.check_box :allow_null, class: 'pure-input pure-input-2-3' %></td>
+      </tr><br/>
+
+
+      <tr>
+        <td class="to-right"><small class="form-label">Presence:</small></td>
+        <td class="to-left"><%= f.check_box :presence %></td>
+      </tr><br/>
+
+
+      <tr>
+        <td class="to-right"><small class="form-label">Uniqueness:</small></td>
+        <td class="to-left"><%= f.check_box :uniqueness, class: "uniqueness-select" %><span class="uniqueness-true"><small class="form-label"> Case Sensitive:</small> <%= f.check_box :case_sensitive %></span></td>
+      </tr><br/>
+
+
+      <tr>
+        <td class="to-right"><small class="form-label">Format:</small></td>
+        <td class="to-left"><%= f.check_box :format, class: "format-select" %><span class="format-true"><small class="form-label"> Type:</small> <%= f.select :format_type, %w[Valid-Email] %></span></td>
+      </tr><br/>
+
+
+      <tr>
+        <td class="to-right"><small class="form-label">Acceptance:</small></td>
+        <td class="to-left"><%= f.check_box :acceptance %></td>
+      </tr><br/>
+
+
+      <tr>
+        <td class="to-right"><small class="form-label">Confirmation:</small></td>
+        <td class="to-left"><%= f.check_box :confirmation %></td>
+      </tr><br/>
+
+
+      <tr>
+        <td class="to-right"><small class="form-label format-select">Length:</small></td>
+        <td class="to-left"><%= f.check_box :length %></td>
+      </tr><br/>
+
+
+      <tr class="format-true">
+        <table style="width:100%">
+          <tr>
+            <td><small class="form-label">Min:</small> <%= f.number_field :length_min, class: "fixed-width" %></td>
+            <td><small class="form-label">Max:</small> <%= f.number_field :length_max, class: "fixed-width" %></td>
+            <td><small class="form-label">Equal To:</small> <%= f.number_field :length_is, class: "fixed-width" %></td>
+          </tr>
+        </table>
+      </tr><br/>
+
+
+      <tr>
+        <td class="to-right"><small class="form-label">Validate On:</small></td>
+        <td class="to-left"><%= f.select :validate_on, %w[Create Update Both] %></td>
+      </tr>
+
+    <div class="line-break"></div>
+  </div>
+</div>

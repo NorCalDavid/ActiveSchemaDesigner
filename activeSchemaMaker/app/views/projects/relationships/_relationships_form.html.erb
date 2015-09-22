@@ -1,0 +1,48 @@
+<div class="content">
+  <h2 class="content-subhead">Create Relationships</h2>
+
+  <div id="accordion">
+
+    <h3 class="small-margins">Has One</h3>
+    <div class="has-one">
+      <%= form_for(:relationships_path, html: {id: "hasone-relationships-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+        <% table_names = get_table_names(@tables) %>
+        <%= f.label :table_id, "Primary Key (owner)", class: 'pure-control' %>
+        <%= f.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+        <%= f.label :foreign_key, "Foreign Key (possessed), class: 'pure-control'" %>
+        <%= f.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+      <% end %>
+    </div>
+
+    <h3 class="small-margins">Has Many</h3>
+    <div class="has-many">
+      <%= form_for(:relationships_path, html: {id: "hasmany-relationships-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+        <% table_names = get_table_names(@tables) %>
+        <%= f.label :table_id, "Primary Key (owner)", class: 'pure-control' %>
+        <%= f.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+        <%= f.label :foreign_key, "Foreign Key (possessed)", class: 'pure-control' %>
+        <%= f.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+      <% end %>
+    </div>
+
+    <h3 class="small-margins">Has Many Through</h3>
+    <div class="has-many-through">
+      <%= form_for(:relationships_path, html: {id: "hasmanythrough-relationships-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+        <% table_names = get_table_names(@tables) %>
+        <%= f.label :table_id, "Primary Key (owner)", class: 'pure-control' %>
+        <%= f.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+        <%= f.label :foreign_key, "Foreign Key (possessed)", class: 'pure-control' %>
+        <%= f.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+        <%= f.label :join_table_name, "Join Table Name", class: 'pure-control' %>
+        <%= f.text_field :join_table_name, class: 'pure-input pure-input-2-3' %>
+      <% end %>
+    </div>
+
+   <!--  <h3>Section 4</h3>
+    <div>
+      <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+    </div> -->
+
+  </div>
+
+</div>

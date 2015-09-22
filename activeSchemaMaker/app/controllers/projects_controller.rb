@@ -9,11 +9,22 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
+    @route = "project#show"
+    set_current_project(params[:id])
+
+    if Project.find(params[:id]).tables.count > 0
+      @tables = Project.find(params[:id]).tables
+    else
+      @tables = ["No Tables"]
+    end
+
+    @table = @project.tables.new
+
   end
 
   # GET /projects/new
   def new
-    @project = Project.new
+    @project = User.find(session[:user_id]).projects.new
   end
 
   # GET /projects/1/edit
@@ -22,7 +33,7 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @project = Project.new(project_params)
+    @project = User.find(session[:user_id]).projects.new(project_params)
 
     if @project.save
       redirect_to @project, notice: 'Project was successfully created.'
@@ -50,6 +61,10 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+    end
+
+    def set_current_project(project_id)
+      session[:current_project_id] = project_id
     end
 
     # Only allow a trusted parameter "white list" through.

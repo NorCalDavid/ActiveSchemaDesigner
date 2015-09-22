@@ -1,3 +1,179 @@
 // Place all the styles related to the tables controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.column-55 {
+  width: 55%;
+  margin-top: 5px;
+}
+
+.column-35 {
+  width: 35%;
+}
+
+.table-dialog {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: .2em;
+  outline: 0;
+}
+.table-dialog .table-dialog-titlebar {
+  padding: .4em 1em;
+  position: relative;
+}
+.table-dialog .table-dialog-title {
+  float: left;
+  margin: .1em 0;
+  white-space: nowrap;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table-dialog .table-dialog-titlebar-close {
+  position: absolute;
+  right: .3em;
+  top: 50%;
+  width: 20px;
+  margin: -10px 0 0 0;
+  padding: 1px;
+  height: 20px;
+}
+.table-dialog .table-dialog-content {
+  position: relative;
+  border: 0;
+  padding: .5em 1em;
+  background: none;
+  overflow: auto;
+}
+.table-dialog .table-dialog-buttonpane {
+  text-align: left;
+  border-width: 1px 0 0 0;
+  background-image: none;
+  margin-top: .5em;
+  padding: .3em 1em .5em .4em;
+}
+.table-dialog .table-dialog-buttonpane .table-dialog-buttonset {
+  float: right;
+}
+.table-dialog .table-dialog-buttonpane button {
+  margin: .5em .4em .5em 0;
+  cursor: pointer;
+}
+.table-dialog .table-resizable-se {
+  width: 12px;
+  height: 12px;
+  right: -5px;
+  bottom: -5px;
+  background-position: 16px 16px;
+}
+.table-draggable .table-dialog-titlebar {
+  cursor: move;
+}
+// flat colors
+
+$primary: #446CB3;
+$secondary: #ADB2BD;
+$info: #89c4f4;
+$alert: #F22613;
+$success: #87D37C;
+$warning: #F89406;
+$bg: #fff;
+$font-color: #333;
+
+.callout-table-divider {
+  border-bottom: 1px solid black;
+  width: 98%;
+  padding: 0 0 3px 0;
+  margin-top: 0 0 10px 0;
+}
+
+.callout-card {
+  background: $bg;
+  border: 1px solid #333;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+  overflow: hidden;
+
+  .card-label {
+      border-color: transparent #333 transparent transparent;
+      border-color: rgba(255,255,255,0) #333 rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+
+  &.primary {
+    border-color: $primary;
+
+    .card-label {
+      border-color: transparent $primary transparent transparent;
+      border-color: rgba(255,255,255,0) $primary rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+  }
+  &.secondary {
+    border-color: $secondary;
+
+    .card-label {
+      border-color: transparent $secondary transparent transparent;
+      border-color: rgba(255,255,255,0) $secondary rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+  }
+  &.info {
+    border-color: $info;
+
+    .card-label {
+      border-color: transparent $info transparent transparent;
+      border-color: rgba(255,255,255,0) $info rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+  }
+  &.alert {
+    border-color: $alert;
+
+    .card-label {
+      border-color: transparent $alert transparent transparent;
+      border-color: rgba(255,255,255,0) $alert rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+  }
+  &.success {
+    border-color: $success;
+
+    .card-label {
+      border-color: transparent $success transparent transparent;
+      border-color: rgba(255,255,255,0) $success rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+  }
+  &.warning {
+    border-color: $warning;
+
+    .card-label {
+      border-color: transparent $warning transparent transparent;
+      border-color: rgba(255,255,255,0) $warning rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+  }
+
+  .card-label {
+    border-style: solid;
+    border-width: 0 70px 40px 0;
+    float:right;
+    height: 0px;
+    width: 0px;
+    transform:rotate(360deg);
+  }
+
+  .callout-card-content{
+    padding: 0.25rem 0.5rem 0.875rem;
+  }
+
+  &.radius {
+    border-radius: 0.6rem;
+  }
+
+  .label-text {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    position: relative;
+    right: -40px;
+    top: 2px;
+    white-space: nowrap;
+    transform: rotate(30deg);
+  }
+}

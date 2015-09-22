@@ -1,0 +1,19 @@
+
+<div class="banner">
+    <h1 class="banner-head">
+      <%= @user.first_name%>
+    </h1>
+</div>
+
+<div class="bottom-3rd debug">
+<h3>Your Projects</h3>
+<%= link_to "New Project", new_project_path%><br>
+  <% @user.projects.each do |project| %>
+    <%= link_to project_path(project) do %>
+      <div class= "thumbnail debug">
+        <h4><%= project.name %><h4><br>
+        <%= project.comments %>
+      </div>
+    <%end%>
+  <%end%>
+</div>

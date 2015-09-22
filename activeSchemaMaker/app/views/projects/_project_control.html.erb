@@ -1,0 +1,98 @@
+<div class="content side-form">
+  <h2 class="content-subhead">Create Relationships</h2>
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">Project</a></li>
+      <li><a href="#tabs-2">Create New Tables</a></li>
+      <li><a href="#tabs-3">Create Relationships</a></li>
+    </ul>
+
+    <div id="tabs-1">
+
+    </div>
+
+    <div id="tabs-2">
+      <%= form_for(@table, remote: true, html: {id: "create-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+
+        <legend class="pure-form>
+          <%= f.label :name, "Table Name:", class: 'pure-input' %>
+          <%= f.text_field :name, class: 'pure-input pure-input-2-3' %><br/>
+        </legend>
+
+        <div class="line-break"></div>
+
+        <div class="pure-control">
+          <table style="width:100%">
+            <tr>
+              <td class="is-center"><small class="form-label">Name</small></td>
+              <td class="is-center"><small class="form-label">Data Type</small></td>
+              <td class="is-center"> </td>
+            </tr>
+          </table>
+
+          <% if @table.fields.length > 0 %>
+            <%= f.fields_for :fields, @table.fields, html: {id: "fields-fields-form", class: 'pure-form pure-form-aligned'} do |ff| %>
+              <%= render 'field_fields', f: ff %>
+            <% end %>
+          <% end %>
+
+          <div class='no-border to-right pad-right'><%= link_to_add_fields "Add Field", f, :fields %></div>
+
+          <div class="line-break margin-bottom"></div>
+
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="tabs-3">
+      <div id="accordion">
+        <h3 class="small-margins">Has One</h3>
+        <div class="has-one">
+          <%= form_for(:relationships_path, html: {id: "hasone-relationships-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+            <% table_names = get_table_names(@tables) %>
+            <%= f.label :table_id, "Primary Key (owner)", class: 'pure-control' %>
+            <%= f.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+            <%= f.label :foreign_key, "Foreign Key (possessed), class: 'pure-control'" %>
+            <%= f.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+          <% end %>
+        </div>
+
+        <h3 class="small-margins">Has Many</h3>
+        <div class="has-many">
+          <%= form_for(:relationships_path, html: {id: "hasmany-relationships-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+            <% table_names = get_table_names(@tables) %>
+            <%= f.label :table_id, "Primary Key (owner)", class: 'pure-control' %>
+            <%= f.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+            <%= f.label :foreign_key, "Foreign Key (possessed)", class: 'pure-control' %>
+            <%= f.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+          <% end %>
+        </div>
+
+        <h3 class="small-margins">Has Many Through</h3>
+        <div class="has-many-through">
+          <%= form_for(:relationships_path, html: {id: "hasmanythrough-relationships-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+            <% table_names = get_table_names(@tables) %>
+            <%= f.label :table_id, "Primary Key (owner)", class: 'pure-control' %>
+            <%= f.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+            <%= f.label :foreign_key, "Foreign Key (possessed)", class: 'pure-control' %>
+            <%= f.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+            <%= f.label :join_table_name, "Join Table Name", class: 'pure-control' %>
+            <%= f.text_field :join_table_name, class: 'pure-input pure-input-2-3' %>
+          <% end %>
+        </div>
+
+       <!--  <h3>Section 4</h3>
+        <div>
+          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

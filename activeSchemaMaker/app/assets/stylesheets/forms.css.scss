@@ -1,0 +1,32 @@
+// Place all the styles related to the tables controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-link {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  margin: 0 0 0 0;
+  padding:0 0 0 0;
+  color: #1A16C0;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.full-width-field {
+  width: 90%;
+}
+
+.form-control {
+  margin: 5px 0 5px 0;
+}
+
+.form-label {
+  font-size: 85;
+}
+
+.fixed-width {
+  width: 25px;
+}

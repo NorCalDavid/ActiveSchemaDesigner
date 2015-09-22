@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
+    @relationship = Relationship.new
     @route = "project#show"
     set_current_project(params[:id])
 
@@ -59,7 +60,14 @@ class ProjectsController < ApplicationController
 
   #POST /relationiships
   def create_relationships
-    p "you did it!"
+    @relationship = Relationship.new(relationship_params)
+    p @relationship
+    if request.xhr?
+    p "*" * 40
+    p params
+    p "*" * 40
+
+    end
   end
 
   private
@@ -75,6 +83,10 @@ class ProjectsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def project_params
       params.require(:project).permit(:name, :comments)
+    end
+
+    def relationship_params
+      params.require(:relationship).permit(:table_id, :foreign_key_id, :relationship_type)
     end
 
 end

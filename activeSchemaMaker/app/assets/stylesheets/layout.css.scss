@@ -6,14 +6,26 @@ html,body {
 
 }
 
+.home-menubar-fixed {
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
 .canvas {
   z-index: -1;
   width: 70%;
   background-image: url('/assets/big.png');
   position: fixed;
-  top: 0;
+  top: 4em;
   bottom: 0;
   right: 0;
+}
+
+.displayable-table {
+  padding: 1em;
 }
 
 .side-bar {
@@ -94,9 +106,6 @@ nav > a {
   padding: 0 0 0 0;
   margin-top: 0 0 0 0;
 }
-
-
-
 
 .bordered {
   border: 1px solid black;
@@ -215,6 +224,7 @@ nav > a {
   margin-bottom: 0em;
   display: table;
 }
+
 .banner-head {
   display: table-cell;
   vertical-align: middle;
@@ -244,20 +254,19 @@ nav > a {
   background-color: #6C97BD;
 }
 
-
 .home-menu {
+  background: #2d3e50;
   padding: 0.5em;
   text-align: right;
   box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 }
-.home-menu {
-  background: #2d3e50;
-}
-.pure-menu.pure-menu-fixed {
+
+.pure-menu .pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
     border-bottom: none;
     /* I need a higher z-index here because of the scroll-over effect. */
-    z-index: 4;
+    // z-index: 4;
+    height: 10em;
   }
 
   .home-menu .pure-menu-heading {
@@ -273,6 +282,7 @@ nav > a {
   .home-menu a {
     color: #6FBEF3;
   }
+
   .home-menu li a:hover,
   .home-menu li a:focus {
     background: none;

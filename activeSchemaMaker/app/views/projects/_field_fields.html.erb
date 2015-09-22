@@ -1,4 +1,4 @@
-s<h3>
+<h3>
     <tr>
       <td><%= f.text_field :name %></td>
       <td><%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></td>
@@ -11,18 +11,18 @@ s<h3>
     <div class="line-break"></div>
       <tr>
         <td class="to-right"><small class="form-label">Default Value:</small></td>
-        <td class="to-left"><%= f.text_field :default_value %></td>
+        <td class="to-left"><%= f.text_field :default_value, class: 'pure-input pure-input-2-3' %></td>
       </tr><br/>
 
       <tr>
         <td class="to-right"><small class="form-label">Auto Increment:</small></td>
-        <td class="to-left"><%= f.check_box :auto_increment %></td>
+        <td class="to-left"><%= f.check_box :auto_increment, class: 'pure-input pure-input-2-3' %></td>
       </tr><br/>
 
 
       <tr>
         <td class="to-right"><small class="form-label">Allow Null Value:</small></td>
-        <td class="to-left"><%= f.check_box :allow_null %></td>
+        <td class="to-left"><%= f.check_box :allow_null, class: 'pure-input pure-input-2-3' %></td>
       </tr><br/>
 
 

@@ -1,18 +1,19 @@
-<div id ="t<%= @table.id %>" class="pure pure-u-md-1-4 draggable ui-widget-content">
+<div id ="t<%= @table.id %>" class="pure pure-u-md-1-4 draggable ui-widget-content displayable-table">
+  <% table ||= @table %>
   <div class="callout-card primary">
     <div class="card-label">
       <div class="label-text">
-        <button id="tb<%= @table.id %>" type="button" class="btn-link" title="tbl-edit">Edit</button>
+        <button id="tb<%= table.id %>" type="button" class="btn-link" title="tbl-edit">Edit</button>
       </div>
     </div>
 
     <div class="callout-card-content">
-      <div class='header'><h3 class="lead no-margin-bottom no-pad-bottom">Table: <%= @table.name %> </h3></div>
+      <div class='header'><h3 class="lead no-margin-bottom no-pad-bottom">Table: <%= table.name %> </h3></div>
 
       <div class="callout-table-divider"></div>
 
       <div class='content'>
-        <%= @table.fields do |field| %>
+        <%= table.fields do |field| %>
         <table class="no-border pad-top">
           <tbody> <tr>
               <td class='column-55'><small><%= field.name %></small></td>

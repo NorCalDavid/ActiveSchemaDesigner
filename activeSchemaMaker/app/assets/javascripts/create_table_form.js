@@ -18,4 +18,17 @@ $(document).ready(function(){
     //$('form .validations').toggle()
   });
 
+  $(function() {
+    $( "#accordion" ).accordion({
+      heightStyle: "content",
+      collapsible: true
+    });
+  });
+
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+
+
+
 });

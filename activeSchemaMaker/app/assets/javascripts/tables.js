@@ -17,8 +17,9 @@ $(document).ready(function(){
     });
 
   $("#hasone-relationships-form")
-  .on('ajax:success', function(event, response, xhr){
-    console.log(response);
+  .on('ajax:success', function(event, data, xhr){
+      var response = data;
+      debugger
   })
 
 });

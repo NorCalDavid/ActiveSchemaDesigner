@@ -1,6 +1,5 @@
 class RelationshipsController < ApplicationController
 
-
   #POST /relationiships
   def create
     @relationship = Relationship.new(relationship_params)
@@ -11,18 +10,12 @@ class RelationshipsController < ApplicationController
     end
   end
 
-  # def create
-
-  # end
-
   # def destroy
-
   # end
 
   # private
 
   # def make_connection
-
   # end
 
   private

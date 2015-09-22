@@ -1,12 +1,13 @@
+<div>
 <h3>
     <tr>
       <td><%= f.text_field :name %></td>
       <td><%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></td>
-      <td><a class='btn-validations btn-link' href="#"><i class="fa fa-wrench fa-fw"></i></a></td>
+      <td><a id='me' class='me btn-validations btn-link' href="#"><i class="fa fa-wrench fa-fw"></i></a></td>
     </tr>
 </h3>
 
-<div class="pure-form pure-form-aligned">
+<div class="pure-form pure-form-aligned validation-options hidden">
   <div class="validation-options">
     <div class="line-break"></div>
       <tr>
@@ -80,4 +81,5 @@
 
     <div class="line-break"></div>
   </div>
+</div>
 </div>

@@ -42,7 +42,7 @@
           </table>
 
           <% if @table.fields.length > 0 %>
-            <%= f.fields_for :fields, @table.fields, html: {id: "fields-fields-form", class: 'pure-form pure-form-aligned'} do |ff| %>
+            <%= f.fields_for :fields, @table.fields, html: {id: "field-fields-form", class: 'pure-form pure-form-aligned'} do |ff| %>
               <%= render 'field_fields', f: ff %>
             <% end %>
           <% end %>

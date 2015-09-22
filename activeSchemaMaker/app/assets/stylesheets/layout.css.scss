@@ -2,11 +2,31 @@ html,body {
   font-family: 'Open Sans', serif;
 }
 
+.content-right {
+
+}
+
 .canvas {
-  height: 55em;
-  width: 100%;
+  z-index: -1;
+  width: 70%;
   background-image: url('/assets/big.png');
-  display: inline-block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.side-bar {
+  width: 30%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.side-form {
+  width: 95%;
+  padding: 0 2% 0 2%;
 }
 
 .align-r {
@@ -37,36 +57,36 @@ nav > a {
 }
 
 .logo-wrapper {
-    position: relative;
-  }
+  position: relative;
+}
 
-  .logo-wrapper .logo {
-    width: 92px;
-    height:  92px;
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    top: -2px;
-    margin-left: -46px;
-  }
+.logo-wrapper .logo {
+  width: 92px;
+  height:  92px;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  top: -2px;
+  margin-left: -46px;
+}
 
-  .top-bar-section ul.right {
-    width: 50%;
-    padding-left: 60px;
-  }
+.top-bar-section ul.right {
+  width: 50%;
+  padding-left: 60px;
+}
 
-  .top-bar-section ul.right li {
-    float:  left;
-  }
+.top-bar-section ul.right li {
+  float:  left;
+}
 
-  .top-bar-section ul.left {
-    width:  50%;
-    padding-right: 60px;
-  }
+.top-bar-section ul.left {
+  width:  50%;
+  padding-right: 60px;
+}
 
-  .top-bar-section ul.left li {
-    float:  right;
-  }
+.top-bar-section ul.left li {
+  float:  right;
+}
 
 .small-italic {
   font-size: 85%;
@@ -75,9 +95,8 @@ nav > a {
   margin-top: 0 0 0 0;
 }
 
-.side-bar {
-  width: 350px;
-}
+
+
 
 .bordered {
   border: 1px solid black;
@@ -186,24 +205,24 @@ nav > a {
 }
 
 .banner {
-    background: transparent url('grid.png') 0 0 no-repeat fixed;
-    text-align: center;
-    background-size: cover;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg', sizingMethod='scale');
+  background: transparent url('grid.png') 0 0 no-repeat fixed;
+  text-align: center;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg', sizingMethod='scale');
 
-    height: 350px;
-    width: 100%;
-    margin-bottom: 0em;
-    display: table;
+  height: 350px;
+  width: 100%;
+  margin-bottom: 0em;
+  display: table;
 }
 .banner-head {
-        display: table-cell;
-        vertical-align: middle;
-        margin-bottom: 0;
-        font-size: 5em;
-        color: #09277A;
-        font-weight: 500;
-        text-shadow: 1px 1px 1px #888;
+  display: table-cell;
+  vertical-align: middle;
+  margin-bottom: 0;
+  font-size: 5em;
+  color: #09277A;
+  font-weight: 500;
+  text-shadow: 1px 1px 1px #888;
 }
 
 .thumbnail{
@@ -222,45 +241,45 @@ nav > a {
 }
 
 .blue{
-    background-color: #6C97BD;
+  background-color: #6C97BD;
 }
 
 
 .home-menu {
-    padding: 0.5em;
-    text-align: right;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+  padding: 0.5em;
+  text-align: right;
+  box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 }
 .home-menu {
-    background: #2d3e50;
+  background: #2d3e50;
 }
 .pure-menu.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
     border-bottom: none;
     /* I need a higher z-index here because of the scroll-over effect. */
     z-index: 4;
-}
+  }
 
-.home-menu .pure-menu-heading {
+  .home-menu .pure-menu-heading {
     color: white;
     font-weight: 400;
     font-size: 120%;
-}
+  }
 
-.home-menu .pure-menu-selected a {
+  .home-menu .pure-menu-selected a {
     color: white;
-}
+  }
 
-.home-menu a {
+  .home-menu a {
     color: #6FBEF3;
-}
-.home-menu li a:hover,
-.home-menu li a:focus {
+  }
+  .home-menu li a:hover,
+  .home-menu li a:focus {
     background: none;
     border: none;
     color: #AECFE5;
-}
+  }
 
-.debug {
-  border: 1px solid red;
-}
+  .debug {
+    border: 1px solid red;
+  }

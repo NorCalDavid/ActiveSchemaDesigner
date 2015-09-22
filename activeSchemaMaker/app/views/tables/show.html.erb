@@ -1,5 +1,5 @@
+<% table ||= @table %>
 <div id ="t<%= @table.id %>" class="pure pure-u-md-1-4 draggable ui-widget-content displayable-table">
-  <% table ||= @table %>
   <div class="callout-card primary">
     <div class="card-label">
       <div class="label-text">
@@ -13,13 +13,16 @@
       <div class="callout-table-divider"></div>
 
       <div class='content'>
-        <%= table.fields do |field| %>
-        <table class="no-border pad-top">
-          <tbody> <tr>
-              <td class='column-55'><small><%= field.name %></small></td>
-              <td class='column-35'><small><%= field.data_type %></small></td>
-            </tr> </tbody>
-        </table>
+        <% table.fields do |field| %>
+        <div class='DT<%= field.data_type %>'>
+          <table class="no-border pad-top">
+            <tbody> <tr>
+                <td class='connection-port' id='f<%= field.id %>'></td>
+                <td class='column-55'><small><%= field.name %></small></td>
+                <td class='column-35'><small><%= field.data_type %></small></td>
+              </tr> </tbody>
+          </table>
+        </div>
         <% end %>
       </div>
     </div>

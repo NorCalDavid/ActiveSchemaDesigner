@@ -7,15 +7,16 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
-  $(document).on('click', 'form .btn-add-comments', function(e) {
+  $(document).on('click', '#create-table-form .btn-add-comments', function(e) {
     e.preventDefault();
-    $('form .comments-field').toggle()
+    debugger;
+    $('form #create-table-form .comments-field').toggle()
   });
 
-  $('#main-form').on('click', 'a.btn-validations', function(e) {
+  $('form #create-table-form').on('click', 'a.btn-validations', function(e) {
     e.preventDefault();
-    $(e.target).closest('table').siblings('div').toggle();
-    //$('form .validations').toggle()
+    // $(e.target).closest('table').siblings('div').toggle();
+    $('form #fields-fields-form .validations').toggle()
   });
 
   $(function() {

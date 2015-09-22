@@ -1,6 +1,3 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-
 
 $(document).ready(function(){
 
@@ -12,6 +9,7 @@ $(document).ready(function(){
   $('#create-table-form')
     .on('ajax:success', function(event, response, xhr) {
       $(".canvas").append(response);
+      $(".draggable").draggable();
     })
     .on("ajax:error", function(event){
       console.error('failed to create table', arguments);

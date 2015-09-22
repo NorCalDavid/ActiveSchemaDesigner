@@ -8,7 +8,6 @@ $(document).ready(function(){
   // main toolbar form submits new table
   $('#create-table-form')
     .on('ajax:success', function(event, response, xhr) {
-      debugger;
       $(".canvas").append(response);
       $(".draggable").draggable();
     })
@@ -18,9 +17,8 @@ $(document).ready(function(){
     });
 
   $("#hasone-relationships-form")
-  .on('ajax:before', function(event, xhr){
-    event.data = {"relationship": "has_one"};
-
+  .on('ajax:success', function(event, response, xhr){
+    console.log(response);
   })
 
 });

@@ -61,12 +61,10 @@ class ProjectsController < ApplicationController
   #POST /relationiships
   def create_relationships
     @relationship = Relationship.new(relationship_params)
-    p @relationship
-    if request.xhr?
-    p "*" * 40
-    p params
-    p "*" * 40
-
+    if @relationship.save
+      render json: @relationship, location: @relationship
+    else
+      render json: @relationship.errors, status: :unprocessable_entity
     end
   end
 

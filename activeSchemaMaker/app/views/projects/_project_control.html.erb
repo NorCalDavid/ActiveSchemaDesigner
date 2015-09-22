@@ -62,7 +62,7 @@
       <div id="accordion">
         <h3 class="small-margins">Has One</h3>
         <div class="has-one">
-          <%= form_for(@relationship, url: {action: "create_relationships"}, remote: true, html: {id: "hasone-relationships-form", class: 'pure-form pure-form-aligned'}) do |f1| %>
+          <%= form_for(@relationship, url: {action: "create_relationships"}, remote: true, format: 'json', html: {id: "hasone-relationships-form", class: 'pure-form pure-form-aligned'}) do |f1| %>
             <% table_names = get_table_names(@tables) %>
             <%= f1.label :table_id, "Primary Key: (Owner)", class: 'pure-control' %>
             <%= f1.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %><br/><br/>

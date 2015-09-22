@@ -8,18 +8,9 @@
 
 	  <% if @tables != ["No Tables"] %>
 	    <% @tables.each do |table| %>
-	        <%= render partial: '/tables/show', locals: { table: table} %>
-	    <% end %>
-	  <% end %>
+        <%= render partial: '/tables/show', locals: { table: table} %>
+        <%= render partial: 'associations_form', locals: {tables: @tables} %>
+      <% end %>
+    <% end %>
 
     </div>
-
-    <div class="pure-u-1 pure-u-md-4-5">
-        <div>
-			<div class="canvas"></div>
-        </div>
-    </div>
-
-</div>
-
-

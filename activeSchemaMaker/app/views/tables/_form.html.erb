@@ -1,59 +1,57 @@
-<div class="side-bar centered align-r debug menu shdw">
-  <%= form_for(@table, remote: true, html: {id: "create-table-form", class: 'form-container'}) do |f| %>
+<div class="pure-g">
+  <div class='pure-u-1-6'>
+    <div class="content">
+        <h2 class="content-head">Project: <%=@project.name%></h2>
+
+    <div id="tabs">
+      <ul>
+        <li><a href="#tabs-1">One to Many</a></li>
+        <li><a href="#tabs-2">Many to Many</a></li>
+        <!-- <li><a href="#tabs-3">Aenean lacinia</a></li> -->
+      </ul>
+      <div id="tabs-1">
+        <%= form_for(@table, remote: true, html: {id: "create-table-form", class: 'form-container'}) do |f| %>
+
+          <div class="field form-container">
+            <%= f.label :name, "Table Name" %><br/>
+            <%= f.text_field :name, class: "full-width-field" %><br/>
+          </div>
+
+          <div class="line-break"></div>
+
+          <div class="form-fields form-container">
+            <table style="width:100%">
+              <tr>
+                <td class="is-center"><small class="form-label">Name</small></td>
+                <td class="is-center"><small class="form-label">Data Type</small></td>
+                <td class="is-center"> </td>
+              </tr>
+            </table>
+            <% if @table.fields.length > 0 %>
+              <%= f.fields_for :fields, @table.fields do |ff| %>
+                <%= render 'field_fields', f: ff %>
+              <% end %>
+            <% end %>
+            <div class='no-border to-right pad-right'><%= link_to_add_fields "Add Field", f, :fields %></div>
+            <div class="line-break margin-bottom"></div>
+          </div>
 
 
-  <div class="subheader">
-    <h3 class="small-margins"><%=@project.name%></h3>
-    <div class="field form-container centered no-pad-bottom no-margin-bottom">
-      <%= f.label :name, "Table Name" %><br/>
-      <%= f.text_field :name, class: "full-width-field" %><br/>
-    </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
 
-    <div class="to-right pad-right no-pad-top no-margin-top"><%= button_tag('Add Comments', type: 'button', class: 'btn-add-comments btn-link no-pad-top no-margin-top') %></div>
-
-    <div class="comments-field form-container hidden">
-      <%= f.label :comments, class: "form-label" %><br>
-      <%= f.text_area :comments, class:'full-width-field' %>
-    </div>
-
-    <div class="line-break"></div>
-
-    <div class="form-fields form-container">
-      <table style="width:100%">
-      <tr>
-        <td class="centered"><small class="form-label">Name</small></td>
-        <td class="centered"><small class="form-label">Data Type</small></td>
-        <td class="centered"> </td>
-      </tr>
-      </table>
-      <% if @table.fields.length > 0 %>
-        <%= f.fields_for :fields, @table.fields do |ff| %>
-          <%= render 'field_fields', f: ff %>
         <% end %>
-      <% end %>
-      <div class='no-border to-right pad-right'><%= link_to_add_fields "Add Field", f, :fields %></div>
-      <div class="line-break margin-bottom"></div>
+      </div>
+      <div id="tabs-2">
+
+
+
+      </div>
+      <!-- <div id="tabs-3">
+        <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+        <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+      </div> -->
     </div>
-
-    <div class="relationships hidden">
-      <%= f.submit %>
-
-
-    </div>
-
-    <div class="actions">
-      <%= button_tag(type: 'button', id: 'btn-validations') do %>Add Validations<% end %>
-      <%= button_tag(type: 'button', id: 'btn-relationships') do %>Add Relationships<% end %>
-
-    </div>
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-
-  <% end %> 
-  <!-- <button onclick="$('#field19, #field26').connections({'class': 'fast'})">connect name date</button> -->
   </div>
 </div>
-
-

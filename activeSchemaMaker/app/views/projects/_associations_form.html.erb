@@ -1,0 +1,40 @@
+
+<div class="associations-form draggable">
+
+
+  <div class="has-one">
+    <h5 class="small-margins">Has One</h5>
+    <%= form_for(:relationships_path) do |f| %>
+      <% table_names = get_table_names(@tables) %>
+      <%= f.label :table_id, "Primary Key (owner)" %>
+      <%= f.select :table_id, select_menu_table_names(table_names) %>
+      <%= f.label :foreign_key, "Foreign Key (possessed)" %>
+      <%= f.select :foreign_key, select_menu_table_names(table_names) %>
+    <% end %>
+  </div>
+
+  <div class="has-many">
+    <h5 class="small-margins">Has Many</h5>
+    <%= form_for(:relationships_path) do |f| %>
+      <% table_names = get_table_names(@tables) %>
+      <%= f.label :table_id, "Primary Key (owner)" %>
+      <%= f.select :table_id, select_menu_table_names(table_names) %>
+      <%= f.label :foreign_key, "Foreign Key (possessed)" %>
+      <%= f.select :foreign_key, select_menu_table_names(table_names) %>
+    <% end %>
+  </div>
+
+  <div class="has-many-through">
+    <h5 class="small-margins">Has Many Through</h5>
+    <%= form_for(:relationships_path) do |f| %>
+      <% table_names = get_table_names(@tables) %>
+      <%= f.label :table_id, "Primary Key (owner)" %>
+      <%= f.select :table_id, select_menu_table_names(table_names) %>
+      <%= f.label :foreign_key, "Foreign Key (possessed)" %>
+      <%= f.select :foreign_key, select_menu_table_names(table_names) %>
+      <%= f.label :join_table_name, "Join Table Name" %>
+      <%= f.text_field :join_table_name %>
+    <% end %>
+  </div>
+
+</div>

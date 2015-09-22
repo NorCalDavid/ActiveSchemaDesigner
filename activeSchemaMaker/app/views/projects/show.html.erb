@@ -7,5 +7,7 @@
     <% @tables.each do |table| %>
         <%= render partial: '/tables/show', locals: { table: table} %>
     <% end %>
+  <%= render partial: 'associations_form', locals: {tables: @tables} %>
   <% end %>
+
 </div>

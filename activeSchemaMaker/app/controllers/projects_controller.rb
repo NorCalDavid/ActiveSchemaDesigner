@@ -34,12 +34,28 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @project = User.find(session[:user_id]).projects.new(project_params)
 
-    if @project.save
-      redirect_to @project, notice: 'Project was successfully created.'
+    if request.xhr?
+
+      @table = Project.find(session[:current_project_id]).tables.new(table_params)
+      respond_to do |format|
+        if @table.save
+          format.json {render json: '/tables/show', table: @table, status: :created, location: @table}
+        else
+          format.json {render json: @table.errors, status: :unprocessable_entity}
+        end
+      end
+
     else
-      render :new
+
+      @project = User.find(session[:user_id]).projects.new(project_params)
+
+      if @project.save
+        redirect_to @project, notice: 'Project was successfully created.'
+      else
+        render :new
+      end
+
     end
   end
 
@@ -71,6 +87,10 @@ class ProjectsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def project_params
       params.require(:project).permit(:name, :comments)
+    end
+
+    def table_params
+      params.require(:table).permit(:name, :comments, fields_attributes: [:name, :data_type, :default_value, :auto_increment, :allow_null])
     end
 
 end

@@ -24,14 +24,39 @@ html,body {
   right: 0;
 }
 
+span.tab {
+  padding: 1em 0 0 1em;
+}
+
 .displayable-table {
   padding: 1em;
+}
+
+.connection-port {
+  color: transparent;
+}
+
+.dispTable-col1 {
+  width: 2%;
+  margin-top: 5px;
+}
+
+.dispTable-col2 {
+  width: 60%;
+  text-align: left;
+  margin-top: 5px;
+}
+
+.dispTable-col3 {
+  width: 35%;
+  text-align: left;
+  margin-top: 5px;
 }
 
 .side-bar {
   width: 30%;
   position: fixed;
-  top: 0;
+  top: 3em;
   bottom: 0;
   left: 0;
 }
@@ -39,6 +64,7 @@ html,body {
 .side-form {
   width: 95%;
   padding: 0 2% 0 2%;
+  margin-top: 2em;
 }
 
 .align-r {

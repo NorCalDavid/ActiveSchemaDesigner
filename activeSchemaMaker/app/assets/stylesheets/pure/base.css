@@ -84,10 +84,10 @@ audio:not([controls]) {
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
 
-[hidden],
+/*[hidden],
 template {
   display: none;
-}
+}*/
 
 /* Links
    ========================================================================== */
@@ -450,10 +450,10 @@ th {
  * Always hide an element when it has the `hidden` HTML attribute.
  */
 
-.hidden,
+/*.hidden,
 [hidden] {
     display: none !important;
-}
+}*/
 
 /**
  * Add this class to an image to make it fit within it's fluid parent wrapper while maintaining

@@ -19,6 +19,11 @@ class TablesController < ApplicationController
 
   # GET /tables/1/edit
   def edit
+    @table = Table.find(params[:id])
+    if request.xhr?
+      render partial: 'projects/edit_tables', table: @table, status: :ok, location: @table
+    end
+
   end
 
   # POST /tables

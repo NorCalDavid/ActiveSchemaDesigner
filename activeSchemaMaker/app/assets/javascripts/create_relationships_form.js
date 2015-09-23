@@ -15,9 +15,7 @@ $(document).ready(function(){
         .addClass( "overflow" );
   });
 
-  $(function() {
-    $( "#dialog" ).dialog();
-  });
+
 
   // $(function() {
   //   $( "#accordion" ).accordion({

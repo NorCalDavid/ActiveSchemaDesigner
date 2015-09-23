@@ -2,7 +2,7 @@
   <h3>
       <tr>
         <td><%= f.text_field :name %></td>
-        <td><%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></td>
+        <td><%= f.select :data_type, data_type_options %></td>
         <td><a id='me' class='me btn-validations btn-link' href="#"><i class="fa fa-wrench fa-fw"></i></a></td>
       </tr>
   </h3>

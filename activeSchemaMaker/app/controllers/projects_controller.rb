@@ -74,6 +74,7 @@ class ProjectsController < ApplicationController
     redirect_to projects_url, notice: 'Project was successfully destroyed.'
   end
 
+  # GET /projects/1/migration
   def migration
 
     headers['Content-Disposition'] = "attachment; filename=\"TODO_timestamp_#{@project.name}.rb\""

@@ -1,37 +1,92 @@
-<%= form_for(@field) do |f| %>
-  <% if @field.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@field.errors.count, "error") %> prohibited this field from being saved:</h2>
+<!-- Modal -->
+<div class="modal" id="modal-one" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="center-v white pad-vert">
+      <%= form_tag do %>
+        <div class='pure-form pure-form-aligned center-h'>
 
-      <ul>
-      <% @field.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="modal-header">
+      <h2>Modal in CSS?</h2>
+      <a href="#close" class="btn-close" aria-hidden="true">×</a> <!--CHANGED TO "#close"-->
     </div>
-  <% end %>
+      <legend class='pure-form legend'>
+        <div class='content-header blue-logo'>
+          <i class="fa fa-user fa-5x"></i>
+          <h1></h1>
+        </div>
+      </legend>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+      <div class="modal-body">
+        <p>One modal example here! :D</p>
+      <div class="pure-control">
+
+        <div class="inline-group centered">
+          <div class="centered float-left">
+            <%= label_tag :name %><br>
+            <%= text_field_tag :name, class: 'pure-input centered' %>
+          </div>
+
+          <div class="centered float-left">
+            <%= label_tag :data_type %><br>
+            <%= text_field_tag :data_type, class: 'pure-input centered' %>
+          </div>
+        </div>
+
+        <div class="pure-form pure-form validation-options">
+          <div class="validation-options">
+            <div class="line-break"></div>
+            <div class='table-block'>
+
+              <div class='pull-left options-group'>
+                <table style="width:100%">
+                  <tr>
+                    <td class='tblCol-10 pad-right pad-left'><span>Default Value:<small><%= text_field_tag :default_value %></small></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span class="format-select">Length:<small><%= select_tag :length, %w[True False] %></small></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span>Min:<small><%= number_field_tag :length_min, class:'fixed-width' %></small></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span>Max:<small><%= number_field_tag :length_max, class:'fixed-width' %></small></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span>Equal To:<small><%= number_field_tag :length_is, class:'fixed-width' %></small></span></td>
+                  </tr>
+                </table>
+              </div><br/>
+
+              <div class='options-group full-width-field'>
+                <table style="width:100%">
+                  <tr>
+                    <td class='tblCol-10 pad-right pad-left'><span>Validate On:<small><%= select_tag :validate_on, %w[Create Update Both] %></small></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span>Acceptance: <small><%= select_tag :acceptance, %w[True False] %></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span>Presence: <small><%= select_tag :presence, %w[True False] %></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span>Confirmation: <small><%= select_tag :confirmation, %w[True False] %></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span>Increment: <small><%= select_tag :auto_increment, %w[True False] %></span></td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class='options-group full-width-field'>
+                <table style="width:100%">
+                  <tr>
+                    <td class='tblCol-10 pad-right pad-left'><span>Allow Null: <small><%= select_tag :allow_null, %w[True False] %></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span>Format: <small><%= select_tag :format, %w[True False] %></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span class="format-true"> Type: <small><%= select_tag :format_type, %w[Valid-Email] %></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span>Uniqueness: <small><%= select_tag :uniqueness, %w[True False], class: "uniqueness-select" %></span></td>
+                    <td class='tblCol-10 pad-right pad-left'><span class="uniqueness-true">Case Sensitive: <small><%= select_tag :case_sensitive, %w[True False] %></span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="centered">
+          <br/>
+          <%= submit_tag "Submit", class: "pure-button pure-button-primary" %>
+        </div>
+        <a href="#close" class="btn">Nice!</a>  <!--CHANGED TO "#close"-->
+      </div>
+    <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :data_type %><br>
-    <%= f.text_field :data_type %>
-  </div>
-  <div class="field">
-    <%= f.label :default_value %><br>
-    <%= f.text_field :default_value %>
-  </div>
-  <div class="field">
-    <%= f.label :auto_increment %><br>
-    <%= f.check_box :auto_increment %>
-  </div>
-  <div class="field">
-    <%= f.label :allow_null %><br>
-    <%= f.check_box :allow_null %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+<!-- /Modal -->
+
+  <a href="#modal-one" class="btn btn-big">Modal!</a>

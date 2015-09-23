@@ -13,20 +13,22 @@
         </div>
       <% end %>
 
-      <div class='content header blue-logo'>
-        <i class="fa fa-cogs fa-5x"></i>
-        <h1>New Project</h1>
-      </div>
+      <legend class='pure-form legend'>
+        <div class='content-header blue-logo'>
+          <i class="fa fa-cogs fa-5x"></i>
+          <h1>New Project</h1>
+        </div>
+      </legend>
 
       <div class="pure-control row-spacing">
         <div class="centered row-spacing">
           <%= f.label :name, class: 'pure-label' %><br>
-          <%= f.text_field :name, class: 'pure-input pure-u-1-5' %>
+          <%= f.text_field :name, class: 'pure-input pure-u-1-5 centered' %>
         </div>
 
         <div class="centered row-spacing">
           <%= f.label :comments, class: 'pure-label' %><br>
-          <%= f.text_area :comments, class: 'pure-input pure-u-1-5' %>
+          <%= f.text_area :comments, class: 'pure-input pure-u-1-5 centered' %>
         </div>
 
         <div class="centered row-spacing">

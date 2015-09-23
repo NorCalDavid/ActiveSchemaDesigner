@@ -15,7 +15,7 @@
     <div id="tabs-2">
       <%= form_for(@table, remote: true, html: {id: "create-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
 
-        <legend class="pure-form">
+        <legend class="pure-form full-width-field">
           <%= f.label :name, "Table Name:", class: 'pure-input' %>
           <%= f.text_field :name, class: 'pure-input pure-input-2-3' %><br/>
 

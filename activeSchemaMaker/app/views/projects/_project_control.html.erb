@@ -63,11 +63,10 @@
         <h3 class="small-margins">Has One</h3>
         <div class="has-one">
           <%= form_for(@relationship, remote: true, format: 'json', html: {id: "hasone-relationships-form", class: 'pure-form pure-form-aligned'}) do |f1| %>
-            <% table_names = get_table_names(@tables) %>
             <%= f1.label :table_id, "Primary Key: (Owner)", class: 'pure-control' %>
-            <%= f1.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f1.select :table_id, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
             <%= f1.label :foreign_key_id, "Foreign Key: (Possessed)", class: 'pure-control' %>
-            <%= f1.select :foreign_key_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f1.select :foreign_key_id, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
             <%= f1.hidden_field :relationship_type, :value => "has_one" %>
             <%= f1.submit "Create Relationship", class: 'pure-button pure-button-primary' %>
           <% end %>
@@ -76,11 +75,10 @@
         <h3 class="small-margins">Has Many</h3>
         <div class="has-many">
           <%= form_for(:relationships_path, html: {id: "hasmany-relationships-form", class: 'pure-form pure-form-aligned'}) do |f2| %>
-            <% table_names = get_table_names(@tables) %>
             <%= f2.label :table_id, "Primary Key: (Owner)", class: 'pure-control' %>
-            <%= f2.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f2.select :table_id, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
             <%= f2.label :foreign_key, "Foreign Key: (Possessed)", class: 'pure-control' %>
-            <%= f2.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f2.select :foreign_key, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
             <%= f2.submit "Create Relationship", class: 'pure-button pure-button-primary' %>
           <% end %>
         </div>
@@ -88,11 +86,10 @@
         <h3 class="small-margins">Has Many Through</h3>
         <div class="has-many-through">
           <%= form_for(:relationships_path, html: {id: "hasmanythrough-relationships-form", class: 'pure-form pure-form-aligned'}) do |f3| %>
-            <% table_names = get_table_names(@tables) %>
             <%= f3.label :table_id, "Primary Key: (Owner)", class: 'pure-control' %>
-            <%= f3.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f3.select :table_id, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
             <%= f3.label :foreign_key, "Foreign Key: (Possessed)", class: 'pure-control' %>
-            <%= f3.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f3.select :foreign_key, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
             <%= f3.label :join_table_name, "Join Table Name:", class: 'pure-control' %>
             <%= f3.text_field :join_table_name, class: 'pure-input pure-input-2-3' %><br/><br/>
             <%= f3.submit "Create Relationship", class: 'pure-button pure-button-primary' %>

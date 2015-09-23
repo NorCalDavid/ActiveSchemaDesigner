@@ -2,14 +2,18 @@ class RelationshipsController < ApplicationController
 
   #POST /relationiships
   def create
+    p "*"*40
+    p params
+
+
+
+    p "*"*40
     @relationship = Relationship.new(relationship_params)
-
     if @relationship.save
-      table_names = get_table_names(Project.find(session[:current_project_id]).tables)
-      options_array = select_menu_table_names(table_names)
 
-      #you need to iterate through the options array to get the option value and relate it to the name of the table so that you can create the foriegn key name "_id"
-
+      pk_table = Table.find(params[:table_id])
+      fk_table = Table.find(params[:foreign_key_id])
+      @field = fk_table.fields.new(name: "#{pk_table.name}_id", data_type: "integer")
       if @field.save
         format.json {render json: '/fields/show', field: @field, status: :created, location: @field}
       end

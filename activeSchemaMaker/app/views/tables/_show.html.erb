@@ -1,5 +1,5 @@
-
-<div id ="t<%= table.id %>" class="pure pure-u-md-1-4 draggable displayable-table">
+<% style = "position: absolute; left: #{table.position_x}px; top: #{table.position_y}px;" %>
+<div data-table-id="<%= table.id %>" style="<%= style %>" class="pure pure-u-md-1-4 draggable displayable-table">
   <div class="callout-card primary">
     <div class="card-label">
       <div class="label-text">
@@ -23,7 +23,7 @@
           </thead>
           <tbody>
             <% table.fields.each do |field| %>
-             <%= render partial: '/fields/show', locals: { field: field} %>
+              <%= render partial: '/fields/show', locals: { field: field} %>
             <% end %>
           </tbody>
         </table>

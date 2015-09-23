@@ -42,9 +42,17 @@ class TablesController < ApplicationController
   # PATCH/PUT /tables/1
   def update
     if @table.update(table_params)
-      redirect_to @table, notice: 'Table was successfully updated.'
+      if request.xhr?
+        render nothing: true, status: :ok
+      else
+        redirect_to @table, notice: 'Table was successfully updated.'
+      end
     else
-      render :edit
+      if request.xhr?
+        render json: {errors: @table.errors.full_messages}, status: :bad_request
+      else
+        render :edit
+      end
     end
   end
 
@@ -62,6 +70,18 @@ class TablesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def table_params
-      params.require(:table).permit(:name, :comments, fields_attributes: [:name, :data_type, :default_value, :auto_increment, :allow_null])
+      params.require(:table).permit(
+        :name,
+        :comments,
+        :position_x,
+        :position_y,
+        fields_attributes: [
+          :name,
+          :data_type,
+          :default_value,
+          :auto_increment,
+          :allow_null,
+        ]
+      )
     end
 end

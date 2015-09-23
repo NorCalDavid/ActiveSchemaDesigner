@@ -9,18 +9,22 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
-    @relationship = Relationship.new
-    @route = "project#show"
-    set_current_project(params[:id])
-
     if Project.find(params[:id]).tables.count > 0
       @tables = Project.find(params[:id]).tables
     else
       @tables = ["No Tables"]
     end
 
-    @table = @project.tables.new
+    @relationship = Relationship.new #this is necessary to load relationships form
 
+    if request.xhr?
+      render partial: 'canvas', status: :created, location: project_path(@project)
+    else
+      # @relationship = Relationship.new
+      @route = "project#show"
+      set_current_project(params[:id])
+      @table = @project.tables.new
+    end
   end
 
   # GET /projects/new

@@ -17,13 +17,14 @@ $(document).ready(function(){
     });
 
   $("#hasone-relationships-form")
-  .on('ajax:success', function(event, data, xhr){
-    var response = data;
-    var primary_port = $("")
-
+  .on('ajax:success', function(event, response, xhr){
+    console.log(response);
   })
 
 });
+
+    //var primaryPort = $('#t' + data.table_id).find("table:first").find("tbody").find("tr:first").find("td:last-child");
+    //var foreign_port = $('#t' + data.table_id).find("table:first").find("tbody").find("tr:first").find("td:first-child");
 
   // var $form = $("#main-form");
   // $form.on("submit", function(e){

@@ -19,9 +19,21 @@ $(document).ready(function(){
   $("#hasone-relationships-form")
   .on('ajax:success', function(event, data, xhr){
     var response = data;
-    var primary_port = $("")
+    console.log(response);
+    debugger
 
+    // $('t' + data.table_id,  ).
+
+    // $("#fp" + data.table_id,"#pp()" + data.foreign_key_id).connections();
   })
+
+  //tests
+
+    $("body").on('click', function(){
+      $("#t7").find("table:first").find("tbody").find("tr:first").find("td:last-child").append("<p>A</p>");
+    });
+
+
 
 });
 

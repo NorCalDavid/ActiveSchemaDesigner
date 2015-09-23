@@ -1,0 +1,20 @@
+class <%= @project.name %> < ActiveRecord::Migration
+  def change
+    <% @project.tables.each do | table | %>
+
+
+
+      create_table :<%= table.name %> do |t|
+        t.string :first_name
+        t.string :last_name
+        t.string :email
+        t.string :password_digest
+
+        t.timestamps null: false
+      end
+
+      add_index :<%= table.name %> , :email, unique: true
+
+   <% end %>
+  end
+end

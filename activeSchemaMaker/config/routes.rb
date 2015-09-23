@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update, :show]
 
-  resources :projects
+  resources :projects do
+    member do
+      get :migration
+    end
+  end
 
   resources :tables do
     resources :fields

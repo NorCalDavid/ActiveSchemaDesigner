@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :migration]
 
   # GET /projects
   def index
@@ -72,6 +72,14 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     redirect_to projects_url, notice: 'Project was successfully destroyed.'
+  end
+
+  def migration
+
+    headers['Content-Disposition'] = "attachment; filename=\"TODO_timestamp_#{@project.name}.rb\""
+    headers['Content-Type'] ||= 'text/ruby'
+
+    render 'migration', :layout => false
   end
 
   private

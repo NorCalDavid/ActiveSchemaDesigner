@@ -5,22 +5,16 @@
  <%= render 'project_control' %>
 
 </div>
-</div>
 
 <div class="canvas" id="canvas">
   <% if @tables != ["No Tables"] %>
-   <% @tables.each do |table| %>
-    <%= render partial: '/tables/show', locals: { table: table} %>
-   <% end %>
+    <%= render partial: 'canvas', locals: {tables: @tables} %>
   <% end %>
-
-
-  <div id='edit-form-LZ'>    <!-- Landing Zone for Edit Form Ajax -->
-    <div id="dialog" title="Basic dialog">
-
-    </div>
-  </div>                  <!-- Landing Zone for Edit Form Ajax -->
-
-
 </div>
 
+
+<div id='edit-form-LZ'>    <!-- Landing Zone for Edit Form Ajax -->
+  <div id="dialog" title="Basic dialog">
+
+  </div>
+</div>                  <!-- Landing Zone for Edit Form Ajax -->

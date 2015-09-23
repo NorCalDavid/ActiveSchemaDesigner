@@ -29,7 +29,25 @@ $(document).ready(function(){
     $( "#tabs" ).tabs();
   });
 
+  // main toolbar form submits new table
+  $('#create-table-form')
+    .on('ajax:success', function(event, response, xhr) {
+      $(".canvas").append(response);
+      $(".draggable").draggable();
+      $('#create-table-form').reset();
+    })
+    .on("ajax:error", function(event){
+      console.error('failed to create table', arguments);
+    });
 
+  function resetCreateTableForm() {
+    $('#create-table-form').reset();
+  };
+
+  $(document).on('click', '#create-table-form .btn-ResetCTForm', function(event) {
+    $(event.target).preventDefault();
+    resetCreateTableForm();
+  });
 
 });
 

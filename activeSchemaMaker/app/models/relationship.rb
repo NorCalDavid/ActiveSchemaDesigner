@@ -7,6 +7,7 @@ class Relationship < ActiveRecord::Base
   after_save :get_project, on: [ :create, :update ]
 
   def get_project
-
+    self.project_id = Table.find(self.table_id).project
   end
+
 end

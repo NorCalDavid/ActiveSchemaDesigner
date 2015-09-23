@@ -1,4 +1,4 @@
-<div class="content side-form">
+<div class="content side-form" id='project-control-form'>
 
 
   <div id="tabs">
@@ -51,9 +51,16 @@
 
           <div class="line-break margin-bottom"></div>
 
-          <div class="actions">
-            <%= f.submit "Create Table", class: 'pure-button pure-button-primary' %>
+          <div class='inline-group centered'>
+            <div class="centered float-left">
+              <%= button_tag('Reset Form', type: 'button', class: 'pure-button pure-button-primary btn-ResetCTForm') %>
+            </div>
+
+            <div class="centered float-left">
+              <%= f.submit "Create Table", class: 'pure-button pure-button-primary' %>
+            </div>
           </div>
+
         </div>
       <% end %>
     </div>

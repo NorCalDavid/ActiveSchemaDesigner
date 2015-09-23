@@ -5,25 +5,15 @@ $(document).ready(function(){
 
   $(".sortable").sortable();
 
-  // main toolbar form submits new table
-  $('#create-table-form')
-    .on('ajax:success', function(event, response, xhr) {
-      $(".canvas").append(response);
-      $(".draggable").draggable();
-      $('#create-table-form').reset();
-    })
-    .on("ajax:error", function(event){
-      console.error('failed to create table', arguments);
-    });
-
   $("#hasone-relationships-form")
-  .on('ajax:success', function(event, data, xhr){
-    var response = data;
-    var primary_port = $("")
-
-  })
-
-});
+    .on('ajax:success', function(event, data, xhr){
+      var response = data;
+      var primary_port = $("")
+    })
+    .on('ajax:error', function(event) {
+      console.error('failed to create relationship', arguments);
+    })
+  });
 
   // var $form = $("#main-form");
   // $form.on("submit", function(e){

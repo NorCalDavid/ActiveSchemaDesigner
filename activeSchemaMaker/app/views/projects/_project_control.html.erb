@@ -1,0 +1,116 @@
+<div class="content side-form" id='project-control-form'>
+
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">Project</a></li>
+      <li><a href="#tabs-2">Create New Tables</a></li>
+      <li><a href="#tabs-3">Create Relationships</a></li>
+    </ul>
+
+    <div id="tabs-1">
+
+    </div>
+
+    <div id="tabs-2">
+      <%= form_for(@table, remote: true, html: {id: "create-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+
+        <legend class="pure-form full-width-field">
+          <%= f.label :name, "Table Name:", class: 'pure-input' %>
+          <%= f.text_field :name, class: 'pure-input pure-input-2-3' %><br/>
+
+          <div class="to-right pad-right no-pad-top no-margin-top">
+            <%= button_tag('Add Comments', type: 'button', class: 'btn-add-comments btn-link no-pad-top no-margin-top') %>
+          </div>
+
+          <div class="comments-field form-container hidden">
+            <%= f.label :comments, class: "form-label" %><br>
+            <%= f.text_area :comments, class:'full-width-field' %>
+          </div>
+
+        </legend>
+
+        <div class="line-break"></div>
+
+        <div class="pure-control">
+          <table style="width:100%">
+            <tr>
+              <td class="is-center"><small class="form-label">Name</small></td>
+              <td class="is-center"><small class="form-label">Data Type</small></td>
+              <td class="is-center"> </td>
+            </tr>
+          </table>
+
+          <% if @table.fields.length > 0 %>
+            <%= f.fields_for :fields, @table.fields, html: {id: "field-fields-form", class: 'pure-form pure-form-aligned'} do |ff| %>
+              <%= render 'field_fields', f: ff %>
+            <% end %>
+          <% end %>
+
+          <div class='no-border to-right pad-right'><%= link_to_add_fields "Add Field", f, :fields %></div>
+
+          <div class="line-break margin-bottom"></div>
+
+          <div class='inline-group centered'>
+            <div class="centered float-left">
+              <%= button_tag('Reset Form', type: 'button', class: 'pure-button pure-button-primary btn-ResetCTForm') %>
+            </div>
+
+            <div class="centered float-left">
+              <%= f.submit "Create Table", class: 'pure-button pure-button-primary' %>
+            </div>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+
+    <div id="tabs-3">
+      <div id="accordion">
+        <h3 class="small-margins">Has One</h3>
+        <div class="has-one">
+          <%= form_for(@relationship, remote: true, format: 'json', html: {id: "hasone-relationships-form", class: 'pure-form pure-form-aligned'}) do |f1| %>
+            <%= f1.label :table_id, "Primary Key: (Owner)", class: 'pure-control' %>
+            <%= f1.select :table_id, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f1.label :foreign_key_id, "Foreign Key: (Possessed)", class: 'pure-control' %>
+            <%= f1.select :foreign_key_id, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f1.hidden_field :relationship_type, :value => "has_one" %>
+            <%= f1.submit "Create Relationship", class: 'pure-button pure-button-primary' %>
+          <% end %>
+        </div>
+
+        <h3 class="small-margins">Has Many</h3>
+        <div class="has-many">
+          <%= form_for(:relationships_path, html: {id: "hasmany-relationships-form", class: 'pure-form pure-form-aligned'}) do |f2| %>
+            <%= f2.label :table_id, "Primary Key: (Owner)", class: 'pure-control' %>
+            <%= f2.select :table_id, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f2.label :foreign_key, "Foreign Key: (Possessed)", class: 'pure-control' %>
+            <%= f2.select :foreign_key, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f2.submit "Create Relationship", class: 'pure-button pure-button-primary' %>
+          <% end %>
+        </div>
+
+        <h3 class="small-margins">Has Many Through</h3>
+        <div class="has-many-through">
+          <%= form_for(:relationships_path, html: {id: "hasmanythrough-relationships-form", class: 'pure-form pure-form-aligned'}) do |f3| %>
+            <%= f3.label :table_id, "Primary Key: (Owner)", class: 'pure-control' %>
+            <%= f3.select :table_id, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f3.label :foreign_key, "Foreign Key: (Possessed)", class: 'pure-control' %>
+            <%= f3.select :foreign_key, select_menu_table_names(@tables), class: 'pure-select pure-input-2-3' %><br/><br/>
+            <%= f3.label :join_table_name, "Join Table Name:", class: 'pure-control' %>
+            <%= f3.text_field :join_table_name, class: 'pure-input pure-input-2-3' %><br/><br/>
+            <%= f3.submit "Create Relationship", class: 'pure-button pure-button-primary' %>
+          <% end %>
+        </div>
+
+       <!--  <h3>Section 4</h3>
+        <div>
+          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -13,27 +13,37 @@
         </div>
       <% end %>
 
+      <legend class='pure-form legend'>
+        <div class='content-header blue-logo'>
+          <i class="fa fa-user fa-5x"></i>
+          <h1><%= action %></h1>
+        </div>
+      </legend>
+
       <div class="pure-control">
-        <div class="centered">
-          <%= f.label :first_name %><br/>
-          <%= f.text_field :first_name, class: 'pure-input-rounded' %>
-        </div>
 
-        <div class="centered">
-          <%= f.label :last_name %><br/>
-          <%= f.text_field :last_name, class: 'pure-input-rounded' %>
-        </div>
+        <div class="inline-group">
+          <div class="centered float-left">
+            <%= f.label :first_name %><br/>
+            <%= f.text_field :first_name, class: 'pure-input centered' %>
+          </div>
 
-        <div class="centered">
-          <%= f.label :email %><br/>
-          <%= f.text_field :email, class: 'pure-input-rounded' %>
+          <div class="centered float-left">
+            <%= f.label :last_name %><br/>
+            <%= f.text_field :last_name, class: 'pure-input centered' %>
+          </div>
+
+          <div class="centered float-left">
+            <%= f.label :email %><br/>
+            <%= f.text_field :email, class: 'pure-input centered' %>
+          </div>
         </div>
 
         <div class="centered">
           <%= f.label :password %><br/>
           <div>
-            <%= f.password_field :password, class: 'pure-input-rounded' %>
-            <%= f.password_field :password_confirmation, class: 'pure-input-rounded' %>
+            <%= f.password_field :password, class: 'pure-input centered' %>
+            <%= f.password_field :password_confirmation, class: 'pure-input centered' %>
           </div>
         </div>
 
@@ -45,3 +55,4 @@
     <% end %>
   </div>
 </div>
+

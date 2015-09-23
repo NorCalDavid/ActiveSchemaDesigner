@@ -1,15 +1,27 @@
 <div class="center-v white pad-vert">
   <%= form_tag '/login', class: "pure-form pure-form-aligned center-h" do %>
 
-    <div class="pure-control">
-      <div class="centered">
-        <%= label_tag(:email) %><br/>
-        <%= text_field_tag :email, nil, class: 'pure-input-rounded' %>
-      </div>
+    <div class='pure-form pure-form-aligned center-h'>
 
-      <div class="centered">
-        <%= label_tag(:password) %><br/>
-        <%= password_field_tag :password, nil, class: 'pure-input-rounded' %>
+      <legend class='pure-form legend'>
+        <div class='content-header blue-logo'>
+          <i class="fa fa-user fa-5x"></i>
+          <h1>Login</h1>
+        </div>
+      </legend>
+
+      <div class="pure-control">
+
+      <div class="inline-group">
+        <div class="centered float-left">
+          <%= label_tag(:email) %><br/>
+          <%= text_field_tag :email, nil, class: 'pure-input centered' %>
+        </div>
+
+        <div class="centered float-right">
+          <%= label_tag(:password) %><br/>
+          <%= password_field_tag :password, nil, class: 'pure-input centered' %>
+        </div>
       </div>
 
       <div class="centered">
@@ -18,4 +30,7 @@
     </div>
 
   <% end %>
+
+
+
 </div>

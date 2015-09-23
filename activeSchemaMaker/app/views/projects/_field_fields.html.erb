@@ -1,83 +1,68 @@
-<h3>
-    <tr>
-      <td><%= f.text_field :name %></td>
-      <td><%= f.select :data_type, %w[string text integer bigint decimal boolean date time timestamps] %></td>
-      <td><a class='btn-validations btn-link' href="#"><i class="fa fa-wrench fa-fw"></i></a></td>
-    </tr>
-</h3>
-
-<div class="pure-form pure-form-aligned">
-  <div class="validation-options">
-    <div class="line-break"></div>
+<div>
+  <h3>
       <tr>
-        <td class="to-right"><small class="form-label">Default Value:</small></td>
-        <td class="to-left"><%= f.text_field :default_value %></td>
-      </tr><br/>
-
-      <tr>
-        <td class="to-right"><small class="form-label">Auto Increment:</small></td>
-        <td class="to-left"><%= f.check_box :auto_increment %></td>
-      </tr><br/>
-
-
-      <tr>
-        <td class="to-right"><small class="form-label">Allow Null Value:</small></td>
-        <td class="to-left"><%= f.check_box :allow_null %></td>
-      </tr><br/>
-
-
-      <tr>
-        <td class="to-right"><small class="form-label">Presence:</small></td>
-        <td class="to-left"><%= f.check_box :presence %></td>
-      </tr><br/>
-
-
-      <tr>
-        <td class="to-right"><small class="form-label">Uniqueness:</small></td>
-        <td class="to-left"><%= f.check_box :uniqueness, class: "uniqueness-select" %><span class="uniqueness-true"><small class="form-label"> Case Sensitive:</small> <%= f.check_box :case_sensitive %></span></td>
-      </tr><br/>
-
-
-      <tr>
-        <td class="to-right"><small class="form-label">Format:</small></td>
-        <td class="to-left"><%= f.check_box :format, class: "format-select" %><span class="format-true"><small class="form-label"> Type:</small> <%= f.select :format_type, %w[Valid-Email] %></span></td>
-      </tr><br/>
-
-
-      <tr>
-        <td class="to-right"><small class="form-label">Acceptance:</small></td>
-        <td class="to-left"><%= f.check_box :acceptance %></td>
-      </tr><br/>
-
-
-      <tr>
-        <td class="to-right"><small class="form-label">Confirmation:</small></td>
-        <td class="to-left"><%= f.check_box :confirmation %></td>
-      </tr><br/>
-
-
-      <tr>
-        <td class="to-right"><small class="form-label format-select">Length:</small></td>
-        <td class="to-left"><%= f.check_box :length %></td>
-      </tr><br/>
-
-
-      <tr class="format-true">
-        <table style="width:100%">
-          <tr>
-            <td><small class="form-label">Min:</small> <%= f.number_field :length_min, class: "fixed-width" %></td>
-            <td><small class="form-label">Max:</small> <%= f.number_field :length_max, class: "fixed-width" %></td>
-            <td><small class="form-label">Equal To:</small> <%= f.number_field :length_is, class: "fixed-width" %></td>
-          </tr>
-        </table>
-      </tr><br/>
-
-
-      <tr>
-        <td class="to-right"><small class="form-label">Validate On:</small></td>
-        <td class="to-left"><%= f.select :validate_on, %w[Create Update Both] %></td>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.select :data_type, data_type_options %></td>
+        <td><a id='me' class='me btn-validations btn-link' href="#"><i class="fa fa-wrench fa-fw"></i></a></td>
       </tr>
+  </h3>
 
-    <div class="line-break"></div>
+  <div class="pure-form pure-form validation-options hidden">
+    <div class="validation-options">
+      <div class="line-break"></div>
+      <div class='table-block'>
+
+        <div class='pull-left options-group'>
+          <table style="width:100%">
+            <tr>
+              <td class='tblCol-50'><span>Default Value:<small><%= f.text_field :default_value %></small></span></td>
+              <td class='tblCol-20'><span>Validate On:<small><%= f.select :validate_on, %w[Create Update Both] %></small></span></td>
+            </tr>
+          </table>
+        </div><br/>
+
+        <div class='pull-left options-group'>
+          <table style="width:100%">
+            <tr>
+              <td class='tblCol-20 tblCol-Right'><span>Acceptance: <small><%= f.select :acceptance, %w[True False] %></span></td>
+              <td class='tblCol-20 tblCol-Right'><span>Format: <small><%= f.select :format, %w[True False] %></span></td>
+              <td class='tblCol-20 tblCol-Right'><span class="format-true"> Type: <small><%= f.select :format_type, %w[Valid-Email] %></span></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class='pull-left options-group'>
+          <table style="width:100%">
+            <tr>
+              <td class='tblCol-20 tblCol-Right'><span>Presence: <small><%= f.select :presence, %w[True False] %></span></td>
+              <td class='tblCol-20 tblCol-Right'><span>Uniqueness: <small><%= f.select :uniqueness, %w[True False], class: "uniqueness-select" %></span></td>
+              <td class='tblCol-20 tblCol-Right'><span class="uniqueness-true">Case Sensitive: <small><%= f.select :case_sensitive, %w[True False] %></span></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class='pull-left options-group'>
+          <table style="width:100%">
+            <tr>
+              <td class='tblCol-20 tblCol-Right'><span>Confirmation: <small><%= f.select :confirmation, %w[True False] %></span></td>
+              <td class='tblCol-20 tblCol-Right'><span>Increment: <small><%= f.select :auto_increment, %w[True False] %></span></td>
+              <td class='tblCol-20 tblCol-Right'><span>Allow Null: <small><%= f.select :allow_null, %w[True False] %></span></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class='pull-left options-group full-width-field'>
+          <table style="width:100%">
+            <tr>
+              <td class='pad-right tblCol-20 tblCol-Right'><span class="format-select">Length:<small><%= f.select :length, %w[True False] %></small></span></td>
+              <td class='pad-right tblCol-20 tblCol-Right'><span>Min:<small><%= f.number_field :length_min, class:'fixed-width' %></small></span></td>
+              <td class='pad-right tblCol-20 tblCol-Right'><span>Max:<small><%= f.number_field :length_max, class:'fixed-width' %></small></span></td>
+              <td class='tblCol-Right'><span>Equal To:<small><%= f.number_field :length_is, class:'fixed-width' %></small></span></td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>

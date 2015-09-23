@@ -1,21 +1,54 @@
 $(document).ready(function(){
 
   $(document).on('click', 'form .add_fields', function(e) {
-    time = new Date().getTime();
-    regex = new RegExp($(this).data('id'), 'g');
+    var time = new Date().getTime();
+    var regex = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regex, time));
     e.preventDefault();
+    // $('div.validation-options').hide()
   });
 
-  $(document).on('click', 'form .btn-add-comments', function(e) {
+  $(document).on('click', '#create-table-form .btn-add-comments', function(e) {
     e.preventDefault();
-    $('form .comments-field').toggle()
+    $('#create-table-form .comments-field').toggle()
   });
 
-  $('#main-form').on('click', 'a.btn-validations', function(e) {
+  $(document).on('click', 'a.btn-validations', function(e) {
     e.preventDefault();
-    $(e.target).closest('table').siblings('div').toggle();
-    //$('form .validations').toggle()
+    $(e.target).closest('h3').siblings('div').toggle();
+  });
+
+  $(function() {
+    $( "#accordion" ).accordion({
+      heightStyle: "content",
+      collapsible: true
+    });
+  });
+
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+
+  // main toolbar form submits new table
+  $('#create-table-form')
+    .on('ajax:success', function(event, response, xhr) {
+      $(".canvas").append(response);
+      $(".draggable").draggable();
+      $('#create-table-form').reset();
+    })
+    .on("ajax:error", function(event){
+      console.error('failed to create table', arguments);
+    });
+
+  function resetCreateTableForm() {
+    $('#create-table-form').reset();
+  };
+
+  $(document).on('click', '#create-table-form .btn-ResetCTForm', function(event) {
+    $(event.target).preventDefault();
+    resetCreateTableForm();
   });
 
 });
+
+// validation-options

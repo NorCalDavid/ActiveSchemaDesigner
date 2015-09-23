@@ -15,7 +15,7 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 3;
+    z-index: 4;
 }
 
 .pure-menu-list,
@@ -74,7 +74,7 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
     top: 0;
     margin: 0;
     padding: 0;
-    z-index: 3;
+    z-index: 4;
 }
 
 .pure-menu-horizontal .pure-menu-children {

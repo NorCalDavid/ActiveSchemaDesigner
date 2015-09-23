@@ -1,45 +1,48 @@
+<div class="content">
+  <h2 class="content-subhead">Create Relationships</h2>
 
-<div id="example-tabs">
-    <h3>Keyboard</h3>
-    <section>
-        <p>What is needed to transform it to a tabs component? Not much. Just override some properties and done.</p>
+  <div id="accordion">
 
-        <pre class="prettyprint linenums">
-          $("#wizard").steps({
-              // Disables the finish button (required if pagination is enabled)
-              enableFinishButton: false,
-              // Disables the next and previous buttons (optional)
-              enablePagination: false,
-              // Enables all steps from the begining
-              enableAllSteps: true,
-              // Removes the number from the title
-              titleTemplate: "#title#"
-          });
-        </pre>
+    <h3 class="small-margins">Has One</h3>
+    <div class="has-one">
+      <%= form_for(:relationships_path, html: {id: "hasone-relationships-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+        <% table_names = get_table_names(@tables) %>
+        <%= f.label :table_id, "Primary Key (owner)", class: 'pure-control' %>
+        <%= f.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+        <%= f.label :foreign_key, "Foreign Key (possessed), class: 'pure-control'" %>
+        <%= f.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+      <% end %>
+    </div>
 
-    </section>
+    <h3 class="small-margins">Has Many</h3>
+    <div class="has-many">
+      <%= form_for(:relationships_path, html: {id: "hasmany-relationships-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+        <% table_names = get_table_names(@tables) %>
+        <%= f.label :table_id, "Primary Key (owner)", class: 'pure-control' %>
+        <%= f.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+        <%= f.label :foreign_key, "Foreign Key (possessed)", class: 'pure-control' %>
+        <%= f.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+      <% end %>
+    </div>
 
-    <h3>One to Many Relationships</h3>
+    <h3 class="small-margins">Has Many Through</h3>
+    <div class="has-many-through">
+      <%= form_for(:relationships_path, html: {id: "hasmanythrough-relationships-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+        <% table_names = get_table_names(@tables) %>
+        <%= f.label :table_id, "Primary Key (owner)", class: 'pure-control' %>
+        <%= f.select :table_id, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+        <%= f.label :foreign_key, "Foreign Key (possessed)", class: 'pure-control' %>
+        <%= f.select :foreign_key, select_menu_table_names(table_names), class: 'pure-select pure-input-2-3' %>
+        <%= f.label :join_table_name, "Join Table Name", class: 'pure-control' %>
+        <%= f.text_field :join_table_name, class: 'pure-input pure-input-2-3' %>
+      <% end %>
+    </div>
 
-    <section>
+   <!--  <h3>Section 4</h3>
+    <div>
+      <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+    </div> -->
 
-        <p>Scroll down or up to see the other demos.</p>
+  </div>
 
-    </section>
-
-    <h3>Documentation</h3>
-
-    <section>
-
-        <p>For more information <a href="https://github.com/rstaib/jquery-steps/wiki">check out the documentation</a>!</p>
-
-    </section>
-
-    <h3>Download</h3>
-
-    <section>
-
-        <p>See on getting started!</p>
-
-    </section>
 </div>

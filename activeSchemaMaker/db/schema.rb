@@ -50,21 +50,27 @@ ActiveRecord::Schema.define(version: 20150921010043) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "table_id"
-    t.integer  "foreign_key"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "foreign_key_id"
+    t.string   "relationship_type"
+    t.integer  "primary_port"
+    t.integer  "foreign_port"
+    t.integer  "project_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  add_index "relationships", ["foreign_key"], name: "index_relationships_on_foreign_key", using: :btree
-  add_index "relationships", ["table_id", "foreign_key"], name: "index_relationships_on_table_id_and_foreign_key", unique: true, using: :btree
+  add_index "relationships", ["foreign_key_id"], name: "index_relationships_on_foreign_key_id", using: :btree
+  add_index "relationships", ["table_id", "foreign_key_id"], name: "index_relationships_on_table_id_and_foreign_key_id", unique: true, using: :btree
   add_index "relationships", ["table_id"], name: "index_relationships_on_table_id", using: :btree
 
   create_table "tables", force: :cascade do |t|
     t.string   "name"
     t.text     "comments"
     t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "position_y", default: 0
+    t.integer  "position_x", default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

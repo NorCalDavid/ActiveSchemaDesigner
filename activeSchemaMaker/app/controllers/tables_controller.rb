@@ -19,6 +19,11 @@ class TablesController < ApplicationController
 
   # GET /tables/1/edit
   def edit
+    @table = Table.find(params[:id])
+    if request.xhr?
+      render partial: 'projects/edit_tables', table: @table, status: :ok, location: @table
+    end
+
   end
 
   # POST /tables
@@ -28,23 +33,31 @@ class TablesController < ApplicationController
 
     if request.xhr?
       respond_to do |format|
-      if @table.save
-        format.html {redirect_to @table, notice: 'Table was successfully created.'}
-        format.json {respond_with json: @table, status: :created, location: @table}
-      else
-        format.html {render :new}
-        format.json {render json: @table.errors, status: :unprocessable_entity}
+        if @table.save
+          format.html {redirect_to @table, notice: 'Table was successfully created.'}
+          format.json {render json: '/tables/show', table: @table, status: :created, location: @table}
+        else
+          format.html {render :new}
+          format.json {render json: @table.errors, status: :unprocessable_entity}
+        end
       end
     end
   end
-end
 
   # PATCH/PUT /tables/1
   def update
     if @table.update(table_params)
-      redirect_to @table, notice: 'Table was successfully updated.'
+      if request.xhr?
+        render nothing: true, status: :ok
+      else
+        redirect_to @table, notice: 'Table was successfully updated.'
+      end
     else
-      render :edit
+      if request.xhr?
+        render json: {errors: @table.errors.full_messages}, status: :bad_request
+      else
+        render :edit
+      end
     end
   end
 
@@ -62,6 +75,18 @@ end
 
     # Only allow a trusted parameter "white list" through.
     def table_params
-      params.require(:table).permit(:name, :comments, fields_attributes: [:name, :data_type, :default_value, :auto_increment, :allow_null])
+      params.require(:table).permit(
+        :name,
+        :comments,
+        :position_x,
+        :position_y,
+        fields_attributes: [
+          :name,
+          :data_type,
+          :default_value,
+          :auto_increment,
+          :allow_null,
+        ]
+      )
     end
 end

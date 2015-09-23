@@ -89,10 +89,10 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
 
-.pure [hidden],
+/*.pure [hidden],
 .pure template {
     display: none;
-}
+}*/
 
 /* Links
    ========================================================================== */
@@ -466,10 +466,10 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
  * Always hide an element when it has the `hidden` HTML attribute.
  */
 
-.pure .hidden,
+/*.pure .hidden,
 .pure [hidden] {
     display: none !important;
-}
+}*/
 
 /**
  * Add this class to an image to make it fit within it's fluid parent wrapper while maintaining

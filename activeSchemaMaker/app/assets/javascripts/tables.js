@@ -2,7 +2,10 @@ $(document).ready(function(){
 
   DOMinit = function(element){
     element = $(element);
-    element.find(".draggable").draggable();
+    element.find(".draggable").draggable({
+      stack: ".displayable-table",
+      containment: "parent"
+    });
     element.find(".sortable").sortable();
     element.find('.displayable-table').draggable({
       stop: onDragStop

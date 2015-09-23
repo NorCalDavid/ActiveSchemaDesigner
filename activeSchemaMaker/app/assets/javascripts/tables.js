@@ -16,6 +16,13 @@ $(document).ready(function(){
       console.error('failed to create table', arguments);
     });
 
+  $("#hasone-relationships-form")
+  .on('ajax:success', function(event, data, xhr){
+    var response = data;
+    var primary_port = $("")
+
+  })
+
 });
 
   // var $form = $("#main-form");

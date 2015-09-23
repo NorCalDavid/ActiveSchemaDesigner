@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
+    @relationship = Relationship.new
     @route = "project#show"
     set_current_project(params[:id])
 

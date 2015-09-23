@@ -28,16 +28,16 @@ class TablesController < ApplicationController
 
     if request.xhr?
       respond_to do |format|
-      if @table.save
-        format.html {redirect_to @table, notice: 'Table was successfully created.'}
-        format.json {render json: '/tables/show', table: @table, status: :created, location: @table}
-      else
-        format.html {render :new}
-        format.json {render json: @table.errors, status: :unprocessable_entity}
+        if @table.save
+          format.html {redirect_to @table, notice: 'Table was successfully created.'}
+          format.json {render json: '/tables/show', table: @table status: :created, location: @table}
+        else
+          format.html {render :new}
+          format.json {render json: @table.errors, status: :unprocessable_entity}
+        end
       end
     end
   end
-end
 
   # PATCH/PUT /tables/1
   def update

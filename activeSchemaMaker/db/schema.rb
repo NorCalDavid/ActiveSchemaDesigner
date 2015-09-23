@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921010043) do
+ActiveRecord::Schema.define(version: 20150922202719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,13 +50,14 @@ ActiveRecord::Schema.define(version: 20150921010043) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "table_id"
-    t.integer  "foreign_key"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "foreign_key_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "relationship_type"
   end
 
-  add_index "relationships", ["foreign_key"], name: "index_relationships_on_foreign_key", using: :btree
-  add_index "relationships", ["table_id", "foreign_key"], name: "index_relationships_on_table_id_and_foreign_key", unique: true, using: :btree
+  add_index "relationships", ["foreign_key_id"], name: "index_relationships_on_foreign_key_id", using: :btree
+  add_index "relationships", ["table_id", "foreign_key_id"], name: "index_relationships_on_table_id_and_foreign_key_id", unique: true, using: :btree
   add_index "relationships", ["table_id"], name: "index_relationships_on_table_id", using: :btree
 
   create_table "tables", force: :cascade do |t|

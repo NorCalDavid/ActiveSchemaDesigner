@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-
+  // This keeps lines connected when divs are dragged
   $.repeat().add('connection').each($).connections('update').wait(0);
 
   DOMinit = function(element){
@@ -110,7 +110,7 @@ $(document).ready(function(){
   // DRAW ALL CONNECTIONS
   drawAllConnections();
 
-  
+
   DOMinit(document.body);
 
   $('#create-table-form')
@@ -129,10 +129,10 @@ $(document).ready(function(){
     .on('ajax:error', function(event) {
       console.error('failed to create relationship', arguments);
     });
- 
 
 
- 
+
+
  });
 
 // var canvas_refresh = function() {

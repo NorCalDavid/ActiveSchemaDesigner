@@ -9,18 +9,18 @@ class RelationshipsController < ApplicationController
       @field = fk_table.fields.new(name: "#{pk_table.name}_id", data_type: "integer")
       @field.save!
     end
-    # fields = Table.find(params[:relationship][:table_id]).fields
-    # primary_port = "pp#{fields[0].id}"
-    # foreign_port = "fp#{@field.id}"
+    fields = Table.find(params[:relationship][:table_id]).fields
+    primary_port = "pp#{fields[0].id}"
+    foreign_port = "fp#{@field.id}"
 
-    # args = {  table_id: params[:relationship][:table_id],
-    #           foreign_key_id: params[:relationship][:foreign_key_id],
-    #           relationship_type: params[:relationship][:relationship_type],
-    #           primary_port: primary_port,
-    #           foreign_port: foreign_port }
+    args = {  table_id: params[:relationship][:table_id],
+              foreign_key_id: params[:relationship][:foreign_key_id],
+              relationship_type: params[:relationship][:relationship_type],
+              primary_port: primary_port,
+              foreign_port: foreign_port }
 
-    # @relationship = pk_table.relationships.new(args)
-    @relationship = Relationship.new(relationship_params)
+    @relationship = pk_table.relationships.new(args)
+    # @relationship = Relationship.new(relationship_params)
     if @relationship.save
 
       render json: @relationship, location: @relationship

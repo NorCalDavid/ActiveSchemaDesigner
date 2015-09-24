@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-  $.repeat().add('connection').each($).connections('update').wait(0);
 
+  $.repeat().add('connection').each($).connections('update').wait(0);
 
   DOMinit = function(element){
     element = $(element);
@@ -47,17 +47,17 @@ $(document).ready(function(){
     var request = $.get(location.pathname)
       request.done(function(response){
       DOMinit( $('#canvas').html(response) );
+      drawAllConnections();
     })
     request.error(function(){
       console.error('Failed to reload canvas');
     })
-
     reloadProjectControl();
   };
 
   projectId = function(){
     return $('body').data('projectId');
-  }
+  };
 
   reloadProjectControl = function(){
     var projectControlPartialUrl = '/projects/' + projectId() + '/project_control';
@@ -88,10 +88,34 @@ $(document).ready(function(){
     });
     request.fail(function(){
       // debugger;
-    })
+    });
 
+  };
+
+ function drawAllConnections(){
+    console.log('Draw All');
+
+    $('connection').remove();
+
+    if(window.project){
+      for(var i = 0; i < project.tables.length; i++){
+        for(var j = 0; j < project.tables[i].relationships.length; j++){
+          var relationship = project.tables[i].relationships[j];
+          var selector = '#' + relationship.primary_port + ", #" + relationship.foreign_port;
+          $(selector).connections({'class':'fast'});
+        }
+      }
+
+    } else {
+      console.log('no project data in page - check canvas partial');
+    }
   }
 
+
+  // DRAW ALL CONNECTIONS
+  drawAllConnections();
+
+  
   DOMinit(document.body);
 
   // canvas_refresh();
@@ -106,27 +130,15 @@ $(document).ready(function(){
 
   $("#hasone-relationships-form")
     .on('ajax:success', function(event, response, xhr){
-      console.log(response);
       reloadCanvas();
-      createKeyConnection(response);
-
     })
     .on('ajax:error', function(event) {
       console.error('failed to create relationship', arguments);
-    })
+    });
  
 
 
- var createKeyConnection = function(response){
-      var primaryKey = "#" + response.primary_port;
-      var foreignKey = "#" + response.foreign_port;
-      var selectorString = primaryKey + ", " + foreignKey;
-      console.log(selectorString);
-      $(selectorString).connections({'class':'fast'});
-      //test below of non fk connections
-      // var testString = '#pp4, #fp11';
-      // $(testString).connections({'class':'fast'});
-    };
+ 
  });
 
 // var canvas_refresh = function() {

@@ -4,3 +4,7 @@
     <%= render partial: '/tables/show', locals: { table: table } %>
   <% end %>
 </div>
+
+<script>
+window.project = <%= @project.to_json({:include => [:tables => {:include => :relationships}]}).html_safe %>;
+</script>

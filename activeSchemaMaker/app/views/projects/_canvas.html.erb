@@ -1,6 +1,6 @@
 <% tables ||= @tables %>
 <div class="canvas" id="canvas">
-  <% @tables.each do |table| %>
+  <% @project.tables.each do |table| %>
     <%= render partial: '/tables/show', locals: { table: table } %>
   <% end %>
 </div>

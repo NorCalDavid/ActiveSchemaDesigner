@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :projects do
     member do
       get :migration
+      get :project_control
     end
   end
 

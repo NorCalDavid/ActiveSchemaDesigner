@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :migration]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :migration, :project_control]
 
   # GET /projects
   def index
@@ -9,12 +9,6 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
-    if Project.find(params[:id]).tables.count > 0
-      @tables = Project.find(params[:id]).tables
-    else
-      @tables = ["No Tables"]
-    end
-
     @relationship = Relationship.new #this is necessary to load relationships form
 
     if request.xhr?
@@ -25,6 +19,12 @@ class ProjectsController < ApplicationController
       set_current_project(params[:id])
       @table = @project.tables.new
     end
+  end
+
+  def project_control
+    @relationship = Relationship.new #this is necessary to load relationships form
+    @table = @project.tables.new
+    render partial: 'project_control'
   end
 
   # GET /projects/new

@@ -15,10 +15,27 @@ $(document).ready(function(){
   reloadCanvas = function(){
     var request = $.get(location.pathname)
     request.done(function(response){
-      DOMinit( $('.canvas').html(response) );
+      DOMinit( $('#canvas').html(response) );
     })
     request.error(function(){
       console.error('Failed to reload canvas');
+    })
+
+    reloadProjectControl();
+  };
+
+  projectId = function(){
+    return $('body').data('projectId');
+  }
+
+  reloadProjectControl = function(){
+    var projectControlPartialUrl = '/projects/' + projectId() + '/project_control';
+    var request = $.get(projectControlPartialUrl)
+    request.done(function(response){
+      DOMinit( $('#project_control').html(response) );
+    })
+    request.error(function(){
+      console.error('Failed to reload project control');
     })
   };
 
@@ -50,8 +67,7 @@ $(document).ready(function(){
   // main toolbar form submits new table
   $('#create-table-form')
     .on('ajax:success', function(event, response, xhr) {
-      DOMinit( $(".canvas").append(response) );
-      $('#create-table-form').reset();
+      reloadCanvas();
     })
     .on("ajax:error", function(event){
       console.error('failed to create table', arguments);

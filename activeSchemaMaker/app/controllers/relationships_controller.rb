@@ -2,6 +2,10 @@ class RelationshipsController < ApplicationController
 
   #POST /relationiships
   def create
+    p params
+    p relationship_params
+    @relationship = Relationship.new(relationship_params)
+    if @relationship.save
 
     pk_table = Table.find(params[:relationship][:table_id])
     fk_table = Table.find(params[:relationship][:foreign_key_id])
@@ -9,10 +13,8 @@ class RelationshipsController < ApplicationController
     @field = fk_table.fields.new(name: "#{pk_table.name}_id", data_type: "integer")
     @field.save!
 
-    @relationship = Relationship.new(relationship_params)
-    @relationship.primary_port = "#pp{pk_table.fields.first.id}"
-    @relationship.foreign_port = "#fp{@field.id}"
-    if @relationship.save
+    # @relationship.primary_port = "#pp{pk_table.fields.first.id}"
+    # @relationship.foreign_port = "#fp{@field.id}"
 
       #render canvas partial
       render json: @relationship, location: @relationship

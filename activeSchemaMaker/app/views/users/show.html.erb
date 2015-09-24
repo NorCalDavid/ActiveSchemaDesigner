@@ -5,12 +5,12 @@
     </h1>
 </div>
 
-<div class="bottom-3rd debug">
+<div class="bottom-3rd">
 <h3>Your Projects</h3>
 <%= link_to "New Project", new_project_path%><br>
   <% @user.projects.each do |project| %>
     <%= link_to project_path(project) do %>
-      <div class= "thumbnail debug">
+      <div class= "thumbnail">
         <h4><%= project.name %><h4><br>
         <%= project.comments %>
       </div>

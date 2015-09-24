@@ -285,6 +285,16 @@ nav > a {
   text-shadow: 1px 1px 1px #888;
 }
 
+.form-head-logo {
+  margin: 3em 0 0 0;
+  padding:  0;
+  text-align: center;
+  color: #09277A;
+  font-weight: 500;
+  text-shadow: 1px 1px 1px #888;
+}
+
+
 .thumbnail{
   display: inline-block;
   width: 15%;
@@ -295,9 +305,19 @@ nav > a {
 }
 
 .bottom-3rd{
-  height: 30em;
+  height: 20em;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
   margin-bottom: 0em;
-  background-color: #02182B;
+  background-color: #4E4E4E;
+  opacity: 50%;
+  border: 1px solid #999;  /*IE 6/7/8*/
+    border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+    text-decoration: none;
+    border-radius: 10px;
+  box-shadow: 3px 3px 3px 0px #BBB;
 }
 
 .blue{

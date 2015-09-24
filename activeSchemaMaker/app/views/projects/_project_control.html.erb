@@ -9,10 +9,21 @@
     </ul>
 
     <div id="tabs-1">
-      <div class="blue-logo pure-menu pure-menu-horizontal">
-        <span class="pure-menu-item">
-          <%= link_to root_path do %><i class="fa fa-home fa-2x big-pad-right"></i><% end %>
-        </span>
+
+
+
+
+
+
+      <div class='centered'>
+        <table style="width:100%">
+          <tr>
+              <td style="width:10% centered blue-logo"><%= link_to root_path do %><i class="fa fa-floppy-o fa-2x blue-logo"></i><% end %></td>
+            <td style="width:10% centered blue-logo"><%= link_to root_path do %><i class="fa fa-download fa-2x blue-logo"></i><% end %></td>
+            <td style="width:10% centered blue-logo"><%= link_to root_path do %><i class="fa fa-picture-o fa-2x blue-logo"></i><% end %></td>
+            <td style="width:10% centered blue-logo"><%= link_to root_path do %><i class="fa fa-share-square fa-2x blue-logo"></i><% end %></td>
+          </tr>
+        </table>
       </div>
 
     </div>
@@ -101,11 +112,6 @@
             <%= f3.submit "Create Relationship", class: 'pure-button pure-button-primary' %>
           <% end %>
         </div>
-
-       <!--  <h3>Section 4</h3>
-        <div>
-          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
-        </div> -->
 
       </div>
     </div>

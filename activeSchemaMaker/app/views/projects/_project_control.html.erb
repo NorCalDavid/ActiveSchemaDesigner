@@ -1,34 +1,23 @@
 <div class="content side-form" id='project-control-form'>
 
-
-  <div id="tabs">
-    <ul>
-      <li><a href="#tabs-1">Project</a></li>
-      <li><a href="#tabs-2">Create New Tables</a></li>
-      <li><a href="#tabs-3">Create Relationships</a></li>
-    </ul>
-
-    <div id="tabs-1">
-
-
-
-
-
-
       <div class='centered'>
         <table style="width:100%">
           <tr>
-              <td style="width:10% centered blue-logo"><%= link_to root_path do %><i class="fa fa-floppy-o fa-2x blue-logo"></i><% end %></td>
-            <td style="width:10% centered blue-logo"><%= link_to root_path do %><i class="fa fa-download fa-2x blue-logo"></i><% end %></td>
+            <td style="width:10% centered blue-logo"><%=link_to user_path(current_user.id) do %><i class="fa fa-floppy-o fa-2x blue-logo"></i><% end %></td>
+            <td style="width:10% centered blue-logo"><a href="<%= migration_project_path(@project) %>" class="pure-menu-link"><i class="fa fa-download fa-2x blue-logo"></i></a></td>
             <td style="width:10% centered blue-logo"><%= link_to root_path do %><i class="fa fa-picture-o fa-2x blue-logo"></i><% end %></td>
-            <td style="width:10% centered blue-logo"><%= link_to root_path do %><i class="fa fa-share-square fa-2x blue-logo"></i><% end %></td>
           </tr>
         </table>
       </div>
 
-    </div>
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">Create New Tables</a></li>
+      <li><a href="#tabs-2">Create Relationships</a></li>
+    </ul>
 
-    <div id="tabs-2">
+
+    <div id="tabs-1">
       <%= form_for(@table, remote: true, html: {id: "create-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
 
         <legend class="pure-form full-width-field">
@@ -75,7 +64,7 @@
       <% end %>
     </div>
 
-    <div id="tabs-3">
+    <div id="tabs-2">
       <div id="accordion">
         <h3 class="small-margins">Has One</h3>
         <div class="has-one">

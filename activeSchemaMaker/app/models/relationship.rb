@@ -5,7 +5,7 @@ class Relationship < ActiveRecord::Base
   validates :foreign_key_id, presence: true
 
   before_validation :determine_project!, on: [ :create, :update ]
-  after_update :determine_ports!
+  # before_save :determine_ports!, on: [ :create, :update ]
 
    private
 
@@ -13,8 +13,10 @@ class Relationship < ActiveRecord::Base
     self.project_id = Table.find(self.table_id).project
   end
 
-  def determine_ports!
-    self.project_id = Table.find(self.table_id).project
-  end
+  # def determine_ports!
+  #   fields = Table.find(self.table_id).fields
+  #   self.primary_port = "pp#{fields[0].id}"
+  #   self.foreign_port = "fp#{fields[-1].id}"
+  # end
 
 end

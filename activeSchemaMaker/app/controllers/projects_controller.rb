@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     if request.xhr?
       render partial: 'canvas', status: :created, location: project_path(@project)
     else
-      # @relationship = Relationship.new
+      @relationship = Relationship.new
       @route = "project#show"
       set_current_project(params[:id])
       @table = @project.tables.new
@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
 
   def project_control
     @relationship = Relationship.new #this is necessary to load relationships form
-    # @table = @project.tables.new
+    @table = @project.tables.new
     render partial: 'project_control'
   end
 

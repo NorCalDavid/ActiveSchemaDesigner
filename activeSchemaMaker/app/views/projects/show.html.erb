@@ -2,6 +2,22 @@
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
 
 <div class="side-bar blue">
+
+  <div class="sidebar-icons pure-menu pure-menu-horizontal">
+    <span class="pure-menu-item">
+      <%= link_to @user  do %>
+        <i class="fa fa-arrow-left fa-2x big-pad-right"></i>
+      <% end %>
+    </span>
+
+    <span class="pure-menu-item">
+      <%= link_to root_path do %>
+        <i class="fa fa-home fa-2x big-pad-right"></i>
+      <% end %>
+    </span>
+  </div>
+
+
   <div class="project_control" id="project_control">
     <%= render 'project_control' %>
   </dic>

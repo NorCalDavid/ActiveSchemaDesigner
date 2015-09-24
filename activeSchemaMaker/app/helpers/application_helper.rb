@@ -17,4 +17,5 @@ module ApplicationHelper
     session[:user_id]
   end
 
+
 end

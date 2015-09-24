@@ -49,5 +49,10 @@ class ApplicationController < ActionController::Base
   #     logout
   #   end
   # end
+  private
+
+    def get_table_names(tables)
+    table_names = tables.map {|table| table.name}
+  end
 
 end

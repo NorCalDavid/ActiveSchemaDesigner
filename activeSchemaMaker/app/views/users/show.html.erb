@@ -6,18 +6,25 @@
 </div>
 
 <div class="center-h footer">
-  <h1>Your Projects</h1>
+  <div class="inline">
+    <h1>Your Projects</h1>
+    <span class="pure-menu-item">
+      <%= link_to new_project_path do %><i class="fa fa-plus fa-2x big-pad-right"></i><% end %>
+    </span>
+  </div>
   <br>
     <% @user.projects.each do |project| %>
       <%= link_to project_path(project) do %>
         <div class= "thumbnail">
-          <h5><%= project.name %><h5><br>
-          <%= project.comments %>
+          <h4><%= project.name %></h4><br>
+          <p><%= project.tables.count %> tables</p>
+          <p><%= project.relationships.count %> relationships</p>
+          <br>
+          <p><%= project.comments %></p>
         </div>
       <%end%>
     <%end%>
     <br/>
-    <%= link_to "New Project", new_project_path%>
 </div>
 
 

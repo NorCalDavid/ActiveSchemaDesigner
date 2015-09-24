@@ -279,6 +279,7 @@ nav > a {
   margin-left: 1em;
   text-align: center;
   background-color: #C1C1C1;
+  border-radius: 3px;
 }
 
 .blue{
@@ -359,4 +360,11 @@ nav > a {
     background-image: url('/assets/grey.png');
     text-shadow: 1px 1px #888;
     color: #09277A;
+  }
+  .footer a {
+    color: #09277A;
+  }
+
+  .inline h1, span {
+    display: inline;
   }

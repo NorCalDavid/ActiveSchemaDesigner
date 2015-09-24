@@ -21,4 +21,17 @@ Rails.application.routes.draw do
   get '/test' => 'welcome#test'
   root 'sessions#new'
 
+
+  # possibly better routing::
+  #
+  # resources :projects do
+  #   resources :tables, only: [:index, :new, :create]
+  # end
+  # resources :tables, except: [:index, :new, :create] do
+  #   resources :fields, only: [:index, :new, :create]
+  # end
+  # resources :fields, except: [:index, :new, :create]
+
 end
+
+

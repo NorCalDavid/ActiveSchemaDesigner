@@ -28,26 +28,19 @@ class TablesController < ApplicationController
 
   # POST /tables
   def create
-    @table = Project.find(session[:current_project_id]).tables.new(table_params)
-    # @table.project_id = session[:current_project_id]
-
-    if request.xhr?
-      respond_to do |format|
-        if @table.save
-          format.html {redirect_to @table, notice: 'Table was successfully created.'}
-          format.json {render json: '/tables/show', table: @table, status: :created, location: @table}
-        else
-          format.html {render :new}
-          format.json {render json: @table.errors, status: :unprocessable_entity}
-        end
-      end
+    @project = Project.find(session[:current_project_id])
+    @table = @project.tables.new(table_params)
+    if @table.save
+      render_table
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /tables/1
   def update
     if @table.update(table_params)
-      redirect_to @table, notice: 'Table was successfully updated.'
+      render_table
     else
       render :edit
     end
@@ -68,5 +61,9 @@ class TablesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def table_params
       params.require(:table).permit(:name, :comments, fields_attributes: [:name, :data_type, :default_value, :auto_increment, :allow_null])
+    end
+
+    def render_table
+      render partial: 'show', layout: false, locals:{ table: @table }
     end
 end

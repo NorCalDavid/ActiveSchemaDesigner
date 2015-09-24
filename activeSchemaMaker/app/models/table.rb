@@ -7,18 +7,8 @@ class Table < ActiveRecord::Base
   has_many :foreign_keys, through: :relationships
 
   before_validation :determine_position!, on: :create
-  # before_validation :add_id!, on: [:create]
 
   private
-
-  # def add_id!
-  #   primary_table = Table.find(self.table_id)
-
-  #   if !primary_table.includes("#{primary_table.name}_id")
-  #     primary_table.fields.create({name: "#{primary_table.name}_id", data_type: 'integer'})
-  #   end
-
-  # end
 
   def determine_position!
     size = self.project.tables.count * 10

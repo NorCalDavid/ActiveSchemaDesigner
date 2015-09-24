@@ -1,5 +1,5 @@
 <% style = "position: absolute; left: #{table.position_x}px; top: #{table.position_y}px;" %>
-<div data-table-id="<%= table.id %>" style="<%= style %>" class="pure pure-u-md-1-4 draggable displayable-table">
+<div data-table-id="<%= table.id %>" style="<%= style %>" class="pure pure-u-md-1-5 draggable displayable-table">
 
   <div class="callout-card primary">
     <div class="card-label">
@@ -8,19 +8,19 @@
       </div>
     </div>
 
-    <div class="callout-card-content">
+    <div class="callout-card-content full-width-field">
       <div class='header'><h3 class="lead no-margin-bottom no-pad-bottom">Table: <%= table.name %></h3></div>
 
       <div class="callout-table-divider"></div>
 
       <div class='content'>
-        <table class="no-border pad-top">
+        <table class="no-border pad-top full-width-field">
           <thead>
-            <tr>
+            <tr class='full-width-field'>
               <th class="dispTable-col1"><small></small></th>
               <th class="dispTable-col2"><small>Field Name</small></th>
               <th class="dispTable-col3"><small>Field Data Type</small></th>
-              <th class="dispTable-col1"><small></small></th>
+              <th class="dispTable-col4"><small></small></th>
             </tr>
           </thead>
           <tbody>

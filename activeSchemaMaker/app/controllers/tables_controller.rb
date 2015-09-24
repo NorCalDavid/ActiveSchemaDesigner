@@ -14,7 +14,7 @@ class TablesController < ApplicationController
 
   # GET /tables/new
   def new
-    @table = Project.find(session[:current_project_id]).tables.new
+    @table = Project.find(session[:current_project_id]).tables.new({name: 'id', data_type: 'Integer'})
   end
 
   # GET /tables/1/edit
@@ -31,6 +31,7 @@ class TablesController < ApplicationController
     @project = Project.find(session[:current_project_id])
     @table = @project.tables.new(table_params)
     if @table.save
+      add_id!(@table)
       render_table
     else
       render :new
@@ -82,4 +83,12 @@ class TablesController < ApplicationController
     def render_table
       render partial: 'show', layout: false, locals:{ table: @table }
     end
+
+    def add_id!(table)
+      if table.fields.nil? || !table.fields.include?("id")
+        table.fields.create({name: "id", data_type: 'integer'})
+      end
+      table.save!
+    end
+
 end

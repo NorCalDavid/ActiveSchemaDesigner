@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+  $.repeat().add('connection').each($).connections('update').wait(0);
+
+
   DOMinit = function(element){
     element = $(element);
     element.find(".draggable").draggable({
@@ -56,7 +59,7 @@ $(document).ready(function(){
       data: data,
     });
     request.fail(function(){
-      debugger
+      // debugger;
     })
 
   }
@@ -76,6 +79,7 @@ $(document).ready(function(){
   $("#hasone-relationships-form")
     .on('ajax:success', function(event, response, xhr){
       var response = response;
+      console.log(response);
       var primary_port = $("")
     })
     .on('ajax:error', function(event) {
@@ -84,6 +88,16 @@ $(document).ready(function(){
   });
 
 
+ var createKeyConnection = function(response){
+      var primaryKey = "#pp" + response.table_id;
+      var foreignKey = "#fp" + response.foreign_key_id;
+      var selectorString = primaryKey + ", " + foreignKey;
+      console.log(selectorString);
+      $(selectorString).connections({'class':'fast'});
+      //test below of non fk connections
+      // var testString = '#pp4, #fp11';
+      // $(testString).connections({'class':'fast'});
+    };
 
 
 // var canvas_refresh = function() {

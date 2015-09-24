@@ -1,0 +1,23 @@
+.fast {
+  border:3px solid #051;
+  opacity: 0.5;
+  z-index:1;
+  border-radius:100%;
+  pointer-events:none;
+}
+
+.connection-border-right span {
+  left: 1em;
+}
+
+.connection-border-left span {
+  right: 1em;
+}
+
+.connection-border-top span {
+  top: 1em;
+}
+
+.connection-border-bottom span {
+  bottom: 1em;
+}

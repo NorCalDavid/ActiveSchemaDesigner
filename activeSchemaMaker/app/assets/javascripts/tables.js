@@ -1,25 +1,67 @@
 $(document).ready(function(){
 
+  // This keeps lines connected when divs are dragged
+  $.repeat().add('connection').each($).connections('update').wait(0);
+
   DOMinit = function(element){
     element = $(element);
     element.find(".draggable").draggable({
       stack: ".displayable-table",
       containment: "parent"
     });
+
     element.find(".sortable").sortable();
     element.find('.displayable-table').draggable({
       stop: onDragStop
     });
+
+    $(document).on('click', '#create-table-form .btn-add-comments', function(event) {
+    event.preventDefault();
+    $('#create-table-form .comments-field').toggle()
+    });
+
+    $(document).on('click', 'a.btn-validations', function(event) {
+      event.preventDefault();
+      $(event.target).closest('h3').siblings('div').toggle();
+    });
+
+    $(function() {
+      $( "#accordion" ).accordion({
+        heightStyle: "content",
+        collapsible: true
+      });
+    });
+
+    $(function() {
+      $( "#tabs" ).tabs();
+    });
+
   };
 
   reloadCanvas = function(){
     var request = $.get(location.pathname)
-    request.done(function(response){
-      console.log(response);
-      DOMinit( $('.canvas').html(response) );
+      request.done(function(response){
+      DOMinit( $('#canvas').html(response) );
+      drawAllConnections();
     })
     request.error(function(){
       console.error('Failed to reload canvas');
+    })
+    reloadProjectControl();
+  };
+
+  projectId = function(){
+    return $('body').data('projectId');
+  };
+
+  reloadProjectControl = function(){
+    var projectControlPartialUrl = '/projects/' + projectId() + '/project_control';
+    var request = $.get(projectControlPartialUrl)
+    request.done(function(response){
+      DOMinit( $('#project_control').html(response) );
+    })
+    request.error(function(){
+      console.error('Failed to reload project control');
     })
   };
 
@@ -40,19 +82,40 @@ $(document).ready(function(){
       data: data,
     });
     request.fail(function(){
-      debugger
-    })
+      // debugger;
+    });
 
+  };
+
+ function drawAllConnections(){
+    console.log('Draw All');
+
+    $('connection').remove();
+
+    if(window.project){
+      for(var i = 0; i < project.tables.length; i++){
+        for(var j = 0; j < project.tables[i].relationships.length; j++){
+          var relationship = project.tables[i].relationships[j];
+          var selector = '#' + relationship.primary_port + ", #" + relationship.foreign_port;
+          $(selector).connections({'class':'fast'});
+        }
+      }
+
+    } else {
+      console.log('no project data in page - check canvas partial');
+    }
   }
+
+
+  // DRAW ALL CONNECTIONS
+  drawAllConnections();
+
 
   DOMinit(document.body);
 
-  // canvas_refresh();
-  // main toolbar form submits new table
   $('#create-table-form')
     .on('ajax:success', function(event, response, xhr) {
-      DOMinit( $(".canvas").append(response) );
-      // $('#create-table-form').reset();
+      reloadCanvas();
     })
     .on("ajax:error", function(event){
       console.error('failed to create table', arguments);
@@ -60,16 +123,17 @@ $(document).ready(function(){
 
   $("#hasone-relationships-form")
     .on('ajax:success', function(event, response, xhr){
-      var response = response;
-      var primary_port = $("")
+      reloadCanvas();
     })
+
     .on('ajax:error', function(event) {
       console.error('failed to create relationship', arguments);
-    })
-  });
+    });
 
 
 
+
+ });
 
 // var canvas_refresh = function() {
 //   $("body").on("click", function() {

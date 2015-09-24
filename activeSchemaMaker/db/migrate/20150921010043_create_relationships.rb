@@ -4,8 +4,8 @@ class CreateRelationships < ActiveRecord::Migration
       t.integer :table_id
       t.integer :foreign_key_id
       t.string :relationship_type
-      t.integer :primary_port # Refers to the Primary Field ID
-      t.integer :foreign_port # Refers to the Foreign Field ID
+      t.string :primary_port # Refers to the Primary Field ID
+      t.string :foreign_port # Refers to the Foreign Field ID
       t.integer :project_id   # Refers to the Project ID for this Relationship
 
       t.timestamps null: false

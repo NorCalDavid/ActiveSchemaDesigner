@@ -14,44 +14,36 @@ class TablesController < ApplicationController
 
   # GET /tables/new
   def new
-    @table = Project.find(session[:current_project_id]).tables.new
+    @table = Project.find(session[:current_project_id]).tables.new({name: 'id', data_type: 'Integer'})
   end
 
   # GET /tables/1/edit
   def edit
     @table = Table.find(params[:id])
     if request.xhr?
-      render partial: 'projects/edit_tables', table: @table, status: :ok, location: @table
+      render partial: 'edit_modal', table: @table, status: :ok, location: @table
+    else
+      render json: {errors: @table.errors.full_messages}, status: :bad_request
     end
-
   end
 
   # POST /tables
   def create
-    @table = Project.find(session[:current_project_id]).tables.new(table_params)
-    # @table.project_id = session[:current_project_id]
-
-    if request.xhr?
-      respond_to do |format|
-        if @table.save
-          format.html {redirect_to @table, notice: 'Table was successfully created.'}
-          format.json {render json: '/tables/show', table: @table, status: :created, location: @table}
-        else
-          format.html {render :new}
-          format.json {render json: @table.errors, status: :unprocessable_entity}
-        end
-      end
+    @project = Project.find(session[:current_project_id])
+    @table = @project.tables.new(table_params)
+    if @table.save
+      add_id!(@table)
+      render_table
+    else
+      p @table.errors.full_messages
+      render :new
     end
   end
 
   # PATCH/PUT /tables/1
   def update
     if @table.update(table_params)
-      if request.xhr?
-        render nothing: true, status: :ok
-      else
-        redirect_to @table, notice: 'Table was successfully updated.'
-      end
+      render_table
     else
       if request.xhr?
         render json: {errors: @table.errors.full_messages}, status: :bad_request
@@ -89,4 +81,16 @@ class TablesController < ApplicationController
         ]
       )
     end
+
+    def render_table
+      render partial: 'show', layout: false, locals:{ table: @table }
+    end
+
+    def add_id!(table)
+      if table.fields.nil? || !table.fields.include?("id")
+        table.fields.create({name: "id", data_type: 'Integer'})
+      end
+      table.save!
+    end
+
 end

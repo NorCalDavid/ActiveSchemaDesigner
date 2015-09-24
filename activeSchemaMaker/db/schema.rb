@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20150921010043) do
     t.integer  "table_id"
     t.integer  "foreign_key_id"
     t.string   "relationship_type"
-    t.integer  "primary_port"
-    t.integer  "foreign_port"
+    t.string   "primary_port"
+    t.string   "foreign_port"
     t.integer  "project_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false

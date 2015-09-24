@@ -1,12 +1,24 @@
 class Relationship < ActiveRecord::Base
   belongs_to :table
-  belongs_to :foreign_key_id, class_name: "Table"
+  belongs_to :foreign_key, class_name: "Table"
   validates :table_id, presence: true
   validates :foreign_key_id, presence: true
 
-  after_save :get_project, on: [ :create, :update ]
+  before_validation :determine_project!, on: [ :create, :update ]
+  # before_save :determine_ports!, on: [ :create, :update ]
 
-  def get_project
+  #  private
 
-  end
+  # def determine_project!
+  #   project = Table.find(self.table_id).project
+  #   self.update_attributes(project_id: project.id)
+  #   self.save!
+  # end
+
+  # def determine_ports!
+  #   fields = Table.find(self.table_id).fields
+  #   self.primary_port = "pp#{fields[0].id}"
+  #   self.foreign_port = "fp#{fields[-1].id}"
+  # end
+
 end

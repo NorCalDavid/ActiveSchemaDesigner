@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
 
   def project_control
     @relationship = Relationship.new #this is necessary to load relationships form
-    @table = @project.tables.new
+    # @table = @project.tables.new
     render partial: 'project_control'
   end
 

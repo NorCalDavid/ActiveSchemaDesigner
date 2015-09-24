@@ -12,14 +12,14 @@ $(document).ready(function(){
       stop: onDragStop
     });
 
-    $(document).on('click', '#create-table-form .btn-add-comments', function(e) {
-    e.preventDefault();
+    $(document).on('click', '#create-table-form .btn-add-comments', function(event) {
+    event.preventDefault();
     $('#create-table-form .comments-field').toggle()
     });
 
-    $(document).on('click', 'a.btn-validations', function(e) {
-      e.preventDefault();
-      $(e.target).closest('h3').siblings('div').toggle();
+    $(document).on('click', 'a.btn-validations', function(event) {
+      event.preventDefault();
+      $(event.target).closest('h3').siblings('div').toggle();
     });
 
     $(function() {
@@ -31,11 +31,6 @@ $(document).ready(function(){
 
     $(function() {
       $( "#tabs" ).tabs();
-    });
-
-    $(document).on('click', '#create-table-form .btn-ResetCTForm', function(event) {
-      event.preventDefault();
-      resetCreateTableForm();
     });
 
   };
@@ -91,8 +86,6 @@ $(document).ready(function(){
 
   DOMinit(document.body);
 
-  // canvas_refresh();
-  // main toolbar form submits new table
   $('#create-table-form')
     .on('ajax:success', function(event, response, xhr) {
       reloadCanvas();
@@ -106,8 +99,8 @@ $(document).ready(function(){
       var response = response;
       var primary_port = $("")
       reloadCanvas();
-
     })
+
     .on('ajax:error', function(event) {
       console.error('failed to create relationship', arguments);
     })

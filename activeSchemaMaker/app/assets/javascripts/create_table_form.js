@@ -1,15 +1,11 @@
 $(document).ready(function(){
 
-  $(document).on('click', 'form .add_fields', function(e) {
+  $(document).on('click', 'form .add_fields', function(event) {
     var time = new Date().getTime();
     var regex = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regex, time));
-    e.preventDefault();
-    // $('div.validation-options').hide()
+    event.preventDefault();
   });
-
-
 
 });
 
-// validation-options

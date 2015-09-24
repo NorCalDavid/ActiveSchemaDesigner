@@ -28,30 +28,19 @@ class TablesController < ApplicationController
 
   # POST /tables
   def create
-    @table = Project.find(session[:current_project_id]).tables.new(table_params)
-    # @table.project_id = session[:current_project_id]
-
-    if request.xhr?
-      respond_to do |format|
-        if @table.save
-          format.html {redirect_to @table, notice: 'Table was successfully created.'}
-          format.json {render json: '/tables/show', table: @table, status: :created, location: @table}
-        else
-          format.html {render :new}
-          format.json {render json: @table.errors, status: :unprocessable_entity}
-        end
-      end
+    @project = Project.find(session[:current_project_id])
+    @table = @project.tables.new(table_params)
+    if @table.save
+      render_table
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /tables/1
   def update
     if @table.update(table_params)
-      if request.xhr?
-        render nothing: true, status: :ok
-      else
-        redirect_to @table, notice: 'Table was successfully updated.'
-      end
+      render_table
     else
       if request.xhr?
         render json: {errors: @table.errors.full_messages}, status: :bad_request
@@ -88,5 +77,9 @@ class TablesController < ApplicationController
           :allow_null,
         ]
       )
+    end
+
+    def render_table
+      render partial: 'show', layout: false, locals:{ table: @table }
     end
 end

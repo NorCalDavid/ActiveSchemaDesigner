@@ -106,21 +106,20 @@ $(document).ready(function(){
 
   $("#hasone-relationships-form")
     .on('ajax:success', function(event, response, xhr){
-      var response = response;
       console.log(response);
-      var primary_port = $("")
       reloadCanvas();
+      createKeyConnection(response);
 
     })
     .on('ajax:error', function(event) {
       console.error('failed to create relationship', arguments);
     })
-  });
+ 
 
 
  var createKeyConnection = function(response){
-      var primaryKey = "#pp" + response.table_id;
-      var foreignKey = "#fp" + response.foreign_key_id;
+      var primaryKey = "#" + response.primary_port;
+      var foreignKey = "#" + response.foreign_port;
       var selectorString = primaryKey + ", " + foreignKey;
       console.log(selectorString);
       $(selectorString).connections({'class':'fast'});
@@ -128,7 +127,7 @@ $(document).ready(function(){
       // var testString = '#pp4, #fp11';
       // $(testString).connections({'class':'fast'});
     };
-
+ });
 
 // var canvas_refresh = function() {
 //   $("body").on("click", function() {

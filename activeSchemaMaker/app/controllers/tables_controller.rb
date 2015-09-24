@@ -42,7 +42,11 @@ class TablesController < ApplicationController
     if @table.update(table_params)
       render_table
     else
-      render :edit
+      if request.xhr?
+        render json: {errors: @table.errors.full_messages}, status: :bad_request
+      else
+        render :edit
+      end
     end
   end
 
@@ -60,7 +64,19 @@ class TablesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def table_params
-      params.require(:table).permit(:name, :comments, fields_attributes: [:name, :data_type, :default_value, :auto_increment, :allow_null])
+      params.require(:table).permit(
+        :name,
+        :comments,
+        :position_x,
+        :position_y,
+        fields_attributes: [
+          :name,
+          :data_type,
+          :default_value,
+          :auto_increment,
+          :allow_null,
+        ]
+      )
     end
 
     def render_table

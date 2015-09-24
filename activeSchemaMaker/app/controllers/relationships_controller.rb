@@ -2,39 +2,33 @@ class RelationshipsController < ApplicationController
 
   #POST /relationiships
   def create
-    p "*"*40
-    p params
 
+    pk_table = Table.find(params[:relationship][:table_id])
+    fk_table = Table.find(params[:relationship][:foreign_key_id])
 
+    @field = fk_table.fields.new(name: "#{pk_table.name}_id", data_type: "integer")
+    @field.save!
 
-    p "*"*40
     @relationship = Relationship.new(relationship_params)
+    @relationship.primary_port = "#pp{pk_table.fields.first.id}"
+    @relationship.foreign_port = "#fp{@field.id}"
     if @relationship.save
 
-      pk_table = Table.find(params[:table_id])
-      fk_table = Table.find(params[:foreign_key_id])
-      @field = fk_table.fields.new(name: "#{pk_table.name}_id", data_type: "integer")
-      if @field.save
-        format.json {render json: '/fields/show', field: @field, status: :created, location: @field}
-      end
+      #render canvas partial
       render json: @relationship, location: @relationship
     else
       render json: @relationship.errors, status: :unprocessable_entity
     end
   end
 
-  # def destroy
-  # end
-
-  # private
-
-  # def make_connection
-  # end
-
   private
 
   def relationship_params
-    params.require(:relationship).permit(:table_id, :foreign_key_id, :relationship_type)
+    params.require(:relationship).permit(:table_id,
+                                         :foreign_key_id,
+                                         :relationship_type,
+                                         :primary_port,
+                                         :foreign_port)
   end
 
   # def table_params

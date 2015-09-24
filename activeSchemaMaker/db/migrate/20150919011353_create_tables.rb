@@ -4,6 +4,8 @@ class CreateTables < ActiveRecord::Migration
       t.string :name
       t.text :comments
       t.integer :project_id
+      t.integer :position_y, default: 0
+      t.integer :position_x, default: 0
 
       t.timestamps null: false
     end

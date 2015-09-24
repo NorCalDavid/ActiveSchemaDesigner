@@ -4,9 +4,17 @@ class Relationship < ActiveRecord::Base
   validates :table_id, presence: true
   validates :foreign_key_id, presence: true
 
-  after_save :get_project, on: [ :create, :update ]
+  before_validation :determine_project!, on: [ :create, :update ]
+  after_update :determine_ports!
 
-  def get_project
+   private
 
+  def determine_project!
+    self.project_id = Table.find(self.table_id).project
   end
+
+  def determine_ports!
+    self.project_id = Table.find(self.table_id).project
+  end
+
 end

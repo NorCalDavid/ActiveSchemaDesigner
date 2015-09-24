@@ -67,8 +67,10 @@ ActiveRecord::Schema.define(version: 20150921010043) do
     t.string   "name"
     t.text     "comments"
     t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "position_y", default: 0
+    t.integer  "position_x", default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

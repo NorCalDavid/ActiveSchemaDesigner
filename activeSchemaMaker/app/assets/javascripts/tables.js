@@ -9,15 +9,43 @@ $(document).ready(function(){
       stack: ".displayable-table",
       containment: "parent"
     });
+
     element.find(".sortable").sortable();
     element.find('.displayable-table').draggable({
       stop: onDragStop
     });
+
+    $(document).on('click', '#create-table-form .btn-add-comments', function(e) {
+    e.preventDefault();
+    $('#create-table-form .comments-field').toggle()
+    });
+
+    $(document).on('click', 'a.btn-validations', function(e) {
+      e.preventDefault();
+      $(e.target).closest('h3').siblings('div').toggle();
+    });
+
+    $(function() {
+      $( "#accordion" ).accordion({
+        heightStyle: "content",
+        collapsible: true
+      });
+    });
+
+    $(function() {
+      $( "#tabs" ).tabs();
+    });
+
+    $(document).on('click', '#create-table-form .btn-ResetCTForm', function(event) {
+      event.preventDefault();
+      resetCreateTableForm();
+    });
+
   };
 
   reloadCanvas = function(){
     var request = $.get(location.pathname)
-    request.done(function(response){
+      request.done(function(response){
       DOMinit( $('#canvas').html(response) );
     })
     request.error(function(){
@@ -81,6 +109,8 @@ $(document).ready(function(){
       var response = response;
       console.log(response);
       var primary_port = $("")
+      reloadCanvas();
+
     })
     .on('ajax:error', function(event) {
       console.error('failed to create relationship', arguments);

@@ -38,23 +38,33 @@ span.tab {
 
 .displayable-table {
   padding: 1em;
+  width: 20em;
+}
+
+.displayable-table-width {
+  width: 18em;
+}
+
+.displayable-table-row {
+  padding: 2.5px 0 2.5px 0;
+  margin: 2.5px 0 2.5px 0;
 }
 
 .edit-table-modal {
   min-width: 60%;
 }
 
-.connection-port {
-  color: transparent;
-}
+// .connection-port {
+//   color: transparent;
+// }
 
 .dispTable-col1 {
-  width: 4%;
+  width: 7%;
   margin-top: 5px;
 }
 
 .dispTable-col2 {
-  width: 57%;
+  width: 50%;
   text-align: left;
   margin-top: 5px;
 }
@@ -66,7 +76,7 @@ span.tab {
 }
 
 .dispTable-col4 {
-  width: 3%;
+  width: 7%;
   text-align: right;
   margin-top: 5px;
 }

@@ -88,7 +88,7 @@ class TablesController < ApplicationController
 
     def add_id!(table)
       if table.fields.nil? || !table.fields.include?("id")
-        table.fields.create({name: "id", data_type: 'integer'})
+        table.fields.create({name: "id", data_type: 'Integer'})
       end
       table.save!
     end

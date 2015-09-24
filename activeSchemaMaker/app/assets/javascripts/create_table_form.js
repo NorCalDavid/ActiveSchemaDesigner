@@ -29,10 +29,6 @@ $(document).ready(function(){
     $( "#tabs" ).tabs();
   });
 
-  function resetCreateTableForm() {
-    $('#create-table-form')[0].reset();
-  };
-
   $(document).on('click', '#create-table-form .btn-ResetCTForm', function(event) {
     event.preventDefault();
     resetCreateTableForm();

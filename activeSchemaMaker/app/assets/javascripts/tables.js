@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+
+  $.repeat().add('connection').each($).connections('update').wait(0);
+
   DOMinit = function(element){
     element = $(element);
     element.find(".draggable").draggable({
@@ -39,17 +42,17 @@ $(document).ready(function(){
     var request = $.get(location.pathname)
       request.done(function(response){
       DOMinit( $('#canvas').html(response) );
+      drawAllConnections();
     })
     request.error(function(){
       console.error('Failed to reload canvas');
     })
-
     reloadProjectControl();
   };
 
   projectId = function(){
     return $('body').data('projectId');
-  }
+  };
 
   reloadProjectControl = function(){
     var projectControlPartialUrl = '/projects/' + projectId() + '/project_control';
@@ -79,11 +82,35 @@ $(document).ready(function(){
       data: data,
     });
     request.fail(function(){
-      debugger
-    })
+      // debugger;
+    });
 
+  };
+
+ function drawAllConnections(){
+    console.log('Draw All');
+
+    $('connection').remove();
+
+    if(window.project){
+      for(var i = 0; i < project.tables.length; i++){
+        for(var j = 0; j < project.tables[i].relationships.length; j++){
+          var relationship = project.tables[i].relationships[j];
+          var selector = '#' + relationship.primary_port + ", #" + relationship.foreign_port;
+          $(selector).connections({'class':'fast'});
+        }
+      }
+
+    } else {
+      console.log('no project data in page - check canvas partial');
+    }
   }
 
+
+  // DRAW ALL CONNECTIONS
+  drawAllConnections();
+
+  
   DOMinit(document.body);
 
   $('#create-table-form')
@@ -96,18 +123,17 @@ $(document).ready(function(){
 
   $("#hasone-relationships-form")
     .on('ajax:success', function(event, response, xhr){
-      var response = response;
-      var primary_port = $("")
       reloadCanvas();
     })
 
     .on('ajax:error', function(event) {
       console.error('failed to create relationship', arguments);
-    })
-  });
+    });
+ 
 
 
-
+ 
+ });
 
 // var canvas_refresh = function() {
 //   $("body").on("click", function() {

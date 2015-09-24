@@ -15,6 +15,7 @@ $(document).ready(function(){
   reloadCanvas = function(){
     var request = $.get(location.pathname)
     request.done(function(response){
+      console.log(response);
       DOMinit( $('.canvas').html(response) );
     })
     request.error(function(){
@@ -51,7 +52,7 @@ $(document).ready(function(){
   $('#create-table-form')
     .on('ajax:success', function(event, response, xhr) {
       DOMinit( $(".canvas").append(response) );
-      $('#create-table-form').reset();
+      // $('#create-table-form').reset();
     })
     .on("ajax:error", function(event){
       console.error('failed to create table', arguments);

@@ -1,10 +1,10 @@
 <div class="content side-form" id='project-control-form'>
 
-      <div class='centered'>
+      <div class='centered big-margin-bottom'>
         <table style="width:100%">
           <tr>
             <td style="width:10% centered blue-logo"><%=link_to user_path(current_user.id) do %><i class="fa fa-floppy-o fa-2x blue-logo"></i><% end %></td>
-            <td style="width:10% centered blue-logo"><a href="<%= migration_project_path(@project) %>" class="pure-menu-link"><i class="fa fa-download fa-2x blue-logo"></i></a></td>
+            <td style="width:10% centered blue-logo"><%=link_to migration_project_path(@project) do %><i class="fa fa-download fa-2x blue-logo"></i><% end %></td>
             <td style="width:10% centered blue-logo"><%= link_to root_path do %><i class="fa fa-picture-o fa-2x blue-logo"></i><% end %></td>
           </tr>
         </table>

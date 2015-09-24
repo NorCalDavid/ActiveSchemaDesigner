@@ -21,7 +21,7 @@ class TablesController < ApplicationController
   def edit
     @table = Table.find(params[:id])
     if request.xhr?
-      render partial: 'projects/edit_tables', table: @table, status: :ok, location: @table
+      render partial: 'edit_modal', table: @table, status: :ok, location: @table
     else
       render json: {errors: @table.errors.full_messages}, status: :bad_request
     end

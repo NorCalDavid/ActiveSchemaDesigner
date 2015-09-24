@@ -77,6 +77,7 @@ $(document).ready(function(){
     .on('ajax:success', function(event, response, xhr){
       var response = response;
       var primary_port = $("")
+      reloadCanvas();
     })
     .on('ajax:error', function(event) {
       console.error('failed to create relationship', arguments);

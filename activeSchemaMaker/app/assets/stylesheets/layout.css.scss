@@ -259,31 +259,9 @@ nav > a {
   margin-top: 15%;
 
 }
-.white {
-  background-color: white;
-}
-
-.banner {
-  background: transparent url('grid2.png') 0 0 no-repeat fixed;
-  text-align: center;
-  background-size: cover;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg', sizingMethod='scale');
-
-  height: 350px;
-  width: 100%;
-  margin-bottom: 0em;
-  display: table;
-}
-
-.banner-head {
-  display: table-cell;
-  vertical-align: middle;
-  margin-bottom: 0;
-  font-size: 5em;
-  color: #09277A;
-  font-weight: 500;
-  text-shadow: 1px 1px 1px #888;
-}
+// .white {
+//   background-color: white;
+// }
 
 .form-head-logo {
   margin: 3em 0 0 0;
@@ -294,7 +272,6 @@ nav > a {
   text-shadow: 1px 1px 1px #888;
 }
 
-
 .thumbnail{
   display: inline-block;
   width: 15%;
@@ -302,22 +279,6 @@ nav > a {
   margin-left: 1em;
   text-align: center;
   background-color: #C1C1C1;
-}
-
-.bottom-3rd{
-  height: 20em;
-  width: 90%;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-  margin-bottom: 0em;
-  background-color: #4E4E4E;
-  opacity: 50%;
-  border: 1px solid #999;  /*IE 6/7/8*/
-    border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
-    text-decoration: none;
-    border-radius: 10px;
-  box-shadow: 3px 3px 3px 0px #BBB;
 }
 
 .blue{

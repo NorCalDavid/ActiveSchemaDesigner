@@ -24,7 +24,7 @@
             </tr>
           </thead>
           <tbody>
-            <% table.fields.each do |field| %>
+            <% table.ordered_fields.each do |field| %>
               <%= render partial: '/fields/show', locals: { field: field} %>
             <% end %>
           </tbody>

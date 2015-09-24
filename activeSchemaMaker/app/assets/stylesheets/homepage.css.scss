@@ -1,0 +1,163 @@
+.banner {
+  text-align: center;
+  height: 350px;
+  width: 100%;
+  margin-bottom: 0em;
+  display: table;
+}
+
+.banner-head {
+  display: table-cell;
+  vertical-align: middle;
+  margin-bottom: 0;
+  font-size: 5em;
+  color: #09277A;
+  font-weight: 500;
+  text-shadow: 1px 1px 1px #888;
+}
+
+// #bg {
+//   // background-image: url('Depositphotos_6221884_original.jpg');
+//   background-position: center top;
+//   background-size: 1080px auto;
+//   padding: 70px 90px 120px 90px;
+// }
+
+#search {
+  padding: 20px;
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+}
+
+#search h2, #search h5, #search h5 a { text-align: center; color: #fefefe; font-weight: normal; }
+#search h2 { margin-bottom: 50px }
+#search h5 { margin-top: 70px }
+
+// Version 2
+
+// #bg, #search-bg {
+//   // background-image: url('Depositphotos_6221884_original.jpg');
+//   // background-image: url('/media/freelancer-desk.jpg');
+//   background-repeat: no-repeat;
+//   background-size: 1080px auto;
+// }
+
+// #bg {
+//   background-position: center top;
+//   padding: 70px 90px 120px 90px;
+// }
+
+#search-container {
+  position: relative;
+  height: 20em;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  margin-bottom: 0em;
+  border: 1px solid #999;  /*IE 6/7/8*/
+    border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+    text-decoration: none;
+    border-radius: 10px;
+  -moz-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+  box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+}
+
+// #search-bg {
+//   /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
+//   position: absolute;
+//   top: 0px;
+//   right: 0px;
+//   bottom: 0px;
+//   left: 0px;
+//   z-index: 99;
+
+//   /* Pull the background 70px higher to the same place as #bg's */
+//   background-position: center -70px;
+
+//   -webkit-filter: blur(10px);
+//   filter: url('/media/blur.svg#blur');
+//   filter: blur(10px);
+// }
+
+#search {
+  /* Put this on top of the blurred layer */
+  position: relative;
+  z-index: 100;
+  padding: 20px;
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+}
+
+@media (max-width: 600px ) {
+  #bg { padding: 10px; }
+  #search-bg { background-position: center -10px; }
+}
+
+#search h2, #search h5, #search h5 a { text-align: center; color: #fefefe; font-weight: normal; }
+#search h2 { margin-bottom: 50px }
+#search h5 { margin-top: 70px }
+
+.bottom-3rd{
+  height: 20em;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  margin-bottom: 0em;
+  background-color: #4E4E4E;
+  opacity: 50%;
+  border: 1px solid #999;  /*IE 6/7/8*/
+    border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+    text-decoration: none;
+    border-radius: 10px;
+  -moz-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+  box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+}
+
+.gradient-embossed  {
+  // min-width: 100px; /*not necessary if the button has text on it*/
+  // height: 30px;
+  // border: 0;
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(97,97,97,1) 25%,rgba(57,57,57,1) 100%);
+  // background: -o-linear-gradient(top, rgba(115,187,223,1) 0%,rgba(23,86,127,1) 100%);
+
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(97,97,97,1) 25%,rgba(57,57,57,1) 100%);
+  // background: -ms-linear-gradient(top, rgba(115,187,223,1) 0%,rgba(23,86,127,1) 100%);
+
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(97,97,97,1) 25%,rgba(57,57,57,1) 100%);
+  // background: linear-gradient(to bottom, rgba(115,187,223,1) 0%,rgba(23,86,127,1) 100%);
+
+  /* W3C */
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#73bbe9', endColorstr='#17567f',GradientType=0 ); IE6-9 */
+  filter: none; /*IE6-9 */
+  -moz-box-shadow:
+  0px -1px 3px rgba(190,255,255,0.5), /*top external highlight*/
+  2px 3px 3px rgba(0,0,0,0.2), /*bottom external shadow*/
+  inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/
+  inset 0 1px 1px rgba(255,255,255,1); /*top internal highlight*/
+  -webkit-box-shadow:
+  0px -1px 3px rgba(190,255,255,0.5), /*top external highlight*/
+  2px 3px 3px rgba(0,0,0,0.2), /*bottom external shadow*/
+  inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/
+  inset 0 1px 1px rgba(255,255,255,1); /*top internal highlight*/
+  box-shadow:
+  0px -1px 3px rgba(190,255,255,0.5), /*top external highlight*/
+  2px 3px 3px rgba(0,0,0,0.2), /*bottom external shadow*/
+  inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/
+  inset 0 1px 1px rgba(255,255,255,1); /*top internal highlight*/
+}
+
+.translucent {
+  opacity: .50; /* Standard: FF gt 1.5, Opera, Safari, CSS3 */
+    filter: alpha(opacity=50); /* IE lt 8 */
+    -ms-filter: "alpha(opacity=50)"; /* IE 8 */
+    -khtml-opacity: .50; /* Safari 1.x */
+    -moz-opacity: .50; /* FF lt 1.5, Netscape */
+}
+

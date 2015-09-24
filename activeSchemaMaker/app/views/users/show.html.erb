@@ -5,15 +5,24 @@
     </h1>
 </div>
 
-<div class="bottom-3rd">
-<h3>Your Projects</h3>
-<%= link_to "New Project", new_project_path%><br>
-  <% @user.projects.each do |project| %>
-    <%= link_to project_path(project) do %>
-      <div class= "thumbnail">
-        <h4><%= project.name %><h4><br>
-        <%= project.comments %>
-      </div>
-    <%end%>
-  <%end%>
+
+<div id="bg">
+  <div id="search-container">
+    <div id="search-bg"></div>
+    <div id="search">
+      <h1>Your Projects</h1>
+      <br>
+        <% @user.projects.each do |project| %>
+          <%= link_to project_path(project) do %>
+            <div class= "thumbnail">
+              <h5><%= project.name %><h5><br>
+              <%= project.comments %>
+            </div>
+          <%end%>
+        <%end%>
+        <br/>
+        <%= link_to "New Project", new_project_path%>
+    </div>
+  </div>
 </div>
+

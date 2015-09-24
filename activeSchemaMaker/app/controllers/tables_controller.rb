@@ -35,6 +35,7 @@ class TablesController < ApplicationController
       add_id!(@table)
       render_table
     else
+      p @table.errors.full_messages
       render :new
     end
   end

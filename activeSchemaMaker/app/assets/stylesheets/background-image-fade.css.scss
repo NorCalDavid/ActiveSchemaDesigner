@@ -1,0 +1,25 @@
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
+body {
+  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: white;
+  // background: url('Depositphotos_25159579_original.jpg') no-repeat center center fixed;
+  // background: url('Depositphotos_6221884_original.jpg') no-repeat center center fixed;
+  // background: url('Depositphotos_18880431_original.jpg') no-repeat center center fixed;
+  background: url('Depositphotos_23766561_original.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div {
+  text-align: center;
+}

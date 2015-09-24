@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
       @relationship = Relationship.new
       @route = "project#show"
       set_current_project(params[:id])
-      @table = @project.tables.new
+      @table = Table.new
     end
   end
 

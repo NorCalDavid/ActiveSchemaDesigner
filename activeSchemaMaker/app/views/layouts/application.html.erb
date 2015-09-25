@@ -18,26 +18,7 @@
         <%=link_to "Active Schema Designer", user_path(current_user.id), :class => "pure-menu-heading"%>
           <li class="pure-menu-item"><%= link_to "#{current_user.first_name}", user_path(current_user.id), :class => "pure-menu-link" %></li>
           <li class="pure-menu-item"><%= link_to "Logout", '/logout', :class => "pure-menu-link" %></li>
-          <% if @route == "project#show" %>
-            <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                <a href="#" id="menuLink1" class="pure-menu-link"><%= @project.name %></a>
-                <ul class="pure-menu-children">
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Save</a></li>
-                    <li class="pure-menu-item"><a href="<%= migration_project_path(@project) %>" class="pure-menu-link">Export Migration</a></li>
-                    <li class="pure-menu-item"><a href="#">Export Schema Image</a></li>
-                    <li class="pure-menu-item"><a href="#">Export Schema PDF</a></li>
-                </ul>
-            </li>
-            <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                <a href="#" id="menuLink1" class="pure-menu-link">Relationships</a>
-                <ul class="pure-menu-children">
-                    <li class="pure-menu-item"><a href="#">Create Relationships</a></li>
-                    <li class="pure-menu-item"><a href="#">Build Active Record Migrations</a></li>
-                    <li class="pure-menu-item"><a href="#">Build Active Record Models</a></li>
-                    <li class="pure-menu-item"><a href="#">Export Active Record Files</a></li>
-                </ul>
-            </li>
-          <%end%>
+
         <% else %>
           <li class="pure-menu-item"><%= link_to 'Login', '/login', :class => "pure-menu-link" %></li>
           <li class="pure-menu-item"><%= link_to 'Signup', '/signup', :class => "pure-menu-link" %></li>

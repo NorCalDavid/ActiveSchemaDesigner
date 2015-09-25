@@ -1,11 +1,12 @@
 
 <div class="banner">
-    <h1 class="banner-head">
-      <%= @user.first_name%>
-    </h1>
+  <h1 class="banner-head">
+    <%= @user.first_name%>
+  </h1>
 </div>
 
-<div class="center-h footer">
+<div id='footer-bar'></div>
+<div class="centered footer project-link">
   <div class="inline">
     <h1>Your Projects</h1>
     <span class="pure-menu-item">
@@ -13,18 +14,16 @@
     </span>
   </div>
   <br>
-    <% @user.projects.each do |project| %>
-      <%= link_to project_path(project) do %>
-        <div class= "thumbnail shdw">
-          <h4><%= project.name %></h4><br>
-          <p><%= project.tables.count %> tables</p>
-          <p><%= project.relationships.count %> relationships</p>
-          <br>
-          <p><%= project.comments %></p>
-        </div>
-      <%end%>
-    <%end%>
-    <br/>
+  <% @user.projects.each do |project| %>
+  <%= link_to project_path(project) do %>
+  <div class= "thumbnail shdw">
+    <h2><%= project.name %></h2><br/><br/>
+    <h5><%= project.tables.count %> Tables</h5><br/>
+    <h5><%= project.relationships.count %> Relationships</h5>
+  </div>
+  <%end%>
+  <%end%>
+  <br/>
 </div>
 
 

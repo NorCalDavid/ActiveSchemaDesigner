@@ -10,7 +10,9 @@
   display: table-cell;
   vertical-align: middle;
   margin-bottom: 0;
+  padding: 1em;
   font-size: 5em;
+  font-weight: bolder;
   color: #09277A;
   font-weight: 500;
   text-shadow: 1px 1px 1px #888;
@@ -59,12 +61,12 @@
     border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
     text-decoration: none;
     border-radius: 10px;
-  -moz-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
-  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
-  box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
-}
+    -moz-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+    box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+  }
 
-// #search-bg {
+//   #search-bg {
 //   /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
 //   position: absolute;
 //   top: 0px;
@@ -112,12 +114,12 @@
     border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
     text-decoration: none;
     border-radius: 10px;
-  -moz-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
-  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
-  box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
-}
+    -moz-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+    box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+  }
 
-.gradient-embossed  {
+  .gradient-embossed  {
   // min-width: 100px; /*not necessary if the button has text on it*/
   // height: 30px;
   // border: 0;
@@ -154,10 +156,10 @@
 }
 
 .translucent {
-  opacity: .50; /* Standard: FF gt 1.5, Opera, Safari, CSS3 */
+  opacity: .6; /* Standard: FF gt 1.5, Opera, Safari, CSS3 */
     filter: alpha(opacity=50); /* IE lt 8 */
     -ms-filter: "alpha(opacity=50)"; /* IE 8 */
     -khtml-opacity: .50; /* Safari 1.x */
     -moz-opacity: .50; /* FF lt 1.5, Netscape */
-}
+  }
 

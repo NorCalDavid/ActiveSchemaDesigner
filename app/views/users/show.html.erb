@@ -1,0 +1,29 @@
+
+<div class="banner">
+  <h1 class="banner-head">
+    <%= @user.first_name%>
+  </h1>
+</div>
+
+<div id='footer-bar'></div>
+<div class="centered footer project-link">
+  <div class="inline">
+    <h1>Your Projects</h1>
+    <span class="pure-menu-item">
+      <%= link_to new_project_path do %><i class="fa fa-plus fa-2x big-pad-right"></i><% end %>
+    </span>
+  </div>
+  <br>
+  <% @user.projects.each do |project| %>
+  <%= link_to project_path(project) do %>
+  <div class= "thumbnail shdw">
+    <h2><%= project.name %></h2><br/><br/>
+    <h5><%= project.tables.count %> Tables</h5><br/>
+    <h5><%= project.relationships.count %> Relationships</h5>
+  </div>
+  <%end%>
+  <%end%>
+  <br/>
+</div>
+
+

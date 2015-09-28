@@ -1,0 +1,48 @@
+<div class="content side-form is-center">
+  <h2 class="content-head">Project: <%=@project.name%></h2>
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">One to Many</a></li>
+      <li><a href="#tabs-2">Create New Table</a></li>
+
+    </ul>
+    <div id="tabs-1">
+      <%= form_for(@table, remote: true, html: {id: "create-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+
+      <div class="pure-control pure-u-1">
+        <%= f.label :name, "Table Name:", class: 'pure-input' %>
+        <%= f.text_field :name, class: 'pure-input pure-input-2-3' %><br/>
+      </div>
+
+      <div class="line-break"></div>
+
+      <div class="pure-control">
+        <table style="width:100%">
+          <tr>
+            <td class="is-center"><small class="form-label">Name</small></td>
+            <td class="is-center"><small class="form-label">Data Type</small></td>
+            <td class="is-center"> </td>
+          </tr>
+
+          <% if @table.fields.length > 0 %>
+            <%= f.fields_for :fields, @table.fields do |ff| %>
+              <%= render 'field_fields', f: ff %>
+            <% end %>
+          <% end %>
+          <div class='no-border to-right pad-right'><%= link_to_add_fields "Add Field", f, :fields %></div>
+          <div class="line-break margin-bottom"></div>
+
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+          <% end %>
+        </div>
+        <div id="tabs-2">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

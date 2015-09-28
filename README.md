@@ -7,19 +7,20 @@
 ###Development Team
 
  - ####Brenda Nguyen - Developer
+   >- [Github Profile: brenguyen711](https://github.com/brenguyen711)
 
 
- - ####Tom Norian 
-  - Developer
+ - ####Tom Norian - Developer
+   >- [Github Profile: Tom2277](https://github.com/Tom2277)
 
 
  - ####Zakai Robbins - Developer
-   >- [Github Profile](http://www.github.com/ )
+   >- [Github Profile: zakairobbins](https://github.com/zakairobbins)
     
 
 
  - ####David Uli - Lead Developer
-  >- [Github Profile](http://www.github.com/NorCalDavid)
+  >- [Github Profile: NorCalDavid](https://github.com/NorCalDavid)
   >- Contact: mail@daviduli.com
 
 -----

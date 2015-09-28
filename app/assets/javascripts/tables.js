@@ -113,22 +113,23 @@ $(document).ready(function(){
 
   DOMinit(document.body);
 
-  $('#create-table-form')
-    .on('ajax:success', function(event, response, xhr) {
-      reloadCanvas();
-    })
-    .on("ajax:error", function(event){
-      console.error('failed to create table', arguments);
-    });
+  $(document)
+  .on('ajax:success', '#create-table-form', function(event, response, xhr) {
+    reloadCanvas();
+  })
+  .on("ajax:error", function(event){
+    console.error('failed to create table', arguments);
+  });
 
-  $("#hasone-relationships-form")
-    .on('ajax:success', function(event, response, xhr){
-      reloadCanvas();
-    })
+  $(document)
+  .on('ajax:success',  "#hasone-relationships-form",function(event, response, xhr){
+    reloadCanvas();
+  })
 
-    .on('ajax:error', function(event) {
-      console.error('failed to create relationship', arguments);
-    });
+  .on('ajax:error', function(event) {
+    console.error('failed to create relationship', arguments);
+  });
+
 
 
 

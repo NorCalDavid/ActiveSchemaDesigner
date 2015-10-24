@@ -9,21 +9,24 @@
         <%= form_for(@table, remote: true, html: {id: "edit-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Edit <%= @table.name.capitalize %> Table<button class="modal-table-delete">delete this table</button></h4>
+            <!-- dont need close button here
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+            <!-- <h4 class="modal-title">Edit <%= @table.name.capitalize %> Table</h4> --> <!-- delete button needs to be relocated and made functional -->
               <%= f.label :name, "Table Name:", class: 'pure-input' %>
               <%= f.text_field :name, class: 'pure-input pure-input-2-3' %><br/>
 
               <div class="to-right pad-right no-pad-top no-margin-top">
                 <%= button_tag('Add Comments', type: 'button', class: 'btn-add-comments btn-link no-pad-top no-margin-top') %>
               </div>
+              <button class="modal-table-delete">Save Name Change</button><button class="modal-table-delete">Delete This Table</button>
 
               <div class="comments-field form-container hidden">
                 <%= f.label :comments, class: "form-label" %><br>
                 <%= f.text_area :comments, class:'full-width-field' %>
               </div>
-            </legend>
-          </div>
+            <!-- </legend> -->
+
+            </div>
 
         <div class="modal-body">
 
@@ -48,25 +51,19 @@
             </ul>
             <div class="line-break margin-bottom"></div>
 
-            <div class='inline-group centered'>
-              <div class="centered float-left">
-                <%= button_tag('Reset Form', type: 'button', class: 'pure-button pure-button-primary btn-ResetCTForm') %>
-              </div>
+            <!-- there were buttons below that said "reset and create table" -->
+        
 
-              <div class="centered float-left">
-                <%= f.submit "Create Table", class: 'pure-button pure-button-primary' %>
-              </div>
-            </div>
-
-            <% end %>
+            
           </div> <!-- pure control -->
-
+          <button class='.displayable-table-field button.btn-edit-table-add-field'>Add field to Table</button>
+        <% end %>
     <!-- /////////////////// Modal Content stops Here /////////////////// -->
         </div><!--  modal body -->
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
-    </div> <!-- (Tom Added) modal fade -->
-  </div><!--  (Tom Added) table modal -->
+    </div> <!-- modal fade -->
+  </div><!--  table modal -->
 </div> <!--  container body -->
 </div><!--  container fluid -->
 

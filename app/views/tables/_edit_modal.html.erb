@@ -7,31 +7,31 @@
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <%= form_for(@table, remote: true, html: {id: "edit-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Edit <%= @table.name.capitalize %> Table</h4>
-                <%= f.label :name, "Table Name:", class: 'pure-input' %>
-                <%= f.text_field :name, class: 'pure-input pure-input-2-3' %><br/>
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Edit <%= @table.name.capitalize %> Table<button class="modal-table-delete">delete this table</button></h4>
+              <%= f.label :name, "Table Name:", class: 'pure-input' %>
+              <%= f.text_field :name, class: 'pure-input pure-input-2-3' %><br/>
 
-                <div class="to-right pad-right no-pad-top no-margin-top">
-                  <%= button_tag('Add Comments', type: 'button', class: 'btn-add-comments btn-link no-pad-top no-margin-top') %>
-                </div>
+              <div class="to-right pad-right no-pad-top no-margin-top">
+                <%= button_tag('Add Comments', type: 'button', class: 'btn-add-comments btn-link no-pad-top no-margin-top') %>
+              </div>
 
-                <div class="comments-field form-container hidden">
-                  <%= f.label :comments, class: "form-label" %><br>
-                  <%= f.text_area :comments, class:'full-width-field' %>
-                </div>
-              </legend>
-            </div>
+              <div class="comments-field form-container hidden">
+                <%= f.label :comments, class: "form-label" %><br>
+                <%= f.text_area :comments, class:'full-width-field' %>
+              </div>
+            </legend>
+          </div>
 
-            <div class="modal-body">
+        <div class="modal-body">
 
 <!-- /////////////////// Insert Modal Content Here ////////////////// -->
 
-            <div class="line-break"></div>
+          <div class="line-break"></div>
 
-            <div class="pure-control">
+          <div class="pure-control">
               <table style="width:100%">
                 <tr>
                   <td class="is-center"><small class="form-label">Name</small></td>
@@ -58,12 +58,15 @@
               </div>
             </div>
 
-          <% end %>
+            <% end %>
+          </div> <!-- pure control -->
 
     <!-- /////////////////// Modal Content stops Here /////////////////// -->
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>
-</div>
+        </div><!--  modal body -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div> <!-- (Tom Added) modal fade -->
+  </div><!--  (Tom Added) table modal -->
+</div> <!--  container body -->
+</div><!--  container fluid -->
 

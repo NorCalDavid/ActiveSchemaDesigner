@@ -56,7 +56,10 @@ class TablesController < ApplicationController
   # DELETE /tables/1
   def destroy
     @table.destroy
-    redirect_to "/tables", notice: 'Table was successfully destroyed.'
+    @project = Project.find(session[:current_project_id])
+    p_id=@project.id
+    current_route = "/projects/#{p_id}"
+    redirect_to current_route, notice: 'Table was successfully destroyed.'
   end
 
   private

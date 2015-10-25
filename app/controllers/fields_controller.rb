@@ -43,7 +43,12 @@ class FieldsController < ApplicationController
   # DELETE /fields/1
   def destroy
     @field.destroy
-    redirect_to fields_url, notice: 'Field was successfully destroyed.'
+    # stop-gap-redirect code below - should be handled with js
+    @project = Project.find(session[:current_project_id])
+    p_id=@project.id
+    current_route = "/projects/#{p_id}"
+    redirect_to current_route, notice: 'Field was successfully destroyed.'
+    # redirect_to fields_url, notice: 'Field was successfully destroyed.'
   end
 
   private

@@ -67,10 +67,8 @@
     <div>
 
           <%  bar=@table.fields[f.index][:id]  %>
-          <%=  bar %>
           <% @field_id = Field.find(bar) %>
-          <%= @num %>
-          <%= button_to("delete field", url_for([@table, @field_id]), method: :delete) %>
+          <%= link_to("delete field", url_for([@table, @field_id]), method: :delete) %>
           
             
         <!-- <button>save field changes</button><button>delete this field</button> -->

@@ -56,7 +56,7 @@ class TablesController < ApplicationController
   # DELETE /tables/1
   def destroy
     @table.destroy
-    redirect_to tables_url, notice: 'Table was successfully destroyed.'
+    redirect_to "/tables", notice: 'Table was successfully destroyed.'
   end
 
   private

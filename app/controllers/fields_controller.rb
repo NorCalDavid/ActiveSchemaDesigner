@@ -54,7 +54,7 @@ class FieldsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def field_params
-      params.require(:field).permit(:name, :data_type, :default_value, :auto_increment, :allow_null)
+      params.require(:field).permit(:name, :data_type, :default_value, :auto_increment, :allow_null, :id)
     end
 
 end

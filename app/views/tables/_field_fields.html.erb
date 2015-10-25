@@ -65,8 +65,17 @@
     </div>
   </div>
     <div>
+
+          <%  bar=@table.fields[f.index][:id]  %>
+          <%=  bar %>
+          <% @field_id = Field.find(bar) %>
+          <%= @num %>
+          <%= button_to("delete field", url_for([@table, @field_id]), method: :delete) %>
           
-        <button>save field changes</button><button>delete this field</button>
+            
+        <!-- <button>save field changes</button><button>delete this field</button> -->
+        
+
         <br><br> <!-- replace with better space -->
          <div class="line-break"></div>
          <br>

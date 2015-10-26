@@ -20,6 +20,7 @@ class FieldsController < ApplicationController
   def  new
     @table = Table.find(params[:table_id])
     @table.fields << Field.create(name: "new field")
+    #below not working correctly
     if request.xhr?
       render partial: '/tables/_edit_modal', table: @table, status: :ok, location: @table 
     end

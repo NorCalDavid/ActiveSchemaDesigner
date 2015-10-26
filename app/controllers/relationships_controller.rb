@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
 
-  #POST /relationiships
+  #POST /relationships
   def create
 
     pk_table = Table.find(params[:relationship][:table_id])

@@ -12,8 +12,22 @@ class FieldsController < ApplicationController
   end
 
   # GET /fields/new
-  def new
-    @field = Field.new
+  # def new
+  #   @field = Field.new
+  # end
+
+  
+  # get /tables/:table_id/fields/new
+  def  new
+    @table = Table.find(params[:table_id])
+    @table.fields << Field.create(name: "new field")
+    if request.xhr?
+      render partial: 'edit_modal', table: @table, status: :ok, location: @table 
+    end
+    # @project = Project.find(session[:current_project_id])
+    # p_id=@project.id
+    # current_route = "/projects/#{p_id}"
+    # redirect_to current_route, notice: 'Table was successfully destroyed.'
   end
 
   # GET /fields/1/edit

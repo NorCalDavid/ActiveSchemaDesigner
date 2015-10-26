@@ -58,8 +58,8 @@
 
           <a href="" id="modal-add-field-button" class=''>Add field to Table</a>
           <%= link_to("Delete this Table", @table, method: :delete) %>
-
-          <p class="">Save Name Change</p>
+           <%= link_to("save changes", @table, method: :patch) %>
+         
         <% end %>
     <!-- /////////////////// Modal Content stops Here /////////////////// -->
         </div><!--  modal body -->

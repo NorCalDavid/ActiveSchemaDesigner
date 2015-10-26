@@ -42,7 +42,11 @@ class TablesController < ApplicationController
 
   # PATCH/PUT /tables/1
   def update
-    if @table.update(table_params)
+    p @table
+    p "ZZZZZZZZZZZZZZZZZZZZ"
+    p params
+    # p table_params
+    if @table.update(params)
       render_table
     else
       if request.xhr?
@@ -71,6 +75,8 @@ class TablesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def table_params
       params.require(:table).permit(
+        :table,
+        :id,
         :name,
         :comments,
         :position_x,
@@ -81,10 +87,23 @@ class TablesController < ApplicationController
           :default_value,
           :auto_increment,
           :allow_null,
+          :validate_on,
+          :acceptance,
+          :format,
+          :format_type,
+          :presence,
+          :uniqueness,
+          :case_sensitive,
+          :confirmation,
+          :length,
+          :length_min,
+          :length_max,
+          :length_is,
+          :id
         ]
       )
     end
-
+ # "table"=>{"name"=>"samanthas", "comments"=>"", "fields_attributes"=>{"0"=>{"name"=>"king", "data_type"=>"String", "default_value"=>"", "validate_on"=>"Create", "acceptance"=>"True", "format"=>"True", "format_type"=>"Valid-Email", "presence"=>"True", "uniqueness"=>"True", "case_sensitive"=>"True", "confirmation"=>"True", "auto_increment"=>"True", "allow_null"=>"True", "length"=>"True", "length_min"=>"", "length_max"=>"", "length_is"=>"", "id"=>"587"}, "1"=>{"name"=>"id", "data_type"=>"Integer", "default_value"=>"", "validate_on"=>"Create", "acceptance"=>"True", "format"=>"True", "format_type"=>"Valid-Email", "presence"=>"True", "uniqueness"=>"True", "case_sensitive"=>"True", "confirmation"=>"True", "auto_increment"=>"True", "allow_null"=>"True", "length"=>"True", "length_min"=>"", "length_max"=>"", "length_is"=>"", "id"=>"588"}, "2"=>{"name"=>"sanata_hates", "data_type"=>"String", "default_value"=>"", "validate_on"=>"Create", "acceptance"=>"True", "format"=>"True", "format_type"=>"Valid-Email", "presence"=>"True", "uniqueness"=>"True", "case_sensitive"=>"True", "confirmation"=>"True", "auto_increment"=>"True", "allow_null"=>"True", "length"=>"True", "length_min"=>"", "length_max"=>"", "length_is"=>"", "id"=>"589"}}}, "commit"=>"Update Table", "controller"=>"tables", "action"=>"update", "id"=>"61"}
     def render_table
       render partial: 'show', layout: false, locals:{ table: @table }
     end

@@ -36,6 +36,7 @@ class FieldsController < ApplicationController
 
   # POST /fields
   def create
+
     @field = Field.new(field_params)
 
     if @field.save
@@ -47,8 +48,16 @@ class FieldsController < ApplicationController
 
   # PATCH/PUT /fields/1
   def update
+    p "field_params should be below 8888888888888888888888888888888888888888"
+    p field_params
+    p params
     if @field.update(field_params)
-      redirect_to @field, notice: 'Field was successfully updated.'
+      @project = Project.find(session[:current_project_id])
+    p_id=@project.id
+    current_route = "/projects/#{p_id}"
+    redirect_to current_route
+
+      # redirect_to @field, notice: 'Field was successfully updated.'
     else
       render :edit
     end
@@ -73,7 +82,20 @@ class FieldsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def field_params
-      params.require(:field).permit(:name, :data_type, :default_value, :auto_increment, :allow_null, :id)
+      params.permit(:id, :name, :data_type, :default_value, :auto_increment, :allow_null, :table_id, 
+          :validate_on,
+          :acceptance,
+          :format,
+          :format_type,
+          :presence,
+          :uniqueness,
+          :case_sensitive,
+          :confirmation,
+          :length,
+          :length_min,
+          :length_max,
+          :length_is,
+          )
     end
 
 end

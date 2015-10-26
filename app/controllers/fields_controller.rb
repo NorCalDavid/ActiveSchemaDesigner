@@ -16,13 +16,12 @@ class FieldsController < ApplicationController
   #   @field = Field.new
   # end
 
-  
-  # get /tables/:table_id/fields/new
+  # GET /tables/:table_id/fields/new
   def  new
     @table = Table.find(params[:table_id])
     @table.fields << Field.create(name: "new field")
     if request.xhr?
-      render partial: 'edit_modal', table: @table, status: :ok, location: @table 
+      render partial: '/tables/_edit_modal', table: @table, status: :ok, location: @table 
     end
     # @project = Project.find(session[:current_project_id])
     # p_id=@project.id
@@ -48,16 +47,11 @@ class FieldsController < ApplicationController
 
   # PATCH/PUT /fields/1
   def update
-    p "field_params should be below 8888888888888888888888888888888888888888"
-    p field_params
-    p params
     if @field.update(field_params)
       @project = Project.find(session[:current_project_id])
-    p_id=@project.id
-    current_route = "/projects/#{p_id}"
-    redirect_to current_route
-
-      # redirect_to @field, notice: 'Field was successfully updated.'
+      p_id=@project.id
+      current_route = "/projects/#{p_id}"
+      redirect_to current_route
     else
       render :edit
     end

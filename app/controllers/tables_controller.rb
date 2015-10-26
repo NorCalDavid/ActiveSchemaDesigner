@@ -42,12 +42,12 @@ class TablesController < ApplicationController
 
   # PATCH/PUT /tables/1
   def update
-    p @table
-    p "ZZZZZZZZZZZZZZZZZZZZ"
-    p params
-    # p table_params
-    if @table.update(params)
-      render_table
+    if @table.update(table_params)
+      # render_table
+      @project = Project.find(session[:current_project_id])
+      p_id=@project.id
+      current_route = "/projects/#{p_id}"
+      redirect_to current_route, notice: 'Table was successfully updated.'
     else
       if request.xhr?
         render json: {errors: @table.errors.full_messages}, status: :bad_request
@@ -60,6 +60,7 @@ class TablesController < ApplicationController
   # DELETE /tables/1
   def destroy
     @table.destroy
+
     @project = Project.find(session[:current_project_id])
     p_id=@project.id
     current_route = "/projects/#{p_id}"
@@ -81,7 +82,11 @@ class TablesController < ApplicationController
         :comments,
         :position_x,
         :position_y,
+        :commit,
+        :controller,
+        :action,
         fields_attributes: [
+          :index,
           :name,
           :data_type,
           :default_value,
@@ -103,7 +108,7 @@ class TablesController < ApplicationController
         ]
       )
     end
- # "table"=>{"name"=>"samanthas", "comments"=>"", "fields_attributes"=>{"0"=>{"name"=>"king", "data_type"=>"String", "default_value"=>"", "validate_on"=>"Create", "acceptance"=>"True", "format"=>"True", "format_type"=>"Valid-Email", "presence"=>"True", "uniqueness"=>"True", "case_sensitive"=>"True", "confirmation"=>"True", "auto_increment"=>"True", "allow_null"=>"True", "length"=>"True", "length_min"=>"", "length_max"=>"", "length_is"=>"", "id"=>"587"}, "1"=>{"name"=>"id", "data_type"=>"Integer", "default_value"=>"", "validate_on"=>"Create", "acceptance"=>"True", "format"=>"True", "format_type"=>"Valid-Email", "presence"=>"True", "uniqueness"=>"True", "case_sensitive"=>"True", "confirmation"=>"True", "auto_increment"=>"True", "allow_null"=>"True", "length"=>"True", "length_min"=>"", "length_max"=>"", "length_is"=>"", "id"=>"588"}, "2"=>{"name"=>"sanata_hates", "data_type"=>"String", "default_value"=>"", "validate_on"=>"Create", "acceptance"=>"True", "format"=>"True", "format_type"=>"Valid-Email", "presence"=>"True", "uniqueness"=>"True", "case_sensitive"=>"True", "confirmation"=>"True", "auto_increment"=>"True", "allow_null"=>"True", "length"=>"True", "length_min"=>"", "length_max"=>"", "length_is"=>"", "id"=>"589"}}}, "commit"=>"Update Table", "controller"=>"tables", "action"=>"update", "id"=>"61"}
+
     def render_table
       render partial: 'show', layout: false, locals:{ table: @table }
     end

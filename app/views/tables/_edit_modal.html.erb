@@ -34,13 +34,13 @@
           <div class="line-break"></div>
 
           <div class="pure-control">
-              <table style="width:100%">
+              <!-- <table style="width:100%">
                 <tr>
                   <td class="is-center"><small class="form-label">Name</small></td>
                   <td class="is-center"><small class="form-label">Data Type</small></td>
                   <td class="is-center"> </td>
                 </tr>
-              </table>
+              </table> -->
             <ul>
               <% if @table.fields.length > 0 %>
                 <%= f.fields_for :fields, @table.fields, html: {id: "field-fields-form", class: 'pure-form pure-form-aligned'} do |ff| %>
@@ -48,18 +48,20 @@
                 <% end %>
               <% end %>
             </ul>
+
+            <div class='pure-button pure-button-primary' style="background-color:red;" >
+            <%= link_to("Delete this Table", @table, method: :delete) %>
+            </div>
+
             <div class="line-break margin-bottom"></div>
 
-            <!-- there were buttons below that said "reset and create table" -->
-        
+            <div class="centered float-left">
+                <%= f.submit "Update Table", class: 'pure-button pure-button-primary' %>
+            </div>
 
-            
+             <a href="" id="modal-add-field-button" class='pure-button pure-button-primary'>Add field to Table</a>
           </div> <!-- pure control -->
-
-          <a href="" id="modal-add-field-button" class=''>Add field to Table</a>
-          <%= link_to("Delete this Table", @table, method: :delete) %>
-           <%= link_to("save changes", @table, method: :patch) %>
-         
+ 
         <% end %>
     <!-- /////////////////// Modal Content stops Here /////////////////// -->
         </div><!--  modal body -->

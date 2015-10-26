@@ -1,7 +1,5 @@
 $(document).on('click', '.displayable-table button.btn-edit-table', function(event) {
 
-  console.info('EDIT CLICKED');
-
   event.preventDefault();
     var tableID = event.target.id.slice(2);
     // debugger;
@@ -17,9 +15,13 @@ $(document).on('click', '.displayable-table button.btn-edit-table', function(eve
 
   request.fail(function(response) {
     console.log(response);
-  })
+  });
 
 });
+
+//below is not working correctly... should redo modal form with new
+//new field ready to fill out.  Response in field controller won't find
+//partial in tables views file
 
 $(document).on('click', '#modal-add-field-button', function(event) {
 
@@ -30,14 +32,14 @@ $(document).on('click', '#modal-add-field-button', function(event) {
   //   // debugger;
     console.log(tableRoute);
     var route = tableRoute + "/fields/new";
-    console.log("got here");
+    
     // debugger;
     var request = $.get(route);
 
   request.done(function(response){
-
+    console.log(response);
     $("#dialog").html(response);
-    // $("#dialog").dialog();
+    $("#dialog").dialog();
   });
 
   request.fail(function(response) {
@@ -46,28 +48,6 @@ $(document).on('click', '#modal-add-field-button', function(event) {
 
 });
 
-
-// replicate above for new field
-// $(document).on('click', '.displayable-table-field button.btn-edit-table-add-field', function(event) {
-
-//   console.info('EDIT CLICKED');
-
-//   event.preventDefault();
-//     var tableID = event.target.id.slice(2);
-//     // debugger;
-//     var route = "/tables/" + tableID + "/edit";
-//     console.log(tableID);
-//     // debugger;
-//     var request = $.get(route);
-
-//   request.done(function(response){
-//     $("#dialog").append(response);
-//     $("#dialog").dialog();
-//   });
-
-//   request.fail(function(response) {
-//     console.log(response);
-//   })
-
-// });
-
+//more watchers should possibly replace delete field as well
+//however updating canvas and leaving modal window open might be 
+//even better.

@@ -66,19 +66,13 @@
       </div>
     </div>
   </div>
-    <div>
-            
-            
-          <%  bar=@table.fields[f.index][:id]  %>
-          <% @field_id = Field.find(bar) %>
-          <%= link_to("delete field", url_for([@table, @field_id]), method: :delete) %>
-          <%= link_to("save changes", url_for([@table, @field_id]), method: :patch) %>
-            
-        <!-- <button>save field changes</button><button>delete this field</button> -->
+    <div>   
+      <% bar=@table.fields[f.index][:id]  %>
+      <% @field_id = Field.find(bar) %>
+      <%= link_to("delete field", url_for([@table, @field_id]), method: :delete) %>
         
-
-        <br><br> <!-- replace with better space -->
-         <div class="line-break"></div>
-         <br>
-    </div>
+      <br><br> <!-- replace with better space -->
+    <div class="line-break"></div>
+    <br>
+  </div>
 </div>

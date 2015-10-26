@@ -58,14 +58,18 @@
               <td class='pad-right tblCol-20 tblCol-Right'><span>Max:<small><%= f.number_field :length_max, class:'fixed-width' %></small></span></td>
               <td class='tblCol-Right'><span>Equal To:<small><%= f.number_field :length_is, class:'fixed-width' %></small></span></td>
             </tr>
+            <tr>
+              <%= p "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"%>
+                <%= p params %>
+               <%= p "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"%> 
+            </tr>
           </table>
         </div>
-        
       </div>
     </div>
   </div>
     <div>
-
+          
           <%  bar=@table.fields[f.index][:id]  %>
           <% @field_id = Field.find(bar) %>
           <%= link_to("delete field", url_for([@table, @field_id]), method: :delete) %>

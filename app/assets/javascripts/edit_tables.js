@@ -11,7 +11,7 @@ $(document).on('click', '.displayable-table button.btn-edit-table', function(eve
     var request = $.get(route);
 
   request.done(function(response){
-    $("#dialog").append(response);
+    $("#dialog").html(response);
     $("#dialog").dialog();
   });
 

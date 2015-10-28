@@ -43,7 +43,6 @@ class TablesController < ApplicationController
   # PATCH/PUT /tables/1
   def update
     if @table.update(table_params)
-      # render_table
       @project = Project.find(session[:current_project_id])
       p_id=@project.id
       current_route = "/projects/#{p_id}"

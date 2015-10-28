@@ -20,9 +20,13 @@ class FieldsController < ApplicationController
   def  new
     @table = Table.find(params[:table_id])
     @table.fields << Field.create(name: "new field")
+    @fields = @table.fields
     #below not working correctly
     if request.xhr?
-      render partial: '/tables/_edit_modal', table: @table, status: :ok, location: @table 
+      render html: '<b>new field added, complete and press  update table<b/>'.html_safe
+      # binding.pry
+      # render "app/views/tables/_edit_modal.html.erb" #locals: { table: @table }, collection: @fields;
+      # render partial: 'tables/edit_modal', table: @table, status: :ok, location: @table 
     end
     # @project = Project.find(session[:current_project_id])
     # p_id=@project.id

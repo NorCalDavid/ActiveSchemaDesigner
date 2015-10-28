@@ -66,11 +66,19 @@
       </div>
     </div>
   </div>
-    <div>   
+  <div>   
       <% bar=@table.fields[f.index][:id]  %>
       <% @field_id = Field.find(bar) %>
-      <%= link_to("delete field", url_for([@table, @field_id]), method: :delete) %>
-        
+     <!--  <p class="modal-delete-field-id" data-field-fieldid= <%= @field_id.id %> >
+       FFFFFFFOOOO
+      </p> -->
+      
+        <%= link_to("delete field", url_for([@table, @field_id]), method: :delete) %>
+
+       <!--  <p class="delete-field-wrapper">
+          this will be a big wrapper
+        </p> -->
+
       <br><br> <!-- replace with better space -->
     <div class="line-break"></div>
     <br>

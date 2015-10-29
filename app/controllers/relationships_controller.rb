@@ -9,8 +9,8 @@ class RelationshipsController < ApplicationController
       @field = fk_table.fields.new(name: "#{pk_table.name}_id", data_type: "integer")
       @field.save!
     end
-    fields = Table.find(params[:relationship][:table_id]).fields
-    idfieldarray = fields.select {|field| field.name = "id"}
+    fields_on_table = Table.find(params[:relationship][:table_id]).fields
+    idfieldarray = fields_on_table.select {|fd| fd.name == "id"}
     idfield = idfieldarray.pop
     primary_port = "pp#{idfield.id}"
     foreign_port = "fp#{@field.id}"

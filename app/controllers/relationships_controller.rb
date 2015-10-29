@@ -10,7 +10,9 @@ class RelationshipsController < ApplicationController
       @field.save!
     end
     fields = Table.find(params[:relationship][:table_id]).fields
-    primary_port = "pp#{fields[0].id}"
+    idfieldarray = fields.select {|field| field.name = "id"}
+    idfield = idfieldarray.pop
+    primary_port = "pp#{idfield.id}"
     foreign_port = "fp#{@field.id}"
 
     args = {  table_id: params[:relationship][:table_id],

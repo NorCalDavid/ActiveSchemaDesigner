@@ -52,14 +52,14 @@ class FieldsController < ApplicationController
 
   # PATCH/PUT /fields/1
   def update
-    if @field.update(field_params)
-      @project = Project.find(session[:current_project_id])
-      p_id=@project.id
-      current_route = "/projects/#{p_id}"
-      redirect_to current_route
-    else
-      render :edit
-    end
+    # if @field.update(field_params)
+    #   @project = Project.find(session[:current_project_id])
+    #   p_id=@project.id
+    #   current_route = "/projects/#{p_id}"
+    #   redirect_to current_route
+    # else
+    #   render :edit
+    # end
   end
 
   # DELETE /fields/1

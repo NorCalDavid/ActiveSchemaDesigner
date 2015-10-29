@@ -66,13 +66,20 @@ $(document).on('click', '.modal-delete-field-id', function(event) {
     event.preventDefault();
 });
    
-// update working canvas after closing modal form
+// display permanent changes on working canvas after closing modal form
 $(document).on('click', '.ui-dialog-titlebar-close', function(event) {
     reloadCanvas();
 
 });
 
+// table controller not properly redirecting upon submit
+$(document).on('click', '#modal-update-button', function(event) {
+            $("#dialog").dialog('close');
+    location.reload(true);
+    console.log("got to modal update button js");
+    // reloadCanvas();
 
+});
 
 reDrawModal = function(){
     console.log('got to reDrawModal');

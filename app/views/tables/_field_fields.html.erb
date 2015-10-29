@@ -67,9 +67,8 @@
     </div>
   </div>
   <div>   
-      <% bar=@table.fields[f.index][:id]  %>
-      <% @field_id = Field.find(bar) %>
-      <p class="modal-delete-field-id " data-field-fieldid= <%= @field_id.id %> >
+      <% @fieldDisplayed = Field.find(@table.fields[f.index][:id]) %>
+      <p class="modal-delete-field-id " data-field-fieldid= <%= @fieldDisplayed.id %> >
         <a href="" >Delete This Field</a>
       </p>
       <br> <!-- replace with better space -->

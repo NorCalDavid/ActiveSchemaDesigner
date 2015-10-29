@@ -21,17 +21,10 @@ class FieldsController < ApplicationController
     @table = Table.find(params[:table_id])
     @table.fields << Field.create(name: "new field")
     @fields = @table.fields
-    #below not working correctly
+    #below not currently utilized due to some asynchronous issues
     if request.xhr?
       render html: '<b>new field added, complete and press  update table<b/>'.html_safe
-      # binding.pry
-      # render "app/views/tables/_edit_modal.html.erb" #locals: { table: @table }, collection: @fields;
-      # render partial: 'tables/edit_modal', table: @table, status: :ok, location: @table 
     end
-    # @project = Project.find(session[:current_project_id])
-    # p_id=@project.id
-    # current_route = "/projects/#{p_id}"
-    # redirect_to current_route, notice: 'Table was successfully destroyed.'
   end
 
   # GET /fields/1/edit
@@ -65,12 +58,11 @@ class FieldsController < ApplicationController
   # DELETE /fields/1
   def destroy
     @field.destroy
-    # stop-gap-redirect code below - should be handled with js
+    # now handled with js too
     @project = Project.find(session[:current_project_id])
     p_id=@project.id
     current_route = "/projects/#{p_id}"
     redirect_to current_route, notice: 'Field was successfully destroyed.'
-    # redirect_to fields_url, notice: 'Field was successfully destroyed.'
   end
 
   private

@@ -2,10 +2,8 @@ $(document).on('click', '.displayable-table button.btn-edit-table', function(eve
 
   event.preventDefault();
     var tableID = event.target.id.slice(2);
-    // debugger;
     var route = "/tables/" + tableID + "/edit";
     console.log(tableID);
-    // debugger;
     var request = $.get(route);
 
   request.done(function(response){
@@ -20,7 +18,6 @@ $(document).on('click', '.displayable-table button.btn-edit-table', function(eve
 });
 
 //consider adding update to prevent losing unsaved changes when adding new field
-
 $(document).on('click', '#modal-add-field-button', function(event) {
 
   event.preventDefault();
@@ -44,7 +41,6 @@ $(document).on('click', '#modal-add-field-button', function(event) {
 
 
 $(document).on('click', '.modal-delete-field-id', function(event) {
-// note --- there is not currently a .modal-delete-field-id element(s)
   event.preventDefault();
     var tableRoute = $("#edit-table-form").attr("action");
   // debugger;
@@ -57,7 +53,6 @@ $(document).on('click', '.modal-delete-field-id', function(event) {
     $.ajax({
         type: "POST",
         url: fieldroute,
-        // dataType: "html",
         data: {"_method":"delete"},
         complete: function(){
             reDrawModal();
@@ -72,7 +67,7 @@ $(document).on('click', '.ui-dialog-titlebar-close', function(event) {
 
 });
 
-// table controller not properly redirecting upon submit
+// table controller not properly redirecting upon submit -code below still doesn't do the trick
 $(document).on('click', '#modal-update-button', function(event) {
             $("#dialog").dialog('close');
     location.reload(true);
@@ -83,18 +78,13 @@ $(document).on('click', '#modal-update-button', function(event) {
 
 reDrawModal = function(){
     console.log('got to reDrawModal');
-    // debugger;
     var tableRoute = $("#edit-table-form").attr("action");
-  // debugger;
     var route = tableRoute + "/edit";
-    // debugger;
     var request = $.get(route);
     
 
   request.done(function(request){
     $("#dialog").html(request);
-    //asynchronous nature has these #diaglog re-writes come after function where called
-    // $("#dialog").append("show timing from redrawmodal");    
   });
 
   request.fail(function(response) {

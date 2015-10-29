@@ -45,9 +45,8 @@ class TablesController < ApplicationController
     if @table.update(table_params)
       @project = Project.find(session[:current_project_id])
       p_id=@project.id
-      # current_route = "/projects/#{p_id}" 
       # I do get here successfully
-      p "you got to update in the tables controller XXXXXXXXXXXXXXXXXXXXXXXX"
+      # p "you got to update in the tables controller XXXXXXXXXXXXXXXXXXXXXXXX"
       # however the redirects do not seem to reload page
       # redirect_to "/"
       redirect_to "/projects/#{p_id}", notice: 'Table was successfully updated.'

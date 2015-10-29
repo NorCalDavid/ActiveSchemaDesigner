@@ -65,7 +65,14 @@ $(document).on('click', '.modal-delete-field-id', function(event) {
     });
     event.preventDefault();
 });
-    
+   
+// update working canvas after closing modal form
+$(document).on('click', '.ui-dialog-titlebar-close', function(event) {
+    reloadCanvas();
+
+});
+
+
 
 reDrawModal = function(){
     console.log('got to reDrawModal');

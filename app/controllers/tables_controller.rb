@@ -47,7 +47,7 @@ class TablesController < ApplicationController
       # render @project
       p_id=@project.id
       # current_route = "/projects/#{p_id}"
-      redirect_to "projects/#{p_id}", notice: 'Table was successfully updated.'
+      render "projects/#{p_id}/show", notice: 'Table was successfully updated.'
     else
       if request.xhr?
         render json: {errors: @table.errors.full_messages}, status: :bad_request

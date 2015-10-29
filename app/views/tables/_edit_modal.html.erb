@@ -6,7 +6,7 @@
   <div id='edit-table-modal' class='container-modal'>
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <%= form_for(@table, remote: true, html: {id: "edit-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+        <%= form_for(@table, method: :patch, remote: true, html: {id: "edit-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
         <div class="modal-content">
           <div class="modal-header">
             <!-- dont need close button here
@@ -55,7 +55,7 @@
 
             <div class="line-break margin-bottom"></div>
 
-            <div class="centered float-left">
+            <div #id="modal-update-button" class="centered float-left">
                 <%= f.submit "Update Table", class: 'pure-button pure-button-primary' %>
             </div>
 

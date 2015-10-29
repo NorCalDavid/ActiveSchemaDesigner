@@ -41,36 +41,31 @@ $(document).on('click', '#modal-add-field-button', function(event) {
       });
 });
 
-//more watchers should possibly replace delete field as well
-//however updating canvas and leaving modal window open might be 
-//even better.
 
 
-
-// $(document).on('click', '.modal-delete-field-id', function(event) {
-// // note --- there is not currently a .modal-delete-field-id element(s)
-//   event.preventDefault();
-//     var tableRoute = $("#edit-table-form").attr("action");
-//   // debugger;
-//     var fieldId = $(this).attr("data-field-fieldid");
-//     console.log(fieldId);
-//     var fieldroute = tableRoute + "/fields/" + fieldId;
+$(document).on('click', '.modal-delete-field-id', function(event) {
+// note --- there is not currently a .modal-delete-field-id element(s)
+  event.preventDefault();
+    var tableRoute = $("#edit-table-form").attr("action");
+  // debugger;
+    var fieldId = $(this).attr("data-field-fieldid");
+    console.log(fieldId);
+    var fieldroute = tableRoute + "/fields/" + fieldId;
   
-//     console.log(fieldroute);
-//     var request = $.get(fieldroute);
+    console.log(fieldroute);
 
-//     request.done(function(response){
-//         console.log(response);
-//         $("#dialog").html(response);
-//         $("#dialog").dialog();
-//       });
-
-//       request.fail(function(response) {
-//         console.log(response);
-//         $("#dialog").append("Not a successful response");
-//       })
+    $.ajax({
+        type: "POST",
+        url: fieldroute,
+        // dataType: "html",
+        data: {"_method":"delete"},
+        complete: function(){
+            reDrawModal();
+        }
+    });
+    event.preventDefault();
+});
     
-// });
 
 reDrawModal = function(){
     console.log('got to reDrawModal');

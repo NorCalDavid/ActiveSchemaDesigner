@@ -131,9 +131,6 @@ $(document).ready(function(){
   });
 
 
-
-
-
  });
 
 // var canvas_refresh = function() {

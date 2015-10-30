@@ -21,7 +21,7 @@
   <div class="pure-control">
     <table style="width:100%">
       <tr>
-        <td class="is-center"><small class="form-label">Name</small></td>
+        <td class="is-center"><small class="form-label">NameFoo</small></td>
         <td class="is-center"><small class="form-label">Data Type</small></td>
         <td class="is-center"> </td>
       </tr>
@@ -30,6 +30,7 @@
     <% if @table.fields.length > 0 %>
       <%= f.fields_for :fields, @table.fields, html: {id: "field-fields-form", class: 'pure-form pure-form-aligned'} do |ff| %>
         <%= render 'field_fields', f: ff %>
+        <h1> Delete </h1><%= 
       <% end %>
     <% end %>
 

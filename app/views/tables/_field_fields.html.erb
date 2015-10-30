@@ -9,7 +9,7 @@
 
   <div class="pure-form pure-form validation-options hidden">
     <div class="validation-options">
-      <div class="line-break"></div>
+      <!-- <div class="line-break"></div> -->
       <div class='table-block'>
 
         <div class='pull-left options-group'>
@@ -20,7 +20,6 @@
             </tr>
           </table>
         </div><br/>
-
         <div class='pull-left options-group'>
           <table style="width:100%">
             <tr>
@@ -59,10 +58,22 @@
               <td class='pad-right tblCol-20 tblCol-Right'><span>Max:<small><%= f.number_field :length_max, class:'fixed-width' %></small></span></td>
               <td class='tblCol-Right'><span>Equal To:<small><%= f.number_field :length_is, class:'fixed-width' %></small></span></td>
             </tr>
+            <tr>
+
+            </tr>
           </table>
         </div>
-
       </div>
     </div>
   </div>
-</div>
+</div>  
+  <div>   
+      <% @fieldDisplayed = Field.find(@table.fields[f.index][:id]) %>
+      <p class="modal-delete-field-id " data-field-fieldid= <%= @fieldDisplayed.id %> >
+        <a href="" >Delete This Field</a>
+      </p>
+      <br> <!-- replace with better space -->
+    <div class="line-break"></div>
+    <br>
+  </div>
+

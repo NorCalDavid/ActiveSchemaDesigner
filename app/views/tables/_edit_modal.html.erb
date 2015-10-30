@@ -6,39 +6,41 @@
   <div id='edit-table-modal' class='container-modal'>
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <%= form_for(@table, remote: true, html: {id: "edit-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Edit <%= @table.name.capitalize %> Table</h4>
-                <%= f.label :name, "Table Name:", class: 'pure-input' %>
-                <%= f.text_field :name, class: 'pure-input pure-input-2-3' %><br/>
+        <%= form_for(@table, :url => {:action => "update"}, remote: true, html: {id: "edit-table-form", class: 'pure-form pure-form-aligned'}) do |f| %>
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- dont need close button here
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+            <!-- <h4 class="modal-title">Edit <%= @table.name.capitalize %> Table</h4> --> <!-- delete button needs to be relocated and made functional -->
+              <%= f.label :name, "Table Name:", class: 'pure-input' %>
+              <%= f.text_field :name, class: 'pure-input pure-input-2-3' %><br/>
 
-                <div class="to-right pad-right no-pad-top no-margin-top">
-                  <%= button_tag('Add Comments', type: 'button', class: 'btn-add-comments btn-link no-pad-top no-margin-top') %>
-                </div>
+              <div class="to-right pad-right no-pad-top no-margin-top">
+                <%= button_tag('Add Comments', type: 'button', class: 'btn-add-comments btn-link no-pad-top no-margin-top') %>
+              </div>       
 
-                <div class="comments-field form-container hidden">
-                  <%= f.label :comments, class: "form-label" %><br>
-                  <%= f.text_area :comments, class:'full-width-field' %>
-                </div>
-              </legend>
+              <div class="comments-field form-container hidden">
+                <%= f.label :comments, class: "form-label" %><br>
+                <%= f.text_area :comments, class:'full-width-field' %>
+              </div>
+            </legend> <!-- doesn't seem to line up with anything but breaks things without it -->
+
             </div>
 
-            <div class="modal-body">
+        <div class="modal-body">
 
 <!-- /////////////////// Insert Modal Content Here ////////////////// -->
 
-            <div class="line-break"></div>
+          <div class="line-break"></div>
 
-            <div class="pure-control">
-              <table style="width:100%">
+          <div class="pure-control">
+              <!-- <table style="width:100%">
                 <tr>
                   <td class="is-center"><small class="form-label">Name</small></td>
                   <td class="is-center"><small class="form-label">Data Type</small></td>
                   <td class="is-center"> </td>
                 </tr>
-              </table>
+              </table> -->
             <ul>
               <% if @table.fields.length > 0 %>
                 <%= f.fields_for :fields, @table.fields, html: {id: "field-fields-form", class: 'pure-form pure-form-aligned'} do |ff| %>
@@ -46,24 +48,27 @@
                 <% end %>
               <% end %>
             </ul>
-            <div class="line-break margin-bottom"></div>
 
-            <div class='inline-group centered'>
-              <div class="centered float-left">
-                <%= button_tag('Reset Form', type: 'button', class: 'pure-button pure-button-primary btn-ResetCTForm') %>
-              </div>
-
-              <div class="centered float-left">
-                <%= f.submit "Create Table", class: 'pure-button pure-button-primary' %>
-              </div>
+            <div class='pure-button pure-button-primary' style="background-color:red;" >
+            <%= link_to("Delete this Table", @table, method: :delete) %>
             </div>
 
-          <% end %>
+            <div class="line-break margin-bottom"></div>
 
+            <div #id="modal-update-button" class="centered float-left">
+                <%= f.submit "Update Table", class: 'pure-button pure-button-primary' %>
+            </div>
+
+             <a href="" id="modal-add-field-button" class='pure-button pure-button-primary'>Add field to Table</a>
+          </div> <!-- pure control -->
+ 
+        <% end %>
     <!-- /////////////////// Modal Content stops Here /////////////////// -->
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>
-</div>
+        </div><!--  modal body -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div> <!-- modal fade -->
+  </div><!--  table modal -->
+</div> <!--  container body -->
+</div><!--  container fluid -->
 

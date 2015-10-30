@@ -43,7 +43,13 @@ class TablesController < ApplicationController
   # PATCH/PUT /tables/1
   def update
     if @table.update(table_params)
-      render_table
+      @project = Project.find(session[:current_project_id])
+      p_id=@project.id
+      # I do get here successfully
+      # p "you got to update in the tables controller XXXXXXXXXXXXXXXXXXXXXXXX"
+      # however the redirects do not seem to reload page
+      # redirect_to "/"
+      redirect_to "/projects/#{p_id}", notice: 'Table was successfully updated.'
     else
       if request.xhr?
         render json: {errors: @table.errors.full_messages}, status: :bad_request
@@ -56,7 +62,11 @@ class TablesController < ApplicationController
   # DELETE /tables/1
   def destroy
     @table.destroy
-    redirect_to tables_url, notice: 'Table was successfully destroyed.'
+
+    @project = Project.find(session[:current_project_id])
+    p_id=@project.id
+    current_route = "/projects/#{p_id}"
+    redirect_to current_route, notice: 'Table was successfully destroyed.'
   end
 
   private
@@ -68,16 +78,35 @@ class TablesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def table_params
       params.require(:table).permit(
+        :table,
+        :id,
         :name,
         :comments,
         :position_x,
         :position_y,
+        :commit,
+        :controller,
+        :action,
         fields_attributes: [
+          :index,
           :name,
           :data_type,
           :default_value,
           :auto_increment,
           :allow_null,
+          :validate_on,
+          :acceptance,
+          :format,
+          :format_type,
+          :presence,
+          :uniqueness,
+          :case_sensitive,
+          :confirmation,
+          :length,
+          :length_min,
+          :length_max,
+          :length_is,
+          :id
         ]
       )
     end

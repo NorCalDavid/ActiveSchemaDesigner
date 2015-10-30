@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :fields
   end
 
+
+
   resources :relationships, only: [:show, :create, :destroy]
 
   get '/login' =>  'sessions#new'

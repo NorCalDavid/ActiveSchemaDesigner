@@ -12,8 +12,19 @@ class FieldsController < ApplicationController
   end
 
   # GET /fields/new
-  def new
-    @field = Field.new
+  # def new
+  #   @field = Field.new
+  # end
+
+  # GET /tables/:table_id/fields/new
+  def  new
+    @table = Table.find(params[:table_id])
+    @table.fields << Field.create(name: "new field")
+    @fields = @table.fields
+    #below not currently utilized due to some asynchronous issues
+    if request.xhr?
+      render html: '<b>new field added, complete and press  update table<b/>'.html_safe
+    end
   end
 
   # GET /fields/1/edit
@@ -22,6 +33,7 @@ class FieldsController < ApplicationController
 
   # POST /fields
   def create
+
     @field = Field.new(field_params)
 
     if @field.save
@@ -33,17 +45,24 @@ class FieldsController < ApplicationController
 
   # PATCH/PUT /fields/1
   def update
-    if @field.update(field_params)
-      redirect_to @field, notice: 'Field was successfully updated.'
-    else
-      render :edit
-    end
+    # if @field.update(field_params)
+    #   @project = Project.find(session[:current_project_id])
+    #   p_id=@project.id
+    #   current_route = "/projects/#{p_id}"
+    #   redirect_to current_route
+    # else
+    #   render :edit
+    # end
   end
 
   # DELETE /fields/1
   def destroy
     @field.destroy
-    redirect_to fields_url, notice: 'Field was successfully destroyed.'
+    # now handled with js too
+    @project = Project.find(session[:current_project_id])
+    p_id=@project.id
+    current_route = "/projects/#{p_id}"
+    redirect_to current_route, notice: 'Field was successfully destroyed.'
   end
 
   private
@@ -54,7 +73,20 @@ class FieldsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def field_params
-      params.require(:field).permit(:name, :data_type, :default_value, :auto_increment, :allow_null)
+      params.permit(:id, :name, :data_type, :default_value, :auto_increment, :allow_null, :table_id, 
+          :validate_on,
+          :acceptance,
+          :format,
+          :format_type,
+          :presence,
+          :uniqueness,
+          :case_sensitive,
+          :confirmation,
+          :length,
+          :length_min,
+          :length_max,
+          :length_is,
+          )
     end
 
 end
